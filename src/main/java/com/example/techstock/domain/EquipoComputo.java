@@ -1,8 +1,8 @@
 package com.example.techstock.domain;
 
 public class EquipoComputo {
-    private String numeroSerie;
     private Integer idCentroComputo;
+    private String numeroSerie;
     private String marca;
     private String almacenamiento;
     private String memoria;
@@ -11,9 +11,9 @@ public class EquipoComputo {
     public EquipoComputo() {
     }
 
-    public EquipoComputo(String numeroSerie, Integer idCentroComputo, String marca, String almacenamiento, String memoria, String procesador) {
-        this.numeroSerie = numeroSerie;
+    public EquipoComputo(Integer idCentroComputo, String numeroSerie, String marca, String almacenamiento, String memoria, String procesador) {
         this.idCentroComputo = idCentroComputo;
+        this.numeroSerie = numeroSerie;
         this.marca = marca;
         this.almacenamiento = almacenamiento;
         this.memoria = memoria;

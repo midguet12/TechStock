@@ -9,10 +9,12 @@ public class EquipoComputoDAO {
     String user = DBConnection.getUser();
     String password = DBConnection.getPassword();
 
-    public boolean create(EquipoComputo equipoComputo){
-        Boolean success = false;
-        String numeroSerie = equipoComputo.getNumeroSerie();
+    public boolean create(EquipoComputo equipoComputo) {
+        String query = "INSERT INTO equipo_computo(idCentroComputo, numeroSerie, marca, almacenamiento, memoria, procesador)" +
+                "values (?,?,?,?,?,?)";
+
         Integer idCentroComputo = equipoComputo.getIdCentroComputo();
+        String numeroSerie = equipoComputo.getNumeroSerie();
         String marca = equipoComputo.getMarca();
         String almacenamiento = equipoComputo.getAlmacenamiento();
         String memoria = equipoComputo.getMemoria();
@@ -20,14 +22,26 @@ public class EquipoComputoDAO {
 
         try{
             Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("INSERT INTO equipo_computo(numeroSerie, idCentroComputo, marca, almacenamiento, memoria, procesador) values (%s, %i, %s, %s, %s, %s)");
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            preparedStatement.setInt(1, idCentroComputo);
+            preparedStatement.setString(2, numeroSerie);
+            preparedStatement.setString(3, marca);
+            preparedStatement.setString(4, almacenamiento);
+            preparedStatement.setString(5, memoria);
+            preparedStatement.setString(6, procesador);
+
+            int resultSet = preparedStatement.executeUpdate();
+            if (resultSet>0){
+                return true;
+            }
 
         } catch (Exception e){
             System.out.println(e.getMessage());
+            return false;
         }
 
-        return success;
+        return false;
     }
 
 }

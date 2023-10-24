@@ -1,5 +1,7 @@
 package com.example.techstock;
 
+import com.example.techstock.dao.EquipoComputoDAO;
+import com.example.techstock.domain.EquipoComputo;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import java.sql.Connection;
@@ -15,11 +17,12 @@ public class HelloController {
     protected void onHelloButtonClick() {
         String message = "";
         try{
-            Connection connection = DriverManager.getConnection("jdbc:mysql://mysqluv2023.ddns.net:3306/techstock?useSSL=false", "techstock", "Ikmujn19283");
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("Select * from centro_computo");
-            resultSet.next();
-            message = resultSet.getString(2);
+            EquipoComputo equipoComputo;
+            equipoComputo = new EquipoComputo(1, "C02H9LLSQ05D", "Apple", "256GB", "8GB", "Apple M1" );
+
+            EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
+            equipoComputoDAO.create(equipoComputo);
+
         } catch (Exception e){
             System.out.println(e.toString());
         }
