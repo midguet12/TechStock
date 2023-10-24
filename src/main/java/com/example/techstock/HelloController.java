@@ -18,10 +18,19 @@ public class HelloController {
         String message = "";
         try{
             EquipoComputo equipoComputo;
-            equipoComputo = new EquipoComputo(1, "C02H9LLSQ05D", "Apple", "256GB", "8GB", "Apple M1" );
+            equipoComputo = new EquipoComputo(2, "hs2oF6wZ", "Biostar", "480GB", "4GB", "Celeron G4900" );
+
+            //EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
+            //message = String.valueOf(equipoComputoDAO.create(equipoComputo));
+
+            //EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
+            //EquipoComputo equipoComputo = equipoComputoDAO.read("DySSd84E");
+            //EquipoComputo equipoComputo = equipoComputoDAO.readAll().get(1);
 
             EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
-            equipoComputoDAO.create(equipoComputo);
+
+
+            message = String.valueOf(equipoComputoDAO.delete(equipoComputo.getNumeroSerie()));
 
         } catch (Exception e){
             System.out.println(e.toString());
