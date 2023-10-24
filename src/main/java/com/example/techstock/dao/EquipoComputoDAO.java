@@ -110,8 +110,6 @@ public class EquipoComputoDAO {
                 equipoComputo.setProcesador(resultSet.getString("procesador"));
 
                 listaEquipoComputo.add(equipoComputo);
-
-
             }
 
             System.out.println("Se obtuvieron " + listaEquipoComputo.size() + " elementos.");
@@ -165,7 +163,6 @@ public class EquipoComputoDAO {
     public boolean delete(String numeroSerie){
         String query = "DELETE from equipo_computo WHERE numeroSerie = ?";
         try{
-            //Connection connection = DriverManager.getConnection(url, user, password);
             preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setString(1, numeroSerie);

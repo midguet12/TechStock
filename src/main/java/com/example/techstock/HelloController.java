@@ -1,7 +1,9 @@
 package com.example.techstock;
 
 import com.example.techstock.dao.EquipoComputoDAO;
+import com.example.techstock.dao.PerifericoDAO;
 import com.example.techstock.domain.EquipoComputo;
+import com.example.techstock.domain.Periferico;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import java.sql.Connection;
@@ -17,20 +19,10 @@ public class HelloController {
     protected void onHelloButtonClick() {
         String message = "";
         try{
-            EquipoComputo equipoComputo;
-            equipoComputo = new EquipoComputo(2, "AKSLJD", "Acer", "2TB", "16GB", "Core i5-8300H" );
+            PerifericoDAO perifericoDAO = new PerifericoDAO();
+            Periferico periferico = perifericoDAO.read("QWOIE");
 
-            //EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
-            //message = String.valueOf(equipoComputoDAO.create(equipoComputo));
-
-            //EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
-            //EquipoComputo equipoComputo = equipoComputoDAO.read("DySSd84E");
-            //EquipoComputo equipoComputo = equipoComputoDAO.readAll().get(1);
-
-            EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
-
-
-            message = String.valueOf(equipoComputoDAO.create(equipoComputo));
+            message = periferico.getIdCentroComputo().toString();
 
         } catch (Exception e){
             System.out.println(e.toString());

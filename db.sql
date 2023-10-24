@@ -29,7 +29,7 @@ insert into centro_computo(nombre) values ('Centro de computo 4');
 
 
 create table periferico(
-    numeroSerie int not null auto_increment,
+    numeroSerie varchar(50),
     idCentroComputo int,
     marca varchar(30),
     primary key(numeroSerie)
