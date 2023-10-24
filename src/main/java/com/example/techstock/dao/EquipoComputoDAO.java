@@ -10,6 +10,18 @@ public class EquipoComputoDAO {
     String url = DBConnection.getUrl();
     String user = DBConnection.getUser();
     String password = DBConnection.getPassword();
+    Connection connection;
+    PreparedStatement preparedStatement;
+
+
+
+    public EquipoComputoDAO() {
+        try{
+            connection = DriverManager.getConnection(url, user, password);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 
     public boolean create(EquipoComputo equipoComputo) {
         String query = "INSERT INTO equipo_computo(idCentroComputo, numeroSerie, marca, almacenamiento, memoria, procesador)" +
@@ -23,8 +35,8 @@ public class EquipoComputoDAO {
         String procesador = equipoComputo.getProcesador();
 
         try{
-            Connection connection = DriverManager.getConnection(url, user, password);
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            //Connection connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setInt(1, idCentroComputo);
             preparedStatement.setString(2, numeroSerie);
@@ -51,8 +63,8 @@ public class EquipoComputoDAO {
         String query = "SELECT * FROM equipo_computo WHERE numeroSerie = ?";
 
         try{
-            Connection connection = DriverManager.getConnection(url, user, password);
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            //Connection connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setString(1, numeroSerie);
 
@@ -83,8 +95,8 @@ public class EquipoComputoDAO {
         try{
             List<EquipoComputo> listaEquipoComputo = new ArrayList<EquipoComputo>();
 
-            Connection connection = DriverManager.getConnection(url, user, password);
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            //Connection connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(query);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
@@ -125,8 +137,8 @@ public class EquipoComputoDAO {
         String procesador = equipoComputo.getProcesador();
 
         try{
-            Connection connection = DriverManager.getConnection(url, user, password);
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            //Connection connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setInt(1, idCentroComputo);
             preparedStatement.setString(2, marca);
@@ -153,8 +165,8 @@ public class EquipoComputoDAO {
     public boolean delete(String numeroSerie){
         String query = "DELETE from equipo_computo WHERE numeroSerie = ?";
         try{
-            Connection connection = DriverManager.getConnection(url, user, password);
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            //Connection connection = DriverManager.getConnection(url, user, password);
+            preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setString(1, numeroSerie);
 

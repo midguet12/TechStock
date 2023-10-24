@@ -18,7 +18,7 @@ public class HelloController {
         String message = "";
         try{
             EquipoComputo equipoComputo;
-            equipoComputo = new EquipoComputo(2, "hs2oF6wZ", "Biostar", "480GB", "4GB", "Celeron G4900" );
+            equipoComputo = new EquipoComputo(2, "AKSLJD", "Acer", "2TB", "16GB", "Core i5-8300H" );
 
             //EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
             //message = String.valueOf(equipoComputoDAO.create(equipoComputo));
@@ -30,7 +30,7 @@ public class HelloController {
             EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
 
 
-            message = String.valueOf(equipoComputoDAO.delete(equipoComputo.getNumeroSerie()));
+            message = String.valueOf(equipoComputoDAO.create(equipoComputo));
 
         } catch (Exception e){
             System.out.println(e.toString());
