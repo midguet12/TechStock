@@ -8,10 +8,10 @@ module com.example.techstock {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+
     requires com.almasb.fxgl.all;
+    requires java.sql;
 
     opens com.example.techstock to javafx.fxml;
     exports com.example.techstock;
-
-    requires  java.sql;
 }
