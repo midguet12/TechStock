@@ -2,17 +2,22 @@ package com.example.techstock;
 
 import com.example.techstock.dao.EquipoComputoDAO;
 import com.example.techstock.domain.EquipoComputo;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.io.IOException;
+
 
 public class HelloController {
     @FXML
     private Label welcomeText;
-
     @FXML
     protected void onHelloButtonClick() {
         String message = "";
@@ -38,4 +43,12 @@ public class HelloController {
 
         welcomeText.setText(message);
     }
+
+    public void btnAgregarCentro(ActionEvent actionEvent){
+
+    }
+
+    public void btnAgregarEquipo(ActionEvent actionEvent) {
+    }
+
 }

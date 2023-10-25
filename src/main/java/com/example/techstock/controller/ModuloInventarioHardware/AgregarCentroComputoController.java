@@ -21,14 +21,12 @@ public class AgregarCentroComputoController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         if (exito) {
             System.out.println("Equipo de cómputo agregado exitosamente.");
         } else {
             System.err.println("Error al agregar el equipo de cómputo.");
         }
     }
-
     public void btnCancelar(ActionEvent actionEvent) {
     }
 }
