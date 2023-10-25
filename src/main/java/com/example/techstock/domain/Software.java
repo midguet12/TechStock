@@ -8,6 +8,8 @@ public class Software {
     public Software() {
     }
 
+
+
     public Software(Integer idSoftware, String nombre, String version) {
         this.idSoftware = idSoftware;
         this.nombre = nombre;

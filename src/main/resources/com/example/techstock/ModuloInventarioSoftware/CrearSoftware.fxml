@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="293.0" prefWidth="342.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.software.CrearSoftwareController">
+   <children>
+      <Label layoutX="80.0" layoutY="44.0" text="Agregar Software">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nombreTextField" layoutX="106.0" layoutY="101.0" promptText="Nombre" />
+      <TextField fx:id="versionTextField" layoutX="106.0" layoutY="154.0" promptText="Version" />
+      <Button fx:id="agregarSoftwareButton" layoutX="145.0" layoutY="205.0" mnemonicParsing="false" onAction="#agregarSoftware" text="Agregar" />
+      <Label fx:id="successMessage" layoutX="106.0" layoutY="250.0" text="" />
+   </children>
+</AnchorPane>

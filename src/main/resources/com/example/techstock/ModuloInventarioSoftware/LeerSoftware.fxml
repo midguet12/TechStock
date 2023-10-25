@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="432.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.LeerSoftwareController">
+   <children>
+      <Label layoutX="240.0" layoutY="32.0" text="Software">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tablaSoftware" editable="true" layoutX="127.0" layoutY="93.0" prefHeight="200.0" prefWidth="347.0">
+         <columns>
+            <TableColumn fx:id="idSoftware" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="nombre" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="version" prefWidth="75.0" text="Versión" />
+         </columns></TableView>
+      <Button fx:id="createSoftware" layoutX="68.0" layoutY="332.0" mnemonicParsing="false" onAction="#agregarSoftware" text="Agregar" />
+      <Button fx:id="deleteSoftware" layoutX="423.0" layoutY="332.0" mnemonicParsing="false" text="Eliminar" />
+      <Button fx:id="actualizarSoftware" layoutX="257.0" layoutY="332.0" mnemonicParsing="false" onAction="#actualizarSoftware" text="Actualizar" />
+   </children>
+</AnchorPane>
