@@ -14,4 +14,6 @@ module com.example.techstock {
 
     opens com.example.techstock to javafx.fxml;
     exports com.example.techstock;
+    exports com.example.techstock.controller.ModuloInventarioHardware;
+    opens com.example.techstock.controller.ModuloInventarioHardware to javafx.fxml;
 }

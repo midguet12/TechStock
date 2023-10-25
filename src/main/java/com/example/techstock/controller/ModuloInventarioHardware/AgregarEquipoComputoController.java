@@ -32,7 +32,7 @@ public class AgregarEquipoComputoController {
 
 
     public void btnAceptar(ActionEvent actionEvent) {
-        EquipoComputo equipo = new EquipoComputo(centroCompuComboBox, noDeSerieTextField.toString(), marcaTextField.toString(), capacidadAlmaTextField.toString(), memoriaRamTextField.toString(), cpuTextField.toString());
+        /*EquipoComputo equipo = new EquipoComputo(centroCompuComboBox, noDeSerieTextField.toString(), marcaTextField.toString(), capacidadAlmaTextField.toString(), memoriaRamTextField.toString(), cpuTextField.toString());
         EquipoComputoDAO centroDao = new EquipoComputoDAO();
         boolean exito = false;
         try {
@@ -44,11 +44,11 @@ public class AgregarEquipoComputoController {
             System.out.println("Equipo de cómputo agregado exitosamente.");
         } else {
             System.err.println("Error al agregar el equipo de cómputo.");
-        }
+        }*/
     }
 
     public void cargarCentroComputo(){
-        ArrayList<CentroComputoDAO> resultadoConsulta = CentroComputoDAO.readAll;
+       /* ArrayList<CentroComputoDAO> resultadoConsulta = CentroComputoDAO.readAll;
         if (resultadoConsulta != null) {
             if (!resultadoConsulta.isEmpty()) {
                 listaComputo.clear();
@@ -60,6 +60,8 @@ public class AgregarEquipoComputoController {
         } else {
             System.out.println("No cargo");
         }
+        */
+
     }
 
     public void btnCancelar(ActionEvent actionEvent) {
