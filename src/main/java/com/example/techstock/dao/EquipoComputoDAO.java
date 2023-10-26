@@ -182,4 +182,25 @@ public class EquipoComputoDAO {
         }
         return false;
     }
+
+    public boolean noSerieExiste(String numeroSerie) {
+        String query = "SELECT COUNT(*) FROM equipo_computo WHERE numeroSerie = ?";
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, numeroSerie);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                if (count > 0) {
+                    return true;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
 }
