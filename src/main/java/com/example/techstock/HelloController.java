@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -44,7 +45,14 @@ public class HelloController {
         welcomeText.setText(message);
     }
 
-    public void btnAgregarCentro(ActionEvent actionEvent){
+    public void btnAgregarCentro(ActionEvent actionEvent) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/AgregarCentroComputo.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setTitle("Agregar Software");
+        stage.setScene(scene);
+        stage.initModality(Modality.NONE);
+        stage.show();
 
     }
 

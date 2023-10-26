@@ -11,11 +11,11 @@ import java.io.IOException;
 public class AgregarCentroComputo extends Application {
     @Override
     public void start(Stage stage) throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(AgregarCentroComputo.class.getResource("ModuloInventarioHardware/AgregarCentroComputo.fxml"));
+        /*FXMLLoader fxmlLoader = new FXMLLoader(AgregarCentroComputo.class.getResource("ModuloInventarioHardware/AgregarCentroComputo.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Agregar Centro de Computo");
         stage.setScene(scene);
-        stage.show();
+        stage.show();*/
 
     }
 
