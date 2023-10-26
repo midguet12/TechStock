@@ -41,4 +41,11 @@
         <Button onAction="#editarUsuario" text="Editar" />
         <Button onAction="#eliminarUsuario" text="Eliminar" />
     </HBox>
+
+    <!-- Campos de edición ocultos inicialmente -->
+    <HBox spacing="10.0" fx:id="editarCampos" visible="false">
+        <TextField fx:id="nuevoNombreUsuarioField" promptText="Nuevo nombre de usuario" />
+        <TextField fx:id="nuevaContrasenaField" promptText="Nueva contraseña" />
+        <Button onAction="#guardarCambios" text="Guardar Cambios" />
+    </HBox>
 </VBox>

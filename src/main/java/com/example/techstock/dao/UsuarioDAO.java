@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,6 +18,9 @@ public class UsuarioDAO {
     final String GETALL = "SELECT nombreUsuario, contrasena FROM usuario";
     final String GETONE = "SELECT * FROM usuario WHERE nombreUsuario = ?";
     final String DELETE = "DELETE FROM usuario WHERE nombreUsuario = ?";
+    final String FULLUPDATE = "UPDATE usuario SET nombreUsuario = ?, contrasena = ? WHERE nombreUsuario = ?";
+    final String UPDATE = "UPDATE usuario SET nombreUsuario = ? WHERE nombreUsuario = ?";
+
     public void insertarUsuario(Usuario usuario) {
         DBConnection dataBaseConnection = new DBConnection();
         try(Connection connection=dataBaseConnection.getConnection()){
@@ -31,6 +35,36 @@ public class UsuarioDAO {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void actualizarUsuario(Usuario usuario, String nombre) {
+        DBConnection dataBaseConnection = new DBConnection();
+
+        try (Connection connection = dataBaseConnection.getConnection()) {
+            if(Objects.equals(usuario.getContrasena(), "")){
+                PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);
+                preparedStatement.setString(1, usuario.getNombreUsuario());
+                preparedStatement.setString(2, nombre); // Clave primaria para identificar al usuario
+                if (preparedStatement.executeUpdate() > 0) {
+                    System.out.println("Usuario actualizado con éxito.");
+                } else {
+                    System.out.println("No se encontró ningún usuario para actualizar.");
+                }
+            }else {
+                PreparedStatement preparedStatement = connection.prepareStatement(FULLUPDATE);
+                preparedStatement.setString(1, usuario.getNombreUsuario());
+                preparedStatement.setString(2, usuario.getContrasena());
+                preparedStatement.setString(3, nombre); // Clave primaria para identificar al usuario
+                if (preparedStatement.executeUpdate() > 0) {
+                    System.out.println("Usuario actualizado con éxito.");
+                } else {
+                    System.out.println("No se encontró ningún usuario para actualizar.");
+                }
+            }
+
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 
     public List<Usuario> consultarUsuario() {
         ArrayList<Usuario> usuarios = new ArrayList<>();
