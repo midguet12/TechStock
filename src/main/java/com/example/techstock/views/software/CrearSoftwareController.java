@@ -30,6 +30,7 @@ public class CrearSoftwareController implements Initializable {
         Software software = new Software();
         String nombre = nombreTextField.getText().toString();
         String version = versionTextField.getText().toString();
+
         software.setNombre(nombre);
         software.setVersion(version);
 
