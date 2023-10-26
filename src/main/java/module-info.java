@@ -11,6 +11,7 @@ module com.example.techstock {
 
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires org.apache.commons.codec;
 
     opens com.example.techstock to javafx.fxml;
     exports com.example.techstock;

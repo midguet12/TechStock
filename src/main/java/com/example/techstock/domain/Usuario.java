@@ -32,5 +32,12 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nombre='" + nombre + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                '}';
+    }
 }
 
