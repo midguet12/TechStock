@@ -50,7 +50,7 @@ public class SoftwareDAO {
     }
 
     public Software read(Integer idSoftware){
-        String query = "SELECT * FROM sofware WHERE idSoftware = ?";
+        String query = "SELECT * FROM software WHERE idSoftware = ?";
 
         try{
             preparedStatement = connection.prepareStatement(query);
@@ -129,12 +129,12 @@ public class SoftwareDAO {
         return false;
     }
 
-    public boolean delete(String idSoftware){
+    public boolean delete(Integer idSoftware){
         String query = "DELETE FROM software WHERE idSoftware = ?";
         try{
             preparedStatement = connection.prepareStatement(query);
 
-            preparedStatement.setString(1, idSoftware);
+            preparedStatement.setInt(1, idSoftware);
 
             int rows = preparedStatement.executeUpdate();
 

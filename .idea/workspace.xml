@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="dao perifericos completo">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/LeerSoftware.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/LeerSoftwareController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/ActualizarSoftwareController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/CrearSoftwareController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/ActualizarSoftware.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/CrearSoftware.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/LeerSoftware.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="CR Software UI">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/DataSingleton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/Software.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/Software.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/LeerSoftwareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/LeerSoftwareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/SoftwareDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/SoftwareDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/ActualizarSoftwareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/ActualizarSoftwareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/ActualizarSoftware.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/ActualizarSoftware.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/LeerSoftware.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/LeerSoftware.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -147,7 +142,9 @@
       <workItem from="1698092123140" duration="9023000" />
       <workItem from="1698164183457" duration="1613000" />
       <workItem from="1698165832635" duration="896000" />
-      <workItem from="1698229514012" duration="640000" />
+      <workItem from="1698229514012" duration="714000" />
+      <workItem from="1698238399979" duration="294000" />
+      <workItem from="1698315111435" duration="4741000" />
     </task>
     <task id="LOCAL-00001" summary="Domain and part dao">
       <option name="closed" value="true" />
@@ -189,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698169431954</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="CR Software UI">
+      <option name="closed" value="true" />
+      <created>1698230216124</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1698230216124</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +204,8 @@
     <MESSAGE value="Domain and part dao" />
     <MESSAGE value="dao perifericos parcial" />
     <MESSAGE value="dao perifericos completo" />
-    <option name="LAST_COMMIT_MESSAGE" value="dao perifericos completo" />
+    <MESSAGE value="CR Software UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="CR Software UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

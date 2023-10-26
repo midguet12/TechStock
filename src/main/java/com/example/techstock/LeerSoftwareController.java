@@ -26,6 +26,7 @@ public class LeerSoftwareController implements Initializable{
 
     @FXML
     public TableView tablaSoftware;
+    public Button recargarButton;
     @FXML
     private TableColumn<Software, Integer> idSoftware = new TableColumn<>();
     @FXML
@@ -37,6 +38,8 @@ public class LeerSoftwareController implements Initializable{
     private Button createSoftware;
     @FXML
     private Button actualizarSoftware;
+
+    DataSingleton data = DataSingleton.getInstance();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -69,6 +72,10 @@ public class LeerSoftwareController implements Initializable{
 
 
     public void actualizarSoftware(ActionEvent actionEvent) throws IOException{
+        Software selectedItem = (Software) tablaSoftware.getSelectionModel().getSelectedItem();
+        System.out.println(selectedItem.getIdSoftware());
+        data.setIdSoftware(selectedItem.getIdSoftware());
+
         Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioSoftware/ActualizarSoftware.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -76,5 +83,31 @@ public class LeerSoftwareController implements Initializable{
         stage.setScene(scene);
         stage.initModality(Modality.NONE);
         stage.show();
+    }
+
+    public void recargarTableView(ActionEvent actionEvent) {
+        tablaSoftware.getItems().clear();
+
+        SoftwareDAO softwareDAO = new SoftwareDAO();
+        List<Software> listaSoftware = softwareDAO.readAll();
+        ObservableList<Software> listaObservableSoftware = FXCollections.observableList(listaSoftware);
+
+
+        tablaSoftware.setItems(listaObservableSoftware);
+    }
+
+    public void deleteSoftware(ActionEvent actionEvent) {
+        Software selectedItem = (Software) tablaSoftware.getSelectionModel().getSelectedItem();
+        SoftwareDAO softwareDAO = new SoftwareDAO();
+        softwareDAO.delete(selectedItem.getIdSoftware());
+
+        tablaSoftware.getItems().clear();
+
+        List<Software> listaSoftware = softwareDAO.readAll();
+        ObservableList<Software> listaObservableSoftware = FXCollections.observableList(listaSoftware);
+
+        tablaSoftware.setItems(listaObservableSoftware);
+
+
     }
 }
