@@ -3,16 +3,80 @@ package com.example.techstock;
 
 import com.example.techstock.dao.UsuarioDAO;
 import com.example.techstock.domain.Usuario;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import org.apache.commons.codec.digest.DigestUtils;
 
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class UsuariosController{
+
+public class UsuariosController implements Initializable {
         @FXML
         private Label welcomeText;
+        @FXML
+        private TextField nombreUsuarioField;
 
         @FXML
+        private PasswordField contrasenaField;
+        @FXML
+        private TableView<Usuario> tablaUsuarios;
+
+        @FXML
+        private TableColumn<Usuario, String> nombreUsuarioColumn;
+
+        @FXML
+        private TableColumn<Usuario, String> contrasenaColumn;
+
+        @FXML
+        private Button registrarButton;
+
+        @FXML
+        private Button editarButton;
+
+        @FXML
+        private Button eliminarButton;
+
+
+    @FXML
+        protected void registrarUsuario(){
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            Usuario usuario = new Usuario(nombreUsuarioField.getText(), DigestUtils.sha256Hex(contrasenaField.getText()));
+
+            //PRUEBAS PARA INSERTAR USUARIO
+
+            if (!usuarioDAO.UsuarioExiste(usuario)) {
+                usuarioDAO.insertarUsuario(usuario);
+                mostrarAlerta("Registro Exitoso", "El usuario se registró con éxito.");
+            } else {
+                mostrarAlerta("Registro Fallido", "El usuario ya existe en la base de datos.");
+            }
+
+        }
+    @FXML
+    protected void editarUsuario() {
+        // Lógica para editar usuarios
+    }
+
+    @FXML
+    protected void eliminarUsuario() {
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        Usuario usuario = tablaUsuarios.getSelectionModel().getSelectedItem();
+
+        if (usuario != null) {
+            usuarioDAO.eliminarUsuario(usuario);
+            mostrarAlerta("Usuario Eliminado", "El usuario ha sido eliminado exitosamente.");
+            cargarUsuariosEnTabla(); // Recargar la tabla después de eliminar
+        } else {
+            mostrarAlerta("Error", "Selecciona un usuario para eliminar.");
+        }
+    }
+
+    @FXML
         protected void onPruebaButtonClick() {
             String message = "";
             try{
@@ -46,4 +110,29 @@ public class UsuariosController{
 
             welcomeText.setText(message);
         }
+
+    public void cargarUsuariosEnTabla() {
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        List<Usuario> usuarios = usuarioDAO.consultarUsuario();
+
+        // Convierte la lista de usuarios en un ObservableList para usarlo en la tabla
+        ObservableList<Usuario> observableUsuarios = FXCollections.observableArrayList(usuarios);
+
+        // Asigna los datos de la lista a la tabla
+        tablaUsuarios.setItems(observableUsuarios);
     }
+    private void mostrarAlerta(String titulo, String contenido) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(contenido);
+        alert.showAndWait();
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        cargarUsuariosEnTabla();
+        tablaUsuarios.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+    }
+}

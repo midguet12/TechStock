@@ -14,5 +14,7 @@ module com.example.techstock {
     requires org.apache.commons.codec;
 
     opens com.example.techstock to javafx.fxml;
+    opens com.example.techstock.domain to javafx.base;
+
     exports com.example.techstock;
 }

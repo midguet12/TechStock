@@ -1,21 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.geometry.*?>
+
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1000.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.techstock.UsuariosController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
 
+    <Label fx:id="welcomeText" text="Gestión de Usuarios" />
 
+    <!-- Ingresar Usuarios -->
+    <HBox spacing="10.0">
+        <TextField fx:id="nombreUsuarioField" promptText="Nombre de usuario" />
+        <PasswordField fx:id="contrasenaField" promptText="Contraseña" />
+        <Button onAction="#registrarUsuario" text="Registrar" />
+    </HBox>
 
+    <!-- Ver Usuarios -->
+    <TableView fx:id="tablaUsuarios">
+        <columns>
+            <TableColumn text="Nombre de Usuario">
+                <cellValueFactory>
+                    <PropertyValueFactory property="nombreUsuario" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Contraseña">
+                <cellValueFactory>
+                    <PropertyValueFactory property="contrasena" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
 
-
-<VBox alignment="CENTER" prefHeight="103.0" prefWidth="301.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.techstock.UsuariosController">
-<padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-</padding>
-
-<Label fx:id="welcomeText" />
-<Button onAction="#onPruebaButtonClick" text="Prueba!" />
+    <!-- Editar y Eliminar Usuarios -->
+    <HBox spacing="10.0">
+        <Button onAction="#editarUsuario" text="Editar" />
+        <Button onAction="#eliminarUsuario" text="Eliminar" />
+    </HBox>
 </VBox>
