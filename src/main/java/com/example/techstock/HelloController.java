@@ -2,20 +2,15 @@ package com.example.techstock;
 
 import com.example.techstock.dao.EquipoComputoDAO;
 import com.example.techstock.domain.EquipoComputo;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-
-import java.io.IOException;
 
 
-public class HelloController {
+
+public class HelloController{
+    @FXML
+    private Label lbPrueba;
     @FXML
     private Label welcomeText;
     @FXML
@@ -44,6 +39,7 @@ public class HelloController {
         welcomeText.setText(message);
     }
 
+    @FXML
     public void btnAgregarCentro(ActionEvent actionEvent){
 
     }

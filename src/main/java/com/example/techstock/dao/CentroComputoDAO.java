@@ -96,8 +96,25 @@ public class CentroComputoDAO {
         } catch(Exception e){
             System.out.println(e.getMessage());
         }
-
         return null;
+    }
+    public boolean nombreExiste(String nombre) {
+        String query = "SELECT COUNT(*) FROM centro_computo WHERE nombre = ?";
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
+            preparedStatement.setString(1, nombre);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+                if(count > 0){
+                    return true;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 }
