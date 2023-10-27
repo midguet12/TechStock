@@ -49,14 +49,23 @@ public class HelloController {
         Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/AgregarCentroComputo.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
-        stage.setTitle("Agregar Software");
+        stage.setTitle("Agregar Centro");
         stage.setScene(scene);
         stage.initModality(Modality.NONE);
         stage.show();
 
     }
 
-    public void btnAgregarEquipo(ActionEvent actionEvent) {
+    @FXML
+    public void btnAgregarEquipo(ActionEvent actionEvent)  throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/AgregarEquipoComputo.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setTitle("Agregar Equipo");
+        stage.setScene(scene);
+        stage.initModality(Modality.NONE);
+        stage.show();
     }
+
 
 }

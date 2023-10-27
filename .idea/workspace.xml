@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Create Centro Computo">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/AgregarCentroComputo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/AgregarCentroComputo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/AgregarEquipoComputo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/AgregarEquipoComputo.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +84,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aavp0\Documents\TechStock\src\main\resources\com\example\techstock\ModuloInventarioHardware" />
       <recent name="C:\Users\MB1\IdeaProjects\TechStock\src\main\resources\com\example\techstock" />
       <recent name="C:\Users\MB1\IdeaProjects\TechStock\src\main\resources\com\example\techstock\ModuloInventarioHardware" />
       <recent name="C:\Users\aavp0\Documents\TechStock\src\main\resources\com\example\techstock" />
@@ -139,6 +140,7 @@
       <workItem from="1698092123140" duration="3960000" />
       <workItem from="1698108130138" duration="2319000" />
       <workItem from="1698155940234" duration="1288000" />
+      <workItem from="1698422477254" duration="685000" />
     </task>
     <task id="LOCAL-00001" summary="Domain and part dao">
       <option name="closed" value="true" />
