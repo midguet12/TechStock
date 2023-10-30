@@ -21,9 +21,6 @@ module com.example.techstock {
     exports com.example.techstock.views.software;
     opens com.example.techstock.views.software to javafx.fxml;
 
-    exports com.example.techstock.domain;
-    opens com.example.techstock.domain to javafx.base;
-
 
 
 }
