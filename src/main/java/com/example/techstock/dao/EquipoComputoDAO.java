@@ -35,7 +35,7 @@ public class EquipoComputoDAO {
         String procesador = equipoComputo.getProcesador();
 
         try{
-            //Connection connection = DriverManager.getConnection(url, user, password);
+            Connection connection = DriverManager.getConnection(url, user, password);
             preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setInt(1, idCentroComputo);
@@ -63,7 +63,7 @@ public class EquipoComputoDAO {
         String query = "SELECT * FROM equipo_computo WHERE numeroSerie = ?";
 
         try{
-            //Connection connection = DriverManager.getConnection(url, user, password);
+            Connection connection = DriverManager.getConnection(url, user, password);
             preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setString(1, numeroSerie);
@@ -95,7 +95,7 @@ public class EquipoComputoDAO {
         try{
             List<EquipoComputo> listaEquipoComputo = new ArrayList<EquipoComputo>();
 
-            //Connection connection = DriverManager.getConnection(url, user, password);
+            Connection connection = DriverManager.getConnection(url, user, password);
             preparedStatement = connection.prepareStatement(query);
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -137,7 +137,7 @@ public class EquipoComputoDAO {
         String procesador = equipoComputo.getProcesador();
 
         try{
-            //Connection connection = DriverManager.getConnection(url, user, password);
+            Connection connection = DriverManager.getConnection(url, user, password);
             preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setInt(1, idCentroComputo);
@@ -165,7 +165,7 @@ public class EquipoComputoDAO {
     public boolean delete(String numeroSerie){
         String query = "DELETE from equipo_computo WHERE numeroSerie = ?";
         try{
-            //Connection connection = DriverManager.getConnection(url, user, password);
+            Connection connection = DriverManager.getConnection(url, user, password);
             preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setString(1, numeroSerie);

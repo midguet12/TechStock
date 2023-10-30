@@ -98,6 +98,35 @@ public class CentroComputoDAO {
         }
         return null;
     }
+
+    public List<String> readAllString(){
+        String query = "SELECT * FROM centro_computo";
+
+        try{
+            List<String> listaCentroComputo = new ArrayList<String>();
+
+            Connection connection = DriverManager.getConnection(url, user, password);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+
+                CentroComputo centroComputo = new CentroComputo();
+                centroComputo.setNombre(resultSet.getString("nombre"));
+                listaCentroComputo.add(centroComputo.getNombre());
+
+            }
+
+            System.out.println("Se obtuvieron " + listaCentroComputo.size() + " elementos.");
+
+            return listaCentroComputo;
+
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
     public boolean nombreExiste(String nombre) {
         String query = "SELECT COUNT(*) FROM centro_computo WHERE nombre = ?";
         try (Connection connection = DriverManager.getConnection(url, user, password);

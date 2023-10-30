@@ -9,10 +9,10 @@ import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 
-public class AgregarCentroComputoController {
+public class AgregarCentroComputoController  {
     @FXML
     private TextField nombreTextField;
-    @FXML
+
     public void btnAceptar(ActionEvent actionEvent) {
         CentroComputo centro = new CentroComputo(nombreTextField.toString());
         CentroComputoDAO centroDao = new CentroComputoDAO();
