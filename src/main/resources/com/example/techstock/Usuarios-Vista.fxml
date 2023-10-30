@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1000.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.example.techstock.UsuariosController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="welcomeText" text="Gestión de Usuarios" />
+
+    <!-- Ingresar Usuarios -->
+    <HBox spacing="10.0">
+        <TextField fx:id="nombreUsuarioField" promptText="Nombre de usuario" />
+        <PasswordField fx:id="contrasenaField" promptText="Contraseña" />
+        <Button onAction="#registrarUsuario" text="Registrar" />
+    </HBox>
+
+    <!-- Ver Usuarios -->
+    <TableView fx:id="tablaUsuarios">
+        <columns>
+            <TableColumn text="Nombre de Usuario">
+                <cellValueFactory>
+                    <PropertyValueFactory property="nombreUsuario" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Contraseña">
+                <cellValueFactory>
+                    <PropertyValueFactory property="contrasena" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <!-- Editar y Eliminar Usuarios -->
+    <HBox spacing="10.0">
+        <Button onAction="#editarUsuario" text="Editar" />
+        <Button onAction="#eliminarUsuario" text="Eliminar" />
+    </HBox>
+
+    <!-- Campos de edición ocultos inicialmente -->
+    <HBox spacing="10.0" fx:id="editarCampos" visible="false">
+        <TextField fx:id="nuevoNombreUsuarioField" promptText="Nuevo nombre de usuario" />
+        <TextField fx:id="nuevaContrasenaField" promptText="Nueva contraseña" />
+        <Button onAction="#guardarCambios" text="Guardar Cambios" />
+    </HBox>
+</VBox>
