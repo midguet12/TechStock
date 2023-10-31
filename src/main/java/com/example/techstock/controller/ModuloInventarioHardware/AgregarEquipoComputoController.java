@@ -2,6 +2,7 @@ package com.example.techstock.controller.ModuloInventarioHardware;
 
 import com.example.techstock.dao.CentroComputoDAO;
 import com.example.techstock.dao.EquipoComputoDAO;
+import com.example.techstock.domain.CentroComputo;
 import com.example.techstock.domain.EquipoComputo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,8 +37,8 @@ public class AgregarEquipoComputoController implements Initializable {
 
     private void cargarCentroComputo() {
         CentroComputoDAO centroComputoDAO = new CentroComputoDAO();
-        List<String> resultadoConsulta = centroComputoDAO.readAllString();
-        ObservableList<String> listaComputo = FXCollections.observableArrayList(resultadoConsulta);
+        List<CentroComputo> resultadoConsulta = centroComputoDAO.readAll();
+        ObservableList<CentroComputo> listaComputo = FXCollections.observableArrayList(resultadoConsulta);
 
         if (!resultadoConsulta.isEmpty()) {
             try{
