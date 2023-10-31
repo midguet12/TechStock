@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.IniciarSesionController">
+    <top>
+        <VBox alignment="CENTER" style="-fx-background-color: #2563EB;" prefHeight="100.0" prefWidth="600.0">
+            <Label text="Registro de Usuarios" style="-fx-text-fill: white; -fx-font-size: 24px;"/>
+        </VBox>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <Label text="Nombre de Usuario:"/>
+            <TextField fx:id="nombreUsuarioField" promptText="Ingrese su nombre de usuario" style="-fx-padding: 10;" prefWidth="200.0"/>
+            <Label text="Contraseña:"/>
+            <PasswordField fx:id="contrasenaField" promptText="Ingrese su contraseña" style="-fx-padding: 10;" prefWidth="200.0"/>
+            <Button fx:id="iniciarSesion" onAction="#iniciarSesion" text="Registrar"/>
+        </VBox>
+    </center>
+</BorderPane>

@@ -7,13 +7,24 @@ create table equipo_computo(
     almacenamiento varchar(30),
     memoria varchar(30),
     procesador varchar(30),
-    primary key(noSerie)
+    primary key(numeroSerie)
 );
 
 create table usuario(
     nombreUsuario varchar(50),
-    contrasena varchar(64)
+    contrasena varchar(64),
+    idTipoUsuario int,
+    primary key (nombreUsuario)
 );
+
+create table tipoUsuario(
+    idTipoUsuario int not null auto_increment,
+    nombreTipoUsuario varchar(30),
+    primary key (idTipoUsuario)
+);
+
+insert into tipoUsuario(nombreTipoUsuario) values('Técnico Académico'),('Administrador');
+
 
 
 create table centro_computo(

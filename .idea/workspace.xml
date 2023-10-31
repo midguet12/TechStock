@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Implementación de CRD en la vista">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_10_23_11_29_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_10_23_11_29__Changes_.xml" beforeDir="false" />
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="merge 1ra iteracion">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/IniciarSesion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/IniciarSesionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/IniciarSesion.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/UsuarioDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -70,12 +71,13 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "Software",
     "ignore.virus.scanning.warn.message": "true",
+    "last_directory_selection": "/Users/midguetarturogarciatorres/IdeaProjects/TechStock/src/main/java/com/example/techstock",
     "last_opened_file_path": "D:/utilidades java/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.29885057",
     "settings.editor.selected.configurable": "preferences.JavaFX",
@@ -87,9 +89,30 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Application.LeerSoftware">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/techstock" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.techstock" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.IniciarSesion">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.techstock.HelloApplication" />
+      <module name="TechStock" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.techstock.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IniciarSesion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.techstock.IniciarSesion" />
       <module name="TechStock" />
       <extension name="coverage">
         <pattern>
@@ -129,6 +152,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.IniciarSesion" />
         <item itemvalue="Application.LeerSoftware" />
         <item itemvalue="Application.UsuariosApplication" />
         <item itemvalue="Application.HelloApplication" />
@@ -148,6 +172,7 @@
       <workItem from="1698092123140" duration="9023000" />
       <workItem from="1698164183457" duration="1613000" />
       <workItem from="1698165832635" duration="896000" />
+      <workItem from="1698710875433" duration="694000" />
     </task>
     <task id="LOCAL-00001" summary="Domain and part dao">
       <option name="closed" value="true" />
@@ -213,7 +238,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698295889762</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="merge 1ra iteracion">
+      <option name="closed" value="true" />
+      <created>1698709346460</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1698709346460</updated>
+    </task>
+    <task id="LOCAL-00010" summary="merge 1ra iteracion">
+      <option name="closed" value="true" />
+      <created>1698709360466</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1698709360466</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +278,8 @@
     <MESSAGE value="DAO Usuarios y función de insertar" />
     <MESSAGE value="DAO Usuarios CRUD y pruebas de hasheo completo para registrar usuarios" />
     <MESSAGE value="Implementación de CRD en la vista" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementación de CRD en la vista" />
+    <MESSAGE value="merge 1ra iteracion" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge 1ra iteracion" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
