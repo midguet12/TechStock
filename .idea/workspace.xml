@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Error en los campos de AgregarEquipoComputoController">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_10_23_11_29_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_10_23_11_29__Changes_.xml" beforeDir="false" />
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="crear centro computo 100%">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/AgregarCentroComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/AgregarCentroComputoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/AgregarEquipoComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/AgregarEquipoComputoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/AgregarCentroComputo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/AgregarCentroComputo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/CentroComputoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/CentroComputoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/EquipoComputoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/EquipoComputoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/CentroComputo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/CentroComputo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +145,8 @@
       <workItem from="1698628604546" duration="3178000" />
       <workItem from="1698634095422" duration="3370000" />
       <workItem from="1698707084531" duration="518000" />
-      <workItem from="1698712824626" duration="4990000" />
+      <workItem from="1698712824626" duration="5206000" />
+      <workItem from="1698874673416" duration="4417000" />
     </task>
     <task id="LOCAL-00001" summary="Domain and part dao">
       <option name="closed" value="true" />
@@ -190,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698637462461</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="crear centro computo 100%">
+      <option name="closed" value="true" />
+      <created>1698720382931</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1698720382931</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +229,7 @@
     <MESSAGE value="Domain and part dao" />
     <MESSAGE value="Create Centro Computo" />
     <MESSAGE value="Error en los campos de AgregarEquipoComputoController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error en los campos de AgregarEquipoComputoController" />
+    <MESSAGE value="crear centro computo 100%" />
+    <option name="LAST_COMMIT_MESSAGE" value="crear centro computo 100%" />
   </component>
 </project>

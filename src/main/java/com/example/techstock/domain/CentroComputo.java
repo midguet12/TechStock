@@ -19,4 +19,9 @@ public class CentroComputo {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return nombre;
+    }
+
 }

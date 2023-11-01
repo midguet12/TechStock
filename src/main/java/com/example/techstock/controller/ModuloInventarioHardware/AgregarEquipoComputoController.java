@@ -28,50 +28,18 @@ public class AgregarEquipoComputoController implements Initializable {
     @FXML
     private TextField cpuTextField;
     @FXML
-    private ComboBox centroCompuComboBox;
+    private ComboBox<CentroComputo> centroCompuComboBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cargarCentroComputo();
     }
 
-    private void cargarCentroComputo() {
-        CentroComputoDAO centroComputoDAO = new CentroComputoDAO();
-        List<CentroComputo> resultadoConsulta = centroComputoDAO.readAll();
-        ObservableList<CentroComputo> listaComputo = FXCollections.observableArrayList(resultadoConsulta);
-
-        if (!resultadoConsulta.isEmpty()) {
-            try{
-                centroCompuComboBox.setItems(listaComputo);
-            }catch (Exception e){
-                mostrarAlerta("Error", "Por favor retifique su conexión");
-            }
-        } else {
-            mostrarAlerta("Advertencia", "No sé encontro datos.");
-        }
-    }
-
-    private boolean validarCampos() {
-        int centroComputo = centroCompuComboBox.getSelectionModel().getSelectedIndex();
-        String noSerie = noDeSerieTextField.getText();
-        String marca = marcaTextField.getText();
-        String capacidadAlma = capacidadAlmaTextField.getText();
-        String memoriaRam = memoriaRamTextField.getText();
-        String cpu = cpuTextField.getText();
-        int maxLength = 30;
-
-        System.out.println("Centro de Cómputo: " + centroCompuComboBox.getSelectionModel().getSelectedItem());
-        System.out.println("Número de Serie: " + noDeSerieTextField.toString());
-        System.out.println("Marca: " +  marcaTextField.toString());
-        System.out.println("Capacidad de Almacenamiento: " + capacidadAlmaTextField.toString());
-        System.out.println("Memoria RAM: " + memoriaRamTextField.toString());
-        System.out.println("CPU: " + cpuTextField.toString());
-
-        if (marca.length() <= maxLength || capacidadAlma.length() <= maxLength || memoriaRam.length() <= maxLength || cpu.length() <= maxLength) {
-            if(noSerie.length() <= 50 && centroComputo != 0){
-                return true;
-            }
-            return false;
+    public boolean verificarExistencia() {
+        EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
+        boolean existe = equipoComputoDAO.noSerieExiste(noDeSerieTextField.getText());
+        if (existe) {
+            return true;
         } else {
             return false;
         }
@@ -85,6 +53,38 @@ public class AgregarEquipoComputoController implements Initializable {
         alert.showAndWait();
     }
 
+    private void cargarCentroComputo() {
+        CentroComputoDAO centroComputoDAO = new CentroComputoDAO();
+        List<CentroComputo> resultadoConsulta = centroComputoDAO.readAll();
+        ObservableList<CentroComputo> listaCentros = FXCollections.observableArrayList(resultadoConsulta);
+
+        if (!resultadoConsulta.isEmpty()) {
+            centroCompuComboBox.setItems(listaCentros);
+        } else {
+            mostrarAlerta("Advertencia", "No se encontraron datos de centros de cómputo.");
+        }
+    }
+
+    public boolean validarCampos() {
+        int centroComputo = centroCompuComboBox.getSelectionModel().getSelectedIndex() + 1;
+        String noSerie = noDeSerieTextField.getText();
+        String marca = marcaTextField.getText();
+        String capacidadAlma = capacidadAlmaTextField.getText();
+        String memoriaRam = memoriaRamTextField.getText();
+        String cpu = cpuTextField.getText();
+
+        if (centroComputo <= 0) {
+            return true;
+        }
+
+        if (noSerie.length() > 30 || marca.length() > 50 || capacidadAlma.length() > 50 || memoriaRam.length() > 50 || cpu.length() > 50) {
+            return true;
+        }
+
+        return false;
+    }
+
+
     public void limpiarCampos() {
         noDeSerieTextField.clear();
         marcaTextField.clear();
@@ -96,23 +96,24 @@ public class AgregarEquipoComputoController implements Initializable {
 
     public void btnAceptar(ActionEvent actionEvent) {
         EquipoComputoDAO equipoDao = new EquipoComputoDAO();
-        int centroComputo = centroCompuComboBox.getSelectionModel().getSelectedIndex();
-        EquipoComputo equipo = new EquipoComputo(centroComputo, noDeSerieTextField.toString(), marcaTextField.toString(), capacidadAlmaTextField.toString(), memoriaRamTextField.toString(), cpuTextField.toString());
 
-        boolean exito = false;
-        if (validarCampos() || equipoDao.noSerieExiste(noDeSerieTextField.toString())) {
+        int centroComputo = centroCompuComboBox.getSelectionModel().getSelectedIndex() + 1;
+        EquipoComputo equipo = new EquipoComputo(centroComputo, noDeSerieTextField.getText(), marcaTextField.getText(), capacidadAlmaTextField.getText(), memoriaRamTextField.getText(), cpuTextField.getText());
+
+
+        if (verificarExistencia() || validarCampos()){
             mostrarAlerta("Error", "Por favor retifique los datos");
         } else {
             try {
-                exito = equipoDao.create(equipo);
+                boolean exito = equipoDao.create(equipo);
                 if (exito) {
                     mostrarAlerta("Información", "Se ha guardado correctamente");
                     limpiarCampos();
                 } else {
-                    mostrarAlerta("Error", "Hubo un fallo");
+                    mostrarAlerta("Error", "Hubo un fallo al guardar el equipo de cómputo.");
                 }
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                mostrarAlerta("Error", "Ocurrió un error inesperado.");
             }
         }
     }

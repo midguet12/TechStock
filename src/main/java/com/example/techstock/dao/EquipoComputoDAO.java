@@ -14,15 +14,6 @@ public class EquipoComputoDAO {
     PreparedStatement preparedStatement;
 
 
-
-    public EquipoComputoDAO() {
-        try{
-            connection = DriverManager.getConnection(url, user, password);
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
-
     public boolean create(EquipoComputo equipoComputo) {
         String query = "INSERT INTO equipo_computo(idCentroComputo, numeroSerie, marca, almacenamiento, memoria, procesador)" +
                 "values (?,?,?,?,?,?)";
