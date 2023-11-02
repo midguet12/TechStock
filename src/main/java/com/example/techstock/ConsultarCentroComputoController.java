@@ -12,9 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -22,11 +20,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ConsultarCentroComputoController implements Initializable {
     @FXML
-    private TableView tablaCentro;
+    private TableView<CentroComputo> tablaCentro;
     @FXML
     private TableColumn<CentroComputo, Integer> idCentroComputo = new TableColumn<>();
     @FXML
@@ -56,7 +55,49 @@ public class ConsultarCentroComputoController implements Initializable {
     }
 
     public void btnEliminar(ActionEvent actionEvent) {
+        CentroComputo centroSeleccionado = tablaCentro.getSelectionModel().getSelectedItem();
+        CentroComputoDAO centroDAO = new CentroComputoDAO();
+
+        if (centroSeleccionado != null) {
+
+            boolean confirmacion = mostrarConfirmacion(centroSeleccionado.getNombre());
+            String nombreCentro = centroSeleccionado.getNombre();
+
+            if(confirmacion){
+                boolean eliminado = centroDAO.delete(nombreCentro);
+                if (eliminado) {
+                    tablaCentro.getItems().remove(centroSeleccionado);
+                } else {
+                    mostrarAlerta("Error","No se pudo eliminar el registro.");
+                }
+            }
+        } else {
+            mostrarAlerta("Advertencia","Por favor, selecciona un Centro de Computo para eliminar.");
+        }
+
     }
+
+    private void mostrarAlerta(String titulo, String contenido) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(contenido);
+        alert.showAndWait();
+    }
+
+    private boolean mostrarConfirmacion(String nombreCentro) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmación");
+        alert.setHeaderText(null);
+        alert.setContentText("¿Seguro que quieres eliminar " + nombreCentro + "?");
+        Optional<ButtonType> resultado = alert.showAndWait();
+
+        if(resultado.get() == ButtonType.OK){
+           return true;
+        }
+        return false;
+    }
+
 
     public void btnActualizar(ActionEvent actionEvent) {
     }
