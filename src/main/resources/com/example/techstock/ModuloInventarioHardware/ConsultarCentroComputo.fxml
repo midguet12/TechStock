@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.ConsultarCentroComputoController">
+
+    <Label prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-size: 18px;" text="Centro de Computo">
+        <font>
+            <Font name="System Bold" size="18" />
+        </font>
+    </Label>
+        <TableView fx:id="tablaCentro" editable="true" layoutX="118.0" layoutY="70.0" prefHeight="200.0" prefWidth="347.0">
+            <columns>
+                <TableColumn fx:id="idCentroComputo" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="nombre" prefWidth="75.0" text="Nombre" />
+            </columns>
+        </TableView>
+
+        <Button layoutX="68.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnAgregar" text="Agregar" />
+        <Button layoutX="423.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnEliminar" text="Eliminar" />
+        <Button layoutX="257.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnActualizar" text="Actualizar" />
+
+</AnchorPane>

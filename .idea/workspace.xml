@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="crear centro computo 100%">
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="crear equipo de computo 100%">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/ConsultarCentroComputo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/ConsultarCentroComputoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/ConsultarCentroComputo.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/AgregarEquipoComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/AgregarEquipoComputoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/AgregarCentroComputo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/AgregarCentroComputo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/AgregarCentroComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/AgregarCentroComputoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/CentroComputoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/CentroComputoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/EquipoComputoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/EquipoComputoDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/CentroComputo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/CentroComputo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/utilidades/Utilidad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +107,7 @@
       <module name="TechStock" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.techstock.controller.ModuloInventarioHardware.*" />
+          <option name="PATTERN" value="com.example.techstock.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -113,7 +120,7 @@
       <module name="TechStock" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.techstock.controller.ModuloInventarioHardware.*" />
+          <option name="PATTERN" value="com.example.techstock.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -146,7 +153,9 @@
       <workItem from="1698634095422" duration="3370000" />
       <workItem from="1698707084531" duration="518000" />
       <workItem from="1698712824626" duration="5206000" />
-      <workItem from="1698874673416" duration="4417000" />
+      <workItem from="1698874673416" duration="13797000" />
+      <workItem from="1698896388757" duration="86000" />
+      <workItem from="1698944249600" duration="3240000" />
     </task>
     <task id="LOCAL-00001" summary="Domain and part dao">
       <option name="closed" value="true" />
@@ -196,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698720382931</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="crear equipo de computo 100%">
+      <option name="closed" value="true" />
+      <created>1698882712868</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1698882712868</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +247,7 @@
     <MESSAGE value="Create Centro Computo" />
     <MESSAGE value="Error en los campos de AgregarEquipoComputoController" />
     <MESSAGE value="crear centro computo 100%" />
-    <option name="LAST_COMMIT_MESSAGE" value="crear centro computo 100%" />
+    <MESSAGE value="crear equipo de computo 100%" />
+    <option name="LAST_COMMIT_MESSAGE" value="crear equipo de computo 100%" />
   </component>
 </project>

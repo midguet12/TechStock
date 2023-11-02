@@ -4,12 +4,15 @@ import com.example.techstock.dao.CentroComputoDAO;
 import com.example.techstock.domain.CentroComputo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class AgregarCentroComputoController  {
+public class AgregarCentroComputoController implements Initializable {
     @FXML
     private TextField nombreTextField;
 
@@ -63,4 +66,8 @@ public class AgregarCentroComputoController  {
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

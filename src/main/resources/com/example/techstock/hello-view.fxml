@@ -10,7 +10,4 @@
     </padding>
    <Button mnemonicParsing="false" onAction="#btnAgregarCentro" text="Agregar Centro" />
    <Button mnemonicParsing="false" onAction="#btnAgregarEquipo" text="Agregar Equipo" />
-
-    <Label fx:id="welcomeText" />
-    <Button onAction="#onHelloButtonClick" text="Hello!" />
 </VBox>
