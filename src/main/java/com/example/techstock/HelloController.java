@@ -25,7 +25,7 @@ public class HelloController {
 
     @FXML
     public void btnAgregarEquipo(ActionEvent actionEvent)  throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/AgregarEquipoComputo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/ConsultarEquipoComputo.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setTitle("Agregar Equipo");

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.techstock.ConsultarEquipoComputoController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <Label prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-size: 18px;" text="Centro de Computo">
+        <font>
+            <Font name="System Bold" size="18" />
+        </font>
+    </Label>
+    <TableView fx:id="tablaEquipo" editable="true" layoutX="118.0" layoutY="70.0" prefHeight="200.0" prefWidth="347.0">
+        <columns>
+            <TableColumn fx:id="idCentroComputo" prefWidth="75.0" text="Centro Computo" />
+            <TableColumn fx:id="noSerie" prefWidth="75.0" text="No. De Serie" />
+            <TableColumn fx:id="marca" prefWidth="75.0" text="Marca" />
+            <TableColumn fx:id="almacenamiento" prefWidth="75.0" text="Almacenamiento" />
+            <TableColumn fx:id="memoria" prefWidth="75.0" text="Memoria Ram" />
+            <TableColumn fx:id="procesador" prefWidth="75.0" text="Procesador" />
+
+        </columns>
+    </TableView>
+
+    <Button layoutX="68.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnAgregar" text="Agregar" />
+    <Button layoutX="423.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnEliminar" text="Eliminar" />
+    <Button layoutX="257.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnActualizar" text="Actualizar" />
+
+
+</AnchorPane>

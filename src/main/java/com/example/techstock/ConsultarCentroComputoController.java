@@ -33,6 +33,10 @@ public class ConsultarCentroComputoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+       llenarTabla();
+    }
+
+    public void llenarTabla(){
         idCentroComputo.setCellValueFactory(new PropertyValueFactory<CentroComputo, Integer>("idCentroComputo"));
         nombre.setCellValueFactory(new PropertyValueFactory<CentroComputo, String>("nombre"));
 

@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Consultar centro de computo 100%">
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Eliminar centro de computo 100%">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/ConsultarEquipoComputoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/ConsultarEquipoComputo.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/ConsultarCentroComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/ConsultarCentroComputoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/HelloController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -145,7 +148,7 @@
       <workItem from="1698712824626" duration="5206000" />
       <workItem from="1698874673416" duration="13797000" />
       <workItem from="1698896388757" duration="86000" />
-      <workItem from="1698944249600" duration="8124000" />
+      <workItem from="1698944249600" duration="12125000" />
     </task>
     <task id="LOCAL-00001" summary="Domain and part dao">
       <option name="closed" value="true" />
@@ -211,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698947675348</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Eliminar centro de computo 100%">
+      <option name="closed" value="true" />
+      <created>1698967831565</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1698967831565</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +258,7 @@
     <MESSAGE value="crear centro computo 100%" />
     <MESSAGE value="crear equipo de computo 100%" />
     <MESSAGE value="Consultar centro de computo 100%" />
-    <option name="LAST_COMMIT_MESSAGE" value="Consultar centro de computo 100%" />
+    <MESSAGE value="Eliminar centro de computo 100%" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eliminar centro de computo 100%" />
   </component>
 </project>
