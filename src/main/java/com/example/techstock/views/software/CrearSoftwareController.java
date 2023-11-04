@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 public class CrearSoftwareController implements Initializable {
 
@@ -35,8 +36,15 @@ public class CrearSoftwareController implements Initializable {
         software.setVersion(version);
 
         SoftwareDAO softwareDAO = new SoftwareDAO();
-        if (softwareDAO.create(software)){
-            successMessage.setText( nombre + " " + version +  " se ha registrado.");
+
+        try{
+            if (softwareDAO.create(software)){
+                successMessage.setText( nombre + " " + version +  " se ha registrado.");
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
+
     }
 }

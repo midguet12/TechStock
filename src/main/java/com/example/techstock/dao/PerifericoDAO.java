@@ -1,21 +1,20 @@
 package com.example.techstock.dao;
-import com.example.techstock.domain.EquipoComputo;
+
 import com.example.techstock.domain.Periferico;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class PerifericoDAO {
-    String url = DBConnection.getUrl();
+    /*String url = DBConnection.getUrl();
     String user = DBConnection.getUser();
-    String password = DBConnection.getPassword();
+    String password = DBConnection.getPassword();*/
     Connection connection;
     PreparedStatement preparedStatement;
 
     public PerifericoDAO() {
         try {
-            connection = DriverManager.getConnection(url, user, password);
+            //connection = DriverManager.getConnection(url, user, password);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }

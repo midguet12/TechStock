@@ -13,7 +13,7 @@
         </Label>
         <TextField fx:id="nombreTextField" layoutX="106.0" layoutY="128.0" promptText="Nombre" />
         <TextField fx:id="versionTextField" layoutX="106.0" layoutY="182.0" promptText="Version" />
-        <Button fx:id="agregarSoftwareButton" layoutX="142.0" layoutY="225.0" mnemonicParsing="false" onAction="#actualizarSoftware" text="Agregar" />
+        <Button fx:id="agregarSoftwareButton" layoutX="142.0" layoutY="225.0" mnemonicParsing="false" onAction="#actualizarSoftware" text="Actualizar" />
         <Label fx:id="successMessage" layoutX="106.0" layoutY="250.0" text="" />
       
     </children>

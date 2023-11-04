@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="merge 1ra iteracion">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/logo.png" afterDir="false" />
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="gui iniciar sesion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/IniciarSesion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/IniciarSesion.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/Usuarios-Vista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloUsuarios/Usuarios-Vista.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/IniciarSesionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/IniciarSesionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/LeerSoftwareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/LeerSoftwareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/EquipoComputoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/EquipoComputoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/PerifericoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/PerifericoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/SoftwareDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/SoftwareDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/ActualizarSoftwareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/ActualizarSoftwareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/CrearSoftwareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/CrearSoftwareController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +103,7 @@
       <recent name="com.example.techstock" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.IniciarSesion">
+  <component name="RunManager" selected="Application.LeerSoftware">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.techstock.HelloApplication" />
       <module name="TechStock" />
@@ -151,8 +158,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.IniciarSesion" />
         <item itemvalue="Application.LeerSoftware" />
+        <item itemvalue="Application.IniciarSesion" />
         <item itemvalue="Application.UsuariosApplication" />
         <item itemvalue="Application.HelloApplication" />
       </list>
@@ -173,7 +180,7 @@
       <workItem from="1698165832635" duration="896000" />
       <workItem from="1698710875433" duration="881000" />
       <workItem from="1699057199362" duration="650000" />
-      <workItem from="1699057868895" duration="1434000" />
+      <workItem from="1699057868895" duration="5457000" />
     </task>
     <task id="LOCAL-00001" summary="Domain and part dao">
       <option name="closed" value="true" />
@@ -263,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698711737491</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="gui iniciar sesion">
+      <option name="closed" value="true" />
+      <created>1699059734399</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699059734399</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +303,8 @@
     <MESSAGE value="DAO Usuarios CRUD y pruebas de hasheo completo para registrar usuarios" />
     <MESSAGE value="Implementación de CRD en la vista" />
     <MESSAGE value="merge 1ra iteracion" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge 1ra iteracion" />
+    <MESSAGE value="gui iniciar sesion" />
+    <option name="LAST_COMMIT_MESSAGE" value="gui iniciar sesion" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -48,7 +49,13 @@ public class LeerSoftwareController implements Initializable{
         version.setCellValueFactory(new PropertyValueFactory<Software, String>("version"));
 
         SoftwareDAO softwareDAO = new SoftwareDAO();
-        List<Software> listaSoftware = softwareDAO.readAll();
+        List<Software> listaSoftware = null;
+        try {
+            listaSoftware = softwareDAO.readAll();
+        } catch (SQLException exception) {
+            System.out.println(exception.getMessage());
+            exception.printStackTrace();
+        }
         ObservableList<Software> listaObservableSoftware = FXCollections.observableList(listaSoftware);
 
 
@@ -89,14 +96,19 @@ public class LeerSoftwareController implements Initializable{
         tablaSoftware.getItems().clear();
 
         SoftwareDAO softwareDAO = new SoftwareDAO();
-        List<Software> listaSoftware = softwareDAO.readAll();
+        List<Software> listaSoftware = null;
+        try {
+            listaSoftware = softwareDAO.readAll();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         ObservableList<Software> listaObservableSoftware = FXCollections.observableList(listaSoftware);
 
 
         tablaSoftware.setItems(listaObservableSoftware);
     }
 
-    public void deleteSoftware(ActionEvent actionEvent) {
+    public void deleteSoftware(ActionEvent actionEvent) throws SQLException {
         Software selectedItem = (Software) tablaSoftware.getSelectionModel().getSelectedItem();
         SoftwareDAO softwareDAO = new SoftwareDAO();
         softwareDAO.delete(selectedItem.getIdSoftware());

@@ -1,15 +1,17 @@
 package com.example.techstock.dao;
-import com.example.techstock.domain.EquipoComputo;
-import com.example.techstock.dao.DBConnection;
 
-import java.sql.*;
+import com.example.techstock.domain.EquipoComputo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 public class EquipoComputoDAO {
-    String url = DBConnection.getUrl();
+    /*String url = DBConnection.getUrl();
     String user = DBConnection.getUser();
-    String password = DBConnection.getPassword();
+    String password = DBConnection.getPassword();*/
     Connection connection;
     PreparedStatement preparedStatement;
 
@@ -17,7 +19,7 @@ public class EquipoComputoDAO {
 
     public EquipoComputoDAO() {
         try{
-            connection = DriverManager.getConnection(url, user, password);
+            //connection = DriverManager.getConnection(url, user, password);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
