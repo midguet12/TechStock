@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Pos?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.IniciarSesionController">
-    <top>
-        <VBox alignment="CENTER" style="-fx-background-color: #2563EB;" prefHeight="100.0" prefWidth="600.0">
-            <Label text="Registro de Usuarios" style="-fx-text-fill: white; -fx-font-size: 24px;"/>
-        </VBox>
-    </top>
-    <center>
-        <VBox alignment="CENTER" spacing="10">
-            <Label text="Nombre de Usuario:"/>
-            <TextField fx:id="nombreUsuarioField" promptText="Ingrese su nombre de usuario" style="-fx-padding: 10;" prefWidth="200.0"/>
-            <Label text="Contraseña:"/>
-            <PasswordField fx:id="contrasenaField" promptText="Ingrese su contraseña" style="-fx-padding: 10;" prefWidth="200.0"/>
-            <Button fx:id="iniciarSesion" onAction="#iniciarSesion" text="Registrar"/>
-        </VBox>
-    </center>
-</BorderPane>
+<AnchorPane prefHeight="559.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.IniciarSesionController">
+   <children>
+      <VBox alignment="CENTER" layoutX="57.0" layoutY="2.0" prefHeight="552.0" prefWidth="267.0" spacing="10.0">
+         <children>
+            <ImageView fitHeight="197.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image></ImageView>
+            <Label contentDisplay="CENTER" text="Universidad Veracruzana">
+               <VBox.margin>
+                  <Insets bottom="25.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Usuario:" />
+            <TextField fx:id="nombreUsuarioTextField" promptText="Nombre de usuario" />
+            <Label text="Contraseña:" />
+            <PasswordField fx:id="contrasenaPasswordField" promptText="Contraseña" />
+            <Button fx:id="iniciarSesionButton" mnemonicParsing="false" onAction="#iniciarSesionAction" text="Iniciar sesion" textAlignment="CENTER" />
+         </children></VBox>
+   </children>
+</AnchorPane>
