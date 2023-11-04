@@ -2,7 +2,11 @@ package com.example.techstock.dao;
 
 import com.example.techstock.domain.Software;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +19,7 @@ public class SoftwareDAO {
             connection = DBConnection.getConnection();
             return connection;
         } catch (SQLException exception){
-            System.out.println();
+            System.out.println(exception.getMessage());
             return null;
         }
     }
@@ -70,7 +74,6 @@ public class SoftwareDAO {
                 software.setIdSoftware(resultSet.getInt("idSoftware"));
                 software.setNombre(resultSet.getString("nombre"));
                 software.setVersion(resultSet.getString("version"));
-                //return software;
             }
         } catch (Exception exception){
             System.out.println(exception.getMessage());
@@ -87,6 +90,7 @@ public class SoftwareDAO {
         try {
             softwareList = new ArrayList<Software>();
             connection = getConnection();
+
             if (connection != null){
                 preparedStatement = connection.prepareStatement(query);
                 ResultSet resultSet = preparedStatement.executeQuery();
@@ -112,7 +116,7 @@ public class SoftwareDAO {
         }
     }
 
-    public boolean update(Software software){
+    public boolean update(Software software) throws SQLException{
         String query = "UPDATE software SET nombre = ?, version = ? WHERE idSoftware = ?";
 
         String nombre = software.getNombre();
@@ -141,11 +145,12 @@ public class SoftwareDAO {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }finally {
+            connection.close();
             return success;
         }
     }
 
-    public boolean delete(Integer idSoftware){
+    public boolean delete(Integer idSoftware) throws SQLException{
         String query = "DELETE FROM software WHERE idSoftware = ?";
         boolean success = false;
         try{
@@ -162,10 +167,10 @@ public class SoftwareDAO {
                     success = true;
                 }
             }
-
         }catch (Exception e){
             System.out.println(e.getMessage());
         } finally {
+            connection.close();
             return success;
         }
     }
