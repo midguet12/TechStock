@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Eliminar y consultar equipo de computo 100%">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="probando" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,7 +148,7 @@
       <workItem from="1698896388757" duration="86000" />
       <workItem from="1698944249600" duration="12305000" />
       <workItem from="1699227662276" duration="26000" />
-      <workItem from="1699279481364" duration="202000" />
+      <workItem from="1699279481364" duration="549000" />
     </task>
     <task id="LOCAL-00001" summary="Domain and part dao">
       <option name="closed" value="true" />
@@ -232,13 +230,36 @@
       <option name="project" value="LOCAL" />
       <updated>1698979159193</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="probando">
+      <option name="closed" value="true" />
+      <created>1699279706934</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699279706934</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -250,6 +271,13 @@
                     <value>
                       <list>
                         <option value="origin/Modulo-de-Inventario-de-Hardware" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
                       </list>
                     </value>
                   </entry>
@@ -270,6 +298,7 @@
     <MESSAGE value="Consultar centro de computo 100%" />
     <MESSAGE value="Eliminar centro de computo 100%" />
     <MESSAGE value="Eliminar y consultar equipo de computo 100%" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eliminar y consultar equipo de computo 100%" />
+    <MESSAGE value="probando" />
+    <option name="LAST_COMMIT_MESSAGE" value="probando" />
   </component>
 </project>
