@@ -1,37 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.techstock.ConsultarEquipoComputoController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.ConsultarEquipoComputoController">
 
-    <Label prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-size: 18px;" text="Centro de Computo">
+    <Label prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-size: 18px;" text="Equipo de Computo">
         <font>
             <Font name="System Bold" size="18" />
         </font>
     </Label>
-    <TableView fx:id="tablaEquipo" editable="true" layoutX="118.0" layoutY="70.0" prefHeight="200.0" prefWidth="347.0">
+    <TableView fx:id="tablaEquipo" editable="true" layoutX="23.0" layoutY="55.0" prefHeight="234.0" prefWidth="555.0">
         <columns>
-            <TableColumn fx:id="idCentroComputo" prefWidth="75.0" text="Centro Computo" />
-            <TableColumn fx:id="noSerie" prefWidth="75.0" text="No. De Serie" />
-            <TableColumn fx:id="marca" prefWidth="75.0" text="Marca" />
-            <TableColumn fx:id="almacenamiento" prefWidth="75.0" text="Almacenamiento" />
-            <TableColumn fx:id="memoria" prefWidth="75.0" text="Memoria Ram" />
-            <TableColumn fx:id="procesador" prefWidth="75.0" text="Procesador" />
+            <TableColumn fx:id="idCentroComputo" prefWidth="111.0" text="Centro Computo" />
+            <TableColumn fx:id="noSerie" prefWidth="87.0" text="No. De Serie" />
+            <TableColumn fx:id="marca" prefWidth="62.0" text="Marca" />
+            <TableColumn fx:id="almacenamiento" prefWidth="106.0" text="Almacenamiento" />
+            <TableColumn fx:id="memoria" prefWidth="101.0" text="Memoria Ram" />
+            <TableColumn fx:id="procesador" prefWidth="87.0" text="Procesador" />
 
         </columns>
     </TableView>
 
-    <Button layoutX="68.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnAgregar" text="Agregar" />
-    <Button layoutX="423.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnEliminar" text="Eliminar" />
-    <Button layoutX="257.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnActualizar" text="Actualizar" />
+
+    <Button layoutX="68.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnAgregar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Agregar" />
+    <Button layoutX="316.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnEliminar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Eliminar" />
+    <Button layoutX="186.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnActualizar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Actualizar" />
+    <Button layoutX="508.0" layoutY="331.0" onAction="#btnCancelar" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Cancelar" />
+
 
 
 </AnchorPane>

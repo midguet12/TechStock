@@ -31,17 +31,20 @@ public class ConsultarEquipoComputoController implements Initializable {
     @FXML
     private TableView<EquipoComputo> tablaEquipo;
     @FXML
-    private TableColumn<EquipoComputo, Integer> idCentroComputo = new TableColumn<>();;
+    private TableColumn<EquipoComputo, Integer> idCentroComputo = new TableColumn<>();
     @FXML
-    private TableColumn<EquipoComputo, String>  noSerie = new TableColumn<>();;
+    private TableColumn<EquipoComputo, String>  noSerie = new TableColumn<>();
     @FXML
-    private TableColumn<EquipoComputo, String>  marca = new TableColumn<>();;
+    private TableColumn<EquipoComputo, String>  marca = new TableColumn<>();
     @FXML
-    private TableColumn<EquipoComputo, String>  almacenamiento = new TableColumn<>();;
+    private TableColumn<EquipoComputo, String>  almacenamiento = new TableColumn<>();
     @FXML
-    private TableColumn<EquipoComputo, String>  memoria = new TableColumn<>();;
+    private TableColumn<EquipoComputo, String>  memoria = new TableColumn<>();
     @FXML
-    private TableColumn<EquipoComputo, String>  procesador = new TableColumn<>();;
+    private TableColumn<EquipoComputo, String>  procesador = new TableColumn<>();
+
+
+    // Al momento de llenar la tabla debe de decir el NOMBRE del centro de COmputo no el ID
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -116,5 +119,8 @@ public class ConsultarEquipoComputoController implements Initializable {
     }
 
     public void btnActualizar(ActionEvent actionEvent) {
+    }
+
+    public void btnCancelar(ActionEvent actionEvent) {
     }
 }

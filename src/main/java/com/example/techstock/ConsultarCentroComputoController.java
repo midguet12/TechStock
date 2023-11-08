@@ -105,4 +105,7 @@ public class ConsultarCentroComputoController implements Initializable {
 
     public void btnActualizar(ActionEvent actionEvent) {
     }
+
+    public void btnCancelar(ActionEvent actionEvent) {
+    }
 }

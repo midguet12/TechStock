@@ -12,11 +12,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class AgregarEquipoComputoController implements Initializable {
+public class ActualizarEquipoComputoController implements Initializable {
     @FXML
     private TextField noDeSerieTextField;
     @FXML
@@ -30,12 +31,6 @@ public class AgregarEquipoComputoController implements Initializable {
     @FXML
     private ComboBox<CentroComputo> centroCompuComboBox;
 
-    //Si elimina el centro de computo se debe de eliminar todos los equipos de computos asociados a el
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        cargarCentroComputo();
-    }
 
     public boolean verificarExistencia() {
         EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
@@ -86,7 +81,6 @@ public class AgregarEquipoComputoController implements Initializable {
         return false;
     }
 
-
     public void limpiarCampos() {
         noDeSerieTextField.clear();
         marcaTextField.clear();
@@ -95,6 +89,13 @@ public class AgregarEquipoComputoController implements Initializable {
         cpuTextField.clear();
         centroCompuComboBox.getSelectionModel().clearSelection();
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+    }
+
+
+    // EL NUMERO DE SERIE SERA ACTUALIZABLE}
 
     public void btnAceptar(ActionEvent actionEvent) {
         EquipoComputoDAO equipoDao = new EquipoComputoDAO();
@@ -107,7 +108,7 @@ public class AgregarEquipoComputoController implements Initializable {
             mostrarAlerta("Error", "Por favor retifique los datos");
         } else {
             try {
-                boolean exito = equipoDao.create(equipo);
+                boolean exito = equipoDao.update(equipo);
                 if (exito) {
                     mostrarAlerta("Información", "Se ha guardado correctamente");
                     limpiarCampos();
@@ -120,8 +121,6 @@ public class AgregarEquipoComputoController implements Initializable {
         }
     }
 
-    public void btnCancelar(ActionEvent actionEvent){
-
+    public void btnCancelar(ActionEvent actionEvent) {
     }
-
 }

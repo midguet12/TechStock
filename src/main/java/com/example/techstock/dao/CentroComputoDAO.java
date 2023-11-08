@@ -30,7 +30,7 @@ public class CentroComputoDAO {
     }
 
     public boolean update(CentroComputo centroComputo) throws SQLException {
-        String query = "UPDATE centro_computo SET  nombre = ?  WHERE numeroSerie = ?";
+        String query = "UPDATE centro_computo SET  nombre = ?  WHERE idCentroComputo = ?";
         String nombre = centroComputo.getNombre();
 
         try (Connection connection = DriverManager.getConnection(url, user, password);
