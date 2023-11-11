@@ -1,5 +1,6 @@
 package com.example.techstock.controller.ModuloInventarioHardware;
 
+import com.example.techstock.DataSingleton;
 import com.example.techstock.dao.CentroComputoDAO;
 import com.example.techstock.domain.CentroComputo;
 import javafx.event.ActionEvent;
@@ -16,9 +17,20 @@ public class ActualizarCentroComputoController implements Initializable {
     @FXML
     private TextField nombreTextField;
 
+    DataSingleton data = DataSingleton.getInstance();
+    Integer idCentroComputo = data.getIdCentroComputo();
+    CentroComputoDAO centroComputoDAO = new CentroComputoDAO();
+    CentroComputo centroComputo;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        try{
+            centroComputo = centroComputoDAO.read(data.getIdCentroComputo());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        nombreTextField.setText(centroComputo.getNombre());
     }
 
     public void btnAceptar(ActionEvent actionEvent) {
@@ -51,12 +63,18 @@ public class ActualizarCentroComputoController implements Initializable {
 
     public boolean verificarExistencia() {
         CentroComputoDAO centroDao = new CentroComputoDAO();
-        boolean existe = centroDao.nombreExiste(nombreTextField.getText());
-        if (existe) {
-            return true;
-        } else {
+        try{
+            boolean existe = centroDao.nombreExiste(nombreTextField.getText());
+            if (existe) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
             return false;
         }
+
     }
 
     private void mostrarAlerta(String titulo, String contenido) {

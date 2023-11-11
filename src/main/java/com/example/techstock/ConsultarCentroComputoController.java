@@ -31,6 +31,8 @@ public class ConsultarCentroComputoController implements Initializable {
     @FXML
     private TableColumn<CentroComputo, String> nombre = new TableColumn<>();
 
+    DataSingleton data = DataSingleton.getInstance();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
        llenarTabla();
@@ -41,10 +43,15 @@ public class ConsultarCentroComputoController implements Initializable {
         nombre.setCellValueFactory(new PropertyValueFactory<CentroComputo, String>("nombre"));
 
         CentroComputoDAO centroComputoDAO = new CentroComputoDAO();
-        List<CentroComputo> centros = centroComputoDAO.showTable();
+        List<CentroComputo> centros = null;
+
+        try {
+            centros = centroComputoDAO.readAll();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
         ObservableList<CentroComputo> listaObservableCentro = FXCollections.observableList(centros);
-
-
         tablaCentro.setItems(listaObservableCentro);
     }
 
@@ -61,20 +68,23 @@ public class ConsultarCentroComputoController implements Initializable {
     public void btnEliminar(ActionEvent actionEvent) {
         CentroComputo centroSeleccionado = tablaCentro.getSelectionModel().getSelectedItem();
         CentroComputoDAO centroDAO = new CentroComputoDAO();
+        Integer idCentroComputo = centroSeleccionado.getIdCentroComputo();
 
         if (centroSeleccionado != null) {
-
             boolean confirmacion = mostrarConfirmacion(centroSeleccionado.getNombre());
-            String nombreCentro = centroSeleccionado.getNombre();
-
-            if(confirmacion){
-                boolean eliminado = centroDAO.delete(nombreCentro);
-                if (eliminado) {
-                    tablaCentro.getItems().remove(centroSeleccionado);
-                } else {
-                    mostrarAlerta("Error","No se pudo eliminar el registro.");
+            try{
+                if(confirmacion){
+                    boolean eliminado = centroDAO.delete(idCentroComputo);
+                    if (eliminado) {
+                        tablaCentro.getItems().remove(centroSeleccionado);
+                    } else {
+                        mostrarAlerta("Error","No se pudo eliminar el registro.");
+                    }
                 }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
             }
+
         } else {
             mostrarAlerta("Advertencia","Por favor, selecciona un Centro de Computo para eliminar.");
         }
@@ -103,7 +113,17 @@ public class ConsultarCentroComputoController implements Initializable {
     }
 
 
-    public void btnActualizar(ActionEvent actionEvent) {
+    public void btnActualizar(ActionEvent actionEvent) throws IOException {
+        CentroComputo centroSeleccionado = tablaCentro.getSelectionModel().getSelectedItem();
+        data.setIdCentroComputo(centroSeleccionado.getIdCentroComputo());
+
+        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/ActualizarCentroComputo.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setTitle("Actualizar Software");
+        stage.setScene(scene);
+        stage.initModality(Modality.NONE);
+        stage.show();
     }
 
     public void btnCancelar(ActionEvent actionEvent) {

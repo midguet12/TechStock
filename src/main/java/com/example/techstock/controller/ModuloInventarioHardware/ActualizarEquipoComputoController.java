@@ -1,5 +1,6 @@
 package com.example.techstock.controller.ModuloInventarioHardware;
 
+import com.example.techstock.DataSingleton;
 import com.example.techstock.dao.CentroComputoDAO;
 import com.example.techstock.dao.EquipoComputoDAO;
 import com.example.techstock.domain.CentroComputo;
@@ -31,15 +32,26 @@ public class ActualizarEquipoComputoController implements Initializable {
     @FXML
     private ComboBox<CentroComputo> centroCompuComboBox;
 
+    DataSingleton data = DataSingleton.getInstance();
+    String idEquipoComputo = data.getNumeroSerie();
+    EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
+    EquipoComputo equipoComputo;
+
 
     public boolean verificarExistencia() {
         EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
-        boolean existe = equipoComputoDAO.noSerieExiste(noDeSerieTextField.getText());
-        if (existe) {
-            return true;
-        } else {
+        try{
+            boolean existe = equipoComputoDAO.noSerieExiste(noDeSerieTextField.getText());
+            if (existe) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
             return false;
         }
+
     }
 
     private void mostrarAlerta(String titulo, String contenido) {
@@ -52,14 +64,20 @@ public class ActualizarEquipoComputoController implements Initializable {
 
     private void cargarCentroComputo() {
         CentroComputoDAO centroComputoDAO = new CentroComputoDAO();
-        List<CentroComputo> resultadoConsulta = centroComputoDAO.readAll();
-        ObservableList<CentroComputo> listaCentros = FXCollections.observableArrayList(resultadoConsulta);
 
-        if (!resultadoConsulta.isEmpty()) {
-            centroCompuComboBox.setItems(listaCentros);
-        } else {
-            mostrarAlerta("Advertencia", "No se encontraron datos de centros de cómputo.");
+        try {
+            List<CentroComputo> resultadoConsulta = centroComputoDAO.readAll();
+            ObservableList<CentroComputo> listaCentros = FXCollections.observableArrayList(resultadoConsulta);
+
+            if (!resultadoConsulta.isEmpty()) {
+                centroCompuComboBox.setItems(listaCentros);
+            } else {
+                mostrarAlerta("Advertencia", "No se encontraron datos de centros de cómputo.");
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
+
     }
 
     public boolean validarCampos() {
@@ -92,10 +110,20 @@ public class ActualizarEquipoComputoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try{
+            equipoComputo = equipoComputoDAO.read(data.getNumeroSerie());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        noDeSerieTextField.setText(equipoComputo.getNumeroSerie());
+        marcaTextField.setText(equipoComputo.getMarca());
+        capacidadAlmaTextField.setText(equipoComputo.getAlmacenamiento());
+        memoriaRamTextField.setText(equipoComputo.getMemoria());
+        cpuTextField.setText(equipoComputo.getProcesador());
+        //centroCompuComboBox.setItems(equipoComputo.getIdCentroComputo());     ERROR AL CARGAR EN EL COMBOBOX !!!!
+
     }
-
-
-    // EL NUMERO DE SERIE SERA ACTUALIZABLE}
 
     public void btnAceptar(ActionEvent actionEvent) {
         EquipoComputoDAO equipoDao = new EquipoComputoDAO();

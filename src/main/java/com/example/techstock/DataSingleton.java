@@ -1,8 +1,7 @@
-package com.example.techstock.domain;
+package com.example.techstock;
 
-import javafx.collections.ObservableList;
-
-public class EquipoComputo {
+public class DataSingleton {
+    private static final DataSingleton instance = new DataSingleton();
     private Integer idCentroComputo;
     private String numeroSerie;
     private String marca;
@@ -10,24 +9,11 @@ public class EquipoComputo {
     private String memoria;
     private String procesador;
 
-    public EquipoComputo() {
+    public DataSingleton() {
     }
 
-    public EquipoComputo(Integer idCentroComputo, String numeroSerie, String marca, String almacenamiento, String memoria, String procesador) {
-        this.idCentroComputo = idCentroComputo;
-        this.numeroSerie = numeroSerie;
-        this.marca = marca;
-        this.almacenamiento = almacenamiento;
-        this.memoria = memoria;
-        this.procesador = procesador;
-    }
-
-    public String getNumeroSerie() {
-        return numeroSerie;
-    }
-
-    public void setNumeroSerie(String numeroSerie) {
-        this.numeroSerie = numeroSerie;
+    public static DataSingleton getInstance(){
+        return instance;
     }
 
     public Integer getIdCentroComputo() {
@@ -36,6 +22,14 @@ public class EquipoComputo {
 
     public void setIdCentroComputo(Integer idCentroComputo) {
         this.idCentroComputo = idCentroComputo;
+    }
+
+    public String getNumeroSerie() {
+        return numeroSerie;
+    }
+
+    public void setNumeroSerie(String numeroSerie) {
+        this.numeroSerie = numeroSerie;
     }
 
     public String getMarca() {

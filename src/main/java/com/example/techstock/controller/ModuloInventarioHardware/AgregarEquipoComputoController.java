@@ -39,12 +39,18 @@ public class AgregarEquipoComputoController implements Initializable {
 
     public boolean verificarExistencia() {
         EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
-        boolean existe = equipoComputoDAO.noSerieExiste(noDeSerieTextField.getText());
-        if (existe) {
-            return true;
-        } else {
-            return false;
+        try{
+            boolean existe = equipoComputoDAO.noSerieExiste(noDeSerieTextField.getText());
+            if (existe) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return  false;
         }
+
     }
 
     private void mostrarAlerta(String titulo, String contenido) {
@@ -57,14 +63,19 @@ public class AgregarEquipoComputoController implements Initializable {
 
     private void cargarCentroComputo() {
         CentroComputoDAO centroComputoDAO = new CentroComputoDAO();
-        List<CentroComputo> resultadoConsulta = centroComputoDAO.readAll();
-        ObservableList<CentroComputo> listaCentros = FXCollections.observableArrayList(resultadoConsulta);
+        try {
+            List<CentroComputo> resultadoConsulta = centroComputoDAO.readAll();
+            ObservableList<CentroComputo> listaCentros = FXCollections.observableArrayList(resultadoConsulta);
 
-        if (!resultadoConsulta.isEmpty()) {
-            centroCompuComboBox.setItems(listaCentros);
-        } else {
-            mostrarAlerta("Advertencia", "No se encontraron datos de centros de cómputo.");
+            if (!resultadoConsulta.isEmpty()) {
+                centroCompuComboBox.setItems(listaCentros);
+            } else {
+                mostrarAlerta("Advertencia", "No se encontraron datos de centros de cómputo.");
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
+
     }
 
     public boolean validarCampos() {

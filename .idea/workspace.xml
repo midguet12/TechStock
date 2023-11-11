@@ -4,19 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Creando esqueleto de consultar">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/ConsultarEquipoComputo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/ActualizarEquipoComputoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/ActualizarEquipoComputo.fxml" afterDir="false" />
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Dudas en Actualizar y Consultar">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/DataSingleton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/ConsultarCentroComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/ConsultarCentroComputoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/ConsultarEquipoComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/ConsultarEquipoComputoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/ActualizarCentroComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/ActualizarCentroComputoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/ActualizarEquipoComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/ActualizarEquipoComputoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/AgregarCentroComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/AgregarCentroComputoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/AgregarEquipoComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/controller/ModuloInventarioHardware/AgregarEquipoComputoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/CentroComputoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/CentroComputoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/ActualizarCentroComputo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/ActualizarCentroComputo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/ConsultarCentroComputo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/ConsultarCentroComputo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/ConsultarEquipoComputo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/ConsultarEquipoComputo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/EquipoComputoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/EquipoComputoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/PerifericoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/PerifericoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/EquipoComputo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/EquipoComputo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +56,9 @@
         <option name="url" value="https://github.com/midguet12/TechStock.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -163,7 +167,10 @@
       <workItem from="1699227662276" duration="26000" />
       <workItem from="1699279481364" duration="1028000" />
       <workItem from="1699460426324" duration="847000" />
-      <workItem from="1699461291624" duration="846000" />
+      <workItem from="1699461291624" duration="931000" />
+      <workItem from="1699484780846" duration="5505000" />
+      <workItem from="1699534906826" duration="11000" />
+      <workItem from="1699668488652" duration="744000" />
     </task>
     <task id="LOCAL-00001" summary="Domain and part dao">
       <option name="closed" value="true" />
@@ -261,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699280372473</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Dudas en Actualizar y Consultar">
+      <option name="closed" value="true" />
+      <created>1699462210592</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699462210592</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,6 +339,7 @@
     <MESSAGE value="probando" />
     <MESSAGE value="probando 2" />
     <MESSAGE value="Creando esqueleto de consultar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creando esqueleto de consultar" />
+    <MESSAGE value="Dudas en Actualizar y Consultar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dudas en Actualizar y Consultar" />
   </component>
 </project>

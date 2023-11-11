@@ -42,9 +42,7 @@ public class ConsultarEquipoComputoController implements Initializable {
     private TableColumn<EquipoComputo, String>  memoria = new TableColumn<>();
     @FXML
     private TableColumn<EquipoComputo, String>  procesador = new TableColumn<>();
-
-
-    // Al momento de llenar la tabla debe de decir el NOMBRE del centro de COmputo no el ID
+    DataSingleton data = DataSingleton.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,11 +57,17 @@ public class ConsultarEquipoComputoController implements Initializable {
         memoria.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("memoria"));
         procesador.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("procesador"));
 
-        EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
-        List<EquipoComputo> equipoComputos = equipoComputoDAO.readAll();
-        ObservableList<EquipoComputo> listaObservableEquipo = FXCollections.observableList(equipoComputos);
+        try {
+            EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
+            List<EquipoComputo> equipoComputos = equipoComputoDAO.readAll();
+            ObservableList<EquipoComputo> listaObservableEquipo = FXCollections.observableList(equipoComputos);
 
-        tablaEquipo.setItems(listaObservableEquipo);
+            tablaEquipo.setItems(listaObservableEquipo);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+
     }
 
     private void mostrarAlerta(String titulo, String contenido) {
@@ -106,19 +110,34 @@ public class ConsultarEquipoComputoController implements Initializable {
             String equipoCentro = equipoComputoSeleccionado.getNumeroSerie();
 
             if(confirmacion){
-                boolean eliminado = equipoComputoDAO.delete(equipoCentro);
-                if (eliminado) {
-                    tablaEquipo.getItems().remove(equipoComputoSeleccionado);
-                } else {
-                    mostrarAlerta("Error","No se pudo eliminar el registro.");
+                try {
+                    boolean eliminado = equipoComputoDAO.delete(equipoCentro);
+                    if (eliminado) {
+                        tablaEquipo.getItems().remove(equipoComputoSeleccionado);
+                    } else {
+                        mostrarAlerta("Error","No se pudo eliminar el registro.");
+                    }
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
                 }
+
             }
         }else {
             mostrarAlerta("Advertencia","Por favor, selecciona un Centro de Computo para eliminar.");
         }
     }
 
-    public void btnActualizar(ActionEvent actionEvent) {
+    public void btnActualizar(ActionEvent actionEvent) throws IOException {
+        EquipoComputo equipoSeleccionado = tablaEquipo.getSelectionModel().getSelectedItem();
+        data.setNumeroSerie(equipoSeleccionado.getNumeroSerie());
+
+        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/ActualizarEquipoComputo.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setTitle("Actualizar Equipo");
+        stage.setScene(scene);
+        stage.initModality(Modality.NONE);
+        stage.show();
     }
 
     public void btnCancelar(ActionEvent actionEvent) {

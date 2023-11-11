@@ -43,10 +43,15 @@ public class AgregarCentroComputoController implements Initializable {
 
     public boolean verificarExistencia() {
         CentroComputoDAO centroDao = new CentroComputoDAO();
-        boolean existe = centroDao.nombreExiste(nombreTextField.getText());
-        if (existe) {
-            return true;
-        } else {
+        try {
+            boolean existe = centroDao.nombreExiste(nombreTextField.getText());
+            if (existe) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
             return false;
         }
     }
