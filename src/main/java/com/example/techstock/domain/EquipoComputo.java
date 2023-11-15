@@ -1,5 +1,7 @@
 package com.example.techstock.domain;
 
+import javafx.collections.ObservableList;
+
 public class EquipoComputo {
     private Integer idCentroComputo;
     private String numeroSerie;
