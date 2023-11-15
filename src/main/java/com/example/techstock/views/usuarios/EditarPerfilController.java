@@ -47,12 +47,13 @@ public class EditarPerfilController implements Initializable {
         if (usuario.getAdministrador()){
             administradorLabel.setText(administradorLabel.getText() + "Sí");
         } else {
-            administradorLabel.setText(administradorLabel.getText() + "No");
+            administradorLabel.setText(administradorLabel.getText() +  "\t"+ " No");
         }
     }
 
 
     public void guardarAction(ActionEvent actionEvent) {
+
     }
 
     public void cancelarAction(ActionEvent actionEvent) throws IOException {
