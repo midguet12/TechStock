@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="457.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.usuarios.EditarPerfilController">
+   <children>
+      <Label layoutX="42.0" layoutY="104.0" text="Usuario: " />
+      <Label layoutX="42.0" layoutY="143.0" text="Nombre completo:" />
+      <Label fx:id="administradorLabel" layoutX="40.0" layoutY="183.0" text="Administrador:" />
+      <TextField fx:id="nombreUsuarioTextField" layoutX="176.0" layoutY="100.0" />
+      <TextField fx:id="nombreCompletoTextField" layoutX="177.0" layoutY="137.0" />
+      <TextField fx:id="currentContrasenaTextField" layoutX="178.0" layoutY="215.0" />
+      <Label layoutX="40.0" layoutY="220.0" text="Contraseña actual:" />
+      <TextField fx:id="newContrasenaTextField" layoutX="177.0" layoutY="254.0" />
+      <Label layoutX="39.0" layoutY="259.0" text="Contraseña nueva:" />
+      <TextField fx:id="confirmationContrasenaTextField" layoutX="178.0" layoutY="290.0" />
+      <Label layoutX="40.0" layoutY="295.0" text="Confirmacion:" />
+      <Label layoutX="163.0" layoutY="41.0" text="Editar perfil">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Button fx:id="guardarButton" layoutX="183.0" layoutY="336.0" mnemonicParsing="false" onAction="#guardarAction" text="Guardar" />
+      <Button fx:id="cancelarButton" layoutX="25.0" layoutY="42.0" mnemonicParsing="false" onAction="#cancelarAction" style="-fx-background-color:#FF0000; -fx-text-fill: white;" text="Cancelar" />
+   </children>
+</AnchorPane>

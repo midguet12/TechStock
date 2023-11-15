@@ -39,6 +39,10 @@ public class UsuariosController implements Initializable {
         @FXML
         private TableColumn<Usuario, String> contrasenaColumn;
         @FXML
+        private TableColumn<Usuario, String> nombreCompleto;
+        @FXML
+        private TableColumn<Usuario, Boolean> administrador;
+        @FXML
         private HBox editarCampos;
 
         @FXML
@@ -147,8 +151,8 @@ public class UsuariosController implements Initializable {
         protected void onPruebaButtonClick() {
             String message = "";
             try{
-                UsuarioDAO usuarioDAO = new UsuarioDAO();
-                Usuario usuario = new Usuario("Quacker", DigestUtils.sha256Hex("elpato"));
+                //UsuarioDAO usuarioDAO = new UsuarioDAO();
+                //Usuario usuario = new Usuario("Quacker", DigestUtils.sha256Hex("elpato"));
 
                 //PRUEBAS PARA INSERTAR USUARIO
                 /*

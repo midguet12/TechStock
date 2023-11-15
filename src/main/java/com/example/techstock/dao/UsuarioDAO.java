@@ -10,14 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioDAO {
-
-    final String INSERT = "INSERT INTO usuario(nombreUsuario, contrasena) VALUES (?,?)";
-    final String GETALL = "SELECT nombreUsuario, contrasena FROM usuario";
-    final String GETONE = "SELECT * FROM usuario WHERE nombreUsuario = ?";
-    final String DELETE = "DELETE FROM usuario WHERE nombreUsuario = ?";
-    final String FULLUPDATE = "UPDATE usuario SET nombreUsuario = ?, contrasena = ? WHERE nombreUsuario = ?";
-    final String UPDATE = "UPDATE usuario SET nombreUsuario = ? WHERE nombreUsuario = ?";
-
     Connection connection;
     PreparedStatement preparedStatement;
 
@@ -31,9 +23,11 @@ public class UsuarioDAO {
         }
     }
     public boolean create(Usuario usuario) throws  SQLException{
-        String query = "INSERT INTO usuario(nombreUsuario, contrasena) VALUES (?,?)";
+        String query = "INSERT INTO usuario(nombreUsuario, contrasena, nombreCompleto, administrador) VALUES (?,?,?,?)";
         String nombreUsuario = usuario.getNombreUsuario();
         String contrasena = usuario.getContrasena();
+        String nombreCompleto = usuario.getNombreCompleto();
+        boolean administrador = usuario.getAdministrador();
 
         boolean success = false;
 
@@ -43,7 +37,9 @@ public class UsuarioDAO {
                 preparedStatement = connection.prepareStatement(query);
 
                 preparedStatement.setString(1, nombreUsuario);
-                preparedStatement.setString(1, contrasena);
+                preparedStatement.setString(2, contrasena);
+                preparedStatement.setString(3, nombreCompleto);
+                preparedStatement.setBoolean(4, administrador);
 
                 int rows = preparedStatement.executeUpdate();
                 if (rows > 0){
@@ -78,6 +74,10 @@ public class UsuarioDAO {
                 usuario = new Usuario();
                 usuario.setNombreUsuario(resultSet.getString("nombreUsuario"));
                 usuario.setContrasena(resultSet.getString("contrasena"));
+                usuario.setNombreCompleto(resultSet.getString("nombreCompleto"));
+                usuario.setAdministrador(resultSet.getBoolean("administrador"));
+
+
             }
         } catch (Exception exception){
             System.out.println(exception.getMessage());
@@ -102,6 +102,9 @@ public class UsuarioDAO {
                     Usuario usuario = new Usuario();
                     usuario.setNombreUsuario(resultSet.getString("nombreUsuario"));
                     usuario.setContrasena(resultSet.getString("contrasena"));
+                    usuario.setNombreCompleto(resultSet.getString("nombreCompleto"));
+                    usuario.setAdministrador(resultSet.getBoolean("administrador"));
+
 
                     usuarioList.add(usuario);
                 }
@@ -117,9 +120,11 @@ public class UsuarioDAO {
     }
 
     public boolean update(Usuario usuario) throws SQLException{
-        String query = "UPDATE usuario SET nombreUsuario = ?, contrasena = ? WHERE nombreUsuario = ?";
+        String query = "UPDATE usuario SET nombreUsuario = ?, contrasena = ?, nombreCompleto = ?, administrador = ? WHERE nombreUsuario = ?";
         String nombreUsuario = usuario.getNombreUsuario();
         String contrasena = usuario.getContrasena();
+        String nombreCompleto = usuario.getNombreCompleto();
+        boolean administrador = usuario.getAdministrador();
 
         boolean success = false;
 
@@ -129,9 +134,11 @@ public class UsuarioDAO {
                 preparedStatement = connection.prepareStatement(query);
 
                 preparedStatement.setString(1, nombreUsuario);
-                preparedStatement.setString(1, contrasena);
+                preparedStatement.setString(2, contrasena);
+                preparedStatement.setString(3, nombreCompleto);
+                preparedStatement.setBoolean(4, administrador);
 
-                preparedStatement.setString(3, nombreUsuario);
+                preparedStatement.setString(5, nombreUsuario);
 
                 int rows = preparedStatement.executeUpdate();
                 if (rows > 0){

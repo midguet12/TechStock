@@ -1,41 +1,59 @@
 package com.example.techstock.domain;
 
 public class Usuario {
-    private String nombre;
+    private String nombreUsuario;
     private String contrasena;
 
-    // Constructor
-    public Usuario(String nombre, String contrasena) {
-        this.nombre = nombre;
-        this.contrasena = contrasena;
-    }
+    private String nombreCompleto;
+    private Boolean administrador;
+
+
     public Usuario() {
     }
 
-    // Getter para el nombre del usuario
+    public Usuario(String nombreUsuario, String contrasena, String nombreCompleto, Boolean administrador) {
+        this.nombreUsuario = nombreUsuario;
+        this.contrasena = contrasena;
+        this.nombreCompleto = nombreCompleto;
+        this.administrador = administrador;
+    }
+
     public String getNombreUsuario() {
-        return nombre;
+        return nombreUsuario;
     }
 
-    // Setter para el nombre del usuario
-    public void setNombreUsuario(String nombre) {
-        this.nombre = nombre;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
-    // Getter para la contraseña del usuario
     public String getContrasena() {
         return contrasena;
     }
 
-    // Setter para la contraseña del usuario
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+
+    public Boolean getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(Boolean administrador) {
+        this.administrador = administrador;
     }
 
     @Override
     public String toString() {
         return "Usuario{" +
-                "nombre='" + nombre + '\'' +
+                "nombre='" + nombreUsuario + '\'' +
                 ", contrasena='" + contrasena + '\'' +
                 '}';
     }

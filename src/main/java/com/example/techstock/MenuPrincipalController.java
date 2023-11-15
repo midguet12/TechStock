@@ -24,6 +24,8 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     public Button cerrarSesionButton;
     public Button consultarSoftwareButton;
+    public Button administrarUsuariosButton;
+    public Button editarPerfilButton;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -34,7 +36,11 @@ public class MenuPrincipalController implements Initializable {
             System.out.println(exception.getMessage());
         }
 
-        usuarioLabel.setText(usuarioLabel.getText() + usuario.getNombreUsuario());
+        usuarioLabel.setText(usuarioLabel.getText() + usuario.getNombreCompleto());
+
+        if (!usuario.getAdministrador()){
+            administrarUsuariosButton.setDisable(true);
+        }
 
     }
 
@@ -71,6 +77,24 @@ public class MenuPrincipalController implements Initializable {
     }
 
     public void consultarPerifericosAction(ActionEvent actionEvent) {
+
+    }
+
+    public void administrarUsuariosAction(ActionEvent actionEvent) throws IOException{
+        Stage stage = (Stage) administrarUsuariosButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("ModuloUsuarios/Usuarios-Vista.fxml"));
+        stage.setTitle("Administrar usuarios");
+        stage.setScene(new Scene(root));
+    }
+
+    public void editarPerfilAction(ActionEvent actionEvent) throws IOException{
+        dataSingleton.setUsuario(dataSingleton.getUsuario());
+
+        Stage stage = (Stage) editarPerfilButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("ModuloUsuarios/EditarPerfil.fxml"));
+        stage.setTitle("Editar perfil");
+        stage.setScene(new Scene(root));
+
 
     }
 }
