@@ -1,14 +1,14 @@
-package com.example.techstock;
+package com.example.techstock.views.hardware;
+
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ConsultarEquipoComputo extends Application {
+public class AgregarCentroComputo extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
-
+    public void start(Stage stage) throws IOException{
     }
 
     public static void main(String[] args){

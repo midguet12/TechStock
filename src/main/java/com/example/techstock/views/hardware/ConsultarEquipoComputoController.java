@@ -1,5 +1,6 @@
-package com.example.techstock;
+package com.example.techstock.views.hardware;
 
+import com.example.techstock.DataSingleton;
 import com.example.techstock.dao.CentroComputoDAO;
 import com.example.techstock.dao.EquipoComputoDAO;
 import com.example.techstock.domain.CentroComputo;

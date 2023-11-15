@@ -20,5 +20,7 @@ module com.example.techstock {
 
     exports com.example.techstock.domain;
     opens com.example.techstock.domain to javafx.base;
+    exports com.example.techstock.views.hardware;
+    opens com.example.techstock.views.hardware to javafx.fxml;
 
 }

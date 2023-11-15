@@ -1,5 +1,6 @@
-package com.example.techstock;
+package com.example.techstock.views.hardware;
 
+import com.example.techstock.DataSingleton;
 import com.example.techstock.dao.CentroComputoDAO;
 import com.example.techstock.domain.CentroComputo;
 import javafx.beans.property.SimpleObjectProperty;
@@ -45,11 +46,13 @@ public class ConsultarCentroComputoController implements Initializable {
         CentroComputoDAO centroComputoDAO = new CentroComputoDAO();
         List<CentroComputo> centros = null;
 
+
         try {
             centros = centroComputoDAO.readAll();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+
 
         ObservableList<CentroComputo> listaObservableCentro = FXCollections.observableList(centros);
         tablaCentro.setItems(listaObservableCentro);
