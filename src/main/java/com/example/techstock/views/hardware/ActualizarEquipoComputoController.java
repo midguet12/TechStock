@@ -1,4 +1,4 @@
-package com.example.techstock.controller.ModuloInventarioHardware;
+package com.example.techstock.views.hardware;
 
 import com.example.techstock.DataSingleton;
 import com.example.techstock.dao.CentroComputoDAO;

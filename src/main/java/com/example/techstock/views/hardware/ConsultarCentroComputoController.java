@@ -3,8 +3,6 @@ package com.example.techstock.views.hardware;
 import com.example.techstock.DataSingleton;
 import com.example.techstock.dao.CentroComputoDAO;
 import com.example.techstock.domain.CentroComputo;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,6 +29,8 @@ public class ConsultarCentroComputoController implements Initializable {
     private TableColumn<CentroComputo, Integer> idCentroComputo = new TableColumn<>();
     @FXML
     private TableColumn<CentroComputo, String> nombre = new TableColumn<>();
+    @FXML
+    private Button cancelarButton;
 
     DataSingleton data = DataSingleton.getInstance();
 
@@ -129,6 +129,10 @@ public class ConsultarCentroComputoController implements Initializable {
         stage.show();
     }
 
-    public void btnCancelar(ActionEvent actionEvent) {
+    public void cancelarAction(ActionEvent actionEvent) throws IOException{
+        Stage stage = (Stage) cancelarButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+        stage.setTitle("Menu Principal");
+        stage.setScene(new Scene(root));
     }
 }

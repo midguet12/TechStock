@@ -19,9 +19,9 @@
         </TableView>
 
         <Button layoutX="68.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnAgregar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Agregar" />
-        <Button layoutX="316.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnEliminar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Eliminar" />
+        <Button layoutX="465.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnEliminar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Eliminar" />
         <Button layoutX="186.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnActualizar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Actualizar" />
-        <Button layoutX="508.0" layoutY="331.0" onAction="#btnCancelar" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Cancelar" />
+        <Button fx:id="cancelarButton" layoutX="22.0" layoutY="42.0" onAction="#cancelarAction" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Cancelar" />
 
 
 </AnchorPane>

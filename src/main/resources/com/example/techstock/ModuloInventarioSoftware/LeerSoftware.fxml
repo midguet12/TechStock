@@ -18,9 +18,8 @@
             <TableColumn fx:id="version" prefWidth="75.0" text="Versión" />
          </columns></TableView>
       <Button fx:id="createSoftware" layoutX="68.0" layoutY="332.0" mnemonicParsing="false" onAction="#agregarSoftware" text="Agregar" />
-      <Button fx:id="deleteButton" layoutX="423.0" layoutY="332.0" mnemonicParsing="false" onAction="#deleteSoftware" text="Eliminar" />
+      <Button fx:id="deleteButton" layoutX="423.0" layoutY="332.0" mnemonicParsing="false" onAction="#deleteSoftwareAction" text="Eliminar" />
       <Button fx:id="actualizarSoftware" layoutX="257.0" layoutY="332.0" mnemonicParsing="false" onAction="#actualizarSoftware" text="Actualizar" />
-      <Button fx:id="recargarButton" layoutX="489.0" layoutY="81.0" mnemonicParsing="false" onAction="#recargarTableView" text="Recargar" />
-      <Button fx:id="regresarButton" layoutX="41.0" layoutY="34.0" mnemonicParsing="false" onAction="#regresarAction" text="&lt;-" />
+      <Button fx:id="regresarButton" layoutX="41.0" layoutY="34.0" mnemonicParsing="false" onAction="#cancelarAction" text="Cancelar" style="-fx-background-color:#FF0000; -fx-text-fill: white;"/>
    </children>
 </AnchorPane>

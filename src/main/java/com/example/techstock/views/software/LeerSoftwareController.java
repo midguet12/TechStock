@@ -94,23 +94,8 @@ public class LeerSoftwareController implements Initializable{
         stage.show();
     }
 
-    public void recargarTableView(ActionEvent actionEvent) {
-        tablaSoftware.getItems().clear();
 
-        SoftwareDAO softwareDAO = new SoftwareDAO();
-        List<Software> listaSoftware = null;
-        try {
-            listaSoftware = softwareDAO.readAll();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        ObservableList<Software> listaObservableSoftware = FXCollections.observableList(listaSoftware);
-
-
-        tablaSoftware.setItems(listaObservableSoftware);
-    }
-
-    public void deleteSoftware(ActionEvent actionEvent) throws SQLException {
+    public void deleteSoftwareAction(ActionEvent actionEvent) throws SQLException {
         Software selectedItem = (Software) tablaSoftware.getSelectionModel().getSelectedItem();
         SoftwareDAO softwareDAO = new SoftwareDAO();
         softwareDAO.delete(selectedItem.getIdSoftware());
@@ -125,7 +110,7 @@ public class LeerSoftwareController implements Initializable{
 
     }
 
-    public void regresarAction(ActionEvent actionEvent) throws IOException{
+    public void cancelarAction(ActionEvent actionEvent) throws IOException{
         Stage stage = (Stage) regresarButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
         stage.setTitle("Menu Principal");
