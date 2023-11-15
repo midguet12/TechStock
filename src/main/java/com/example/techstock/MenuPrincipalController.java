@@ -76,8 +76,11 @@ public class MenuPrincipalController implements Initializable {
 
     }
 
-    public void consultarPerifericosAction(ActionEvent actionEvent) {
-
+    public void consultarPerifericosAction(ActionEvent actionEvent) throws IOException{
+        Stage stage = (Stage) cerrarSesionButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/AdministrarPerifericos.fxml"));
+        stage.setTitle("Administrar perifericos");
+        stage.setScene(new Scene(root));
     }
 
     public void administrarUsuariosAction(ActionEvent actionEvent) throws IOException{
