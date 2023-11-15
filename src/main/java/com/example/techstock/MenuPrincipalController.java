@@ -49,16 +49,24 @@ public class MenuPrincipalController implements Initializable {
     public void consultarSoftwareAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) cerrarSesionButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioSoftware/LeerSoftware.fxml"));
-        stage.setTitle("Iniciar sesion");
+        stage.setTitle("Software");
         stage.setScene(new Scene(root));
 
     }
 
-    public void consultarCentrosComputoAction(ActionEvent actionEvent) {
+    public void consultarCentrosComputoAction(ActionEvent actionEvent) throws IOException{
+        Stage stage = (Stage) cerrarSesionButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/ConsultarCentroComputo.fxml"));
+        stage.setTitle("Centro computo");
+        stage.setScene(new Scene(root));
 
     }
 
-    public void consultarEquiposComputoAction(ActionEvent actionEvent) {
+    public void consultarEquiposComputoAction(ActionEvent actionEvent) throws IOException{
+        Stage stage = (Stage) cerrarSesionButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/ConsultarEquipoComputo.fxml"));
+        stage.setTitle("Centro computo");
+        stage.setScene(new Scene(root));
 
     }
 

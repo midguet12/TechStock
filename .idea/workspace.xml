@@ -4,28 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="EquipoComputo DAO factorizado">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/MenuPrincipal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/MenuPrincipalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/logic/IniciarSesionLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/MenuPrincipal.fxml" afterDir="false" />
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Merge remote-tracking branch 'origin/Modulo-de-Inventario-de-Hardware' into Software&#10;&#10;# Conflicts:&#10;#&#9;.idea/dataSources.local.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/techstock/DataSingleton.java&#10;#&#9;src/main/java/com/example/techstock/HelloController.java&#10;#&#9;src/main/java/com/example/techstock/dao/DBConnection.java&#10;#&#9;src/main/java/com/example/techstock/dao/PerifericoDAO.java&#10;#&#9;src/main/java/com/example/techstock/views/usuarios/UsuariosApplication.java&#10;#&#9;src/main/java/module-info.java&#10;#&#9;src/main/resources/com/example/techstock/hello-view.fxml">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/caa94fcb-aab6-4848-84c9-2812a8a1ab32/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/caa94fcb-aab6-4848-84c9-2812a8a1ab32/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/caa94fcb-aab6-4848-84c9-2812a8a1ab32/storage_v2/_src_/schema/techstock.QOLkVw.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/DataSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/DataSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/IniciarSesionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/IniciarSesionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/LeerSoftware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/LeerSoftware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/LeerSoftwareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/LeerSoftwareController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/UsuariosApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/usuarios/UsuariosApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/UsuariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/usuarios/UsuariosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/SoftwareDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/SoftwareDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/UsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/Software.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/Software.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/ActualizarSoftwareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/ActualizarSoftwareController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/IniciarSesion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/IniciarSesion.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/LeerSoftware.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/LeerSoftware.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloUsuarios/Usuarios-Vista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloUsuarios/Usuarios-Vista.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/MenuPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/MenuPrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,35 +65,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Software&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/midguetarturogarciatorres/IdeaProjects/TechStock/src/main/java/com/example/techstock&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/utilidades java/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.29885057&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Software",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_directory_selection": "/Users/midguetarturogarciatorres/IdeaProjects/TechStock/src/main/java/com/example/techstock",
+    "last_opened_file_path": "D:/utilidades java/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30/mysql-connector-java-8.0.30.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.27701148",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/techstock" />
@@ -316,7 +303,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699073792790</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Merge remote-tracking branch 'origin/Modulo-de-Inventario-de-Hardware' into Software&#10;&#10;# Conflicts:&#10;#&#9;.idea/dataSources.local.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/techstock/DataSingleton.java&#10;#&#9;src/main/java/com/example/techstock/HelloController.java&#10;#&#9;src/main/java/com/example/techstock/dao/DBConnection.java&#10;#&#9;src/main/java/com/example/techstock/dao/PerifericoDAO.java&#10;#&#9;src/main/java/com/example/techstock/views/usuarios/UsuariosApplication.java&#10;#&#9;src/main/java/module-info.java&#10;#&#9;src/main/resources/com/example/techstock/hello-view.fxml">
+      <option name="closed" value="true" />
+      <created>1700033161703</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1700033161703</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +339,8 @@
     <MESSAGE value="gui iniciar sesion" />
     <MESSAGE value="SoftwareDAO refactorizado" />
     <MESSAGE value="EquipoComputo DAO factorizado" />
-    <option name="LAST_COMMIT_MESSAGE" value="EquipoComputo DAO factorizado" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/Modulo-de-Inventario-de-Hardware' into Software&#10;&#10;# Conflicts:&#10;#&#9;.idea/dataSources.local.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/techstock/DataSingleton.java&#10;#&#9;src/main/java/com/example/techstock/HelloController.java&#10;#&#9;src/main/java/com/example/techstock/dao/DBConnection.java&#10;#&#9;src/main/java/com/example/techstock/dao/PerifericoDAO.java&#10;#&#9;src/main/java/com/example/techstock/views/usuarios/UsuariosApplication.java&#10;#&#9;src/main/java/module-info.java&#10;#&#9;src/main/resources/com/example/techstock/hello-view.fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/Modulo-de-Inventario-de-Hardware' into Software&#10;&#10;# Conflicts:&#10;#&#9;.idea/dataSources.local.xml&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/techstock/DataSingleton.java&#10;#&#9;src/main/java/com/example/techstock/HelloController.java&#10;#&#9;src/main/java/com/example/techstock/dao/DBConnection.java&#10;#&#9;src/main/java/com/example/techstock/dao/PerifericoDAO.java&#10;#&#9;src/main/java/com/example/techstock/views/usuarios/UsuariosApplication.java&#10;#&#9;src/main/java/module-info.java&#10;#&#9;src/main/resources/com/example/techstock/hello-view.fxml" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
