@@ -1,11 +1,21 @@
 package com.example.techstock;
 
+import com.example.techstock.logic.IniciarSesionLogic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -14,20 +24,67 @@ public class IniciarSesionController implements Initializable {
     public TextField nombreUsuarioTextField;
     @FXML
     public PasswordField contrasenaPasswordField;
+    public Label mensajeLabel;
 
-    String nombre = "";
+    @FXML
+    public Button iniciarSesionButton;
+
+
+    String nombreUsuario = "";
     String contrasena = "";
+
+    DataSingleton dataSingleton = DataSingleton.getInstance();
+
+    private void iniciarSesion() throws Exception{
+        nombreUsuario = nombreUsuarioTextField.getText();
+        contrasena = contrasenaPasswordField.getText();
+
+        IniciarSesionLogic iniciarSesion = new IniciarSesionLogic();
+        boolean autorizacion = iniciarSesion.autorizar(nombreUsuario, contrasena);
+
+        if (autorizacion){
+            mensajeLabel.setTextFill(Color.GREEN);
+            mensajeLabel.setText("Iniciando sesion...");
+
+            dataSingleton.setUsuario(nombreUsuario);
+
+            //Cambio de vista sin abrir nueva ventana
+            Stage stage = (Stage) iniciarSesionButton.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+            stage.setTitle("Menu Principal");
+            stage.setScene(new Scene(root));
+
+        } else {
+            mensajeLabel.setTextFill(Color.RED);
+            mensajeLabel.setText("Contraseña incorrecta");
+        }
+    };
+
+    @FXML
+    public void keyPressed(KeyEvent keyEvent){
+        if (keyEvent.getCode().toString().equals("ENTER")){
+            try {
+                iniciarSesion();
+            } catch (Exception exception){
+                System.out.println(exception.getMessage());
+            }
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
 
-    public void iniciarSesionAction(ActionEvent actionEvent) {
-        nombre = nombreUsuarioTextField.getText();
-        contrasena = contrasenaPasswordField.getText();
 
-        System.out.println("Hola como estas, ya funciono " + nombre + " " + contrasena);
+
+    public void iniciarSesionAction(ActionEvent actionEvent) throws IOException {
+        try {
+            iniciarSesion();
+        } catch (Exception exception){
+            System.out.println(exception.getMessage());
+        }
 
     }
 }

@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="559.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.IniciarSesionController">
+<AnchorPane fx:id="probando" prefHeight="559.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.IniciarSesionController">
    <children>
       <VBox alignment="CENTER" layoutX="57.0" layoutY="2.0" prefHeight="552.0" prefWidth="267.0" spacing="10.0">
          <children>
@@ -19,10 +19,11 @@
                </VBox.margin>
             </Label>
             <Label text="Usuario:" />
-            <TextField fx:id="nombreUsuarioTextField" promptText="Nombre de usuario" />
+            <TextField fx:id="nombreUsuarioTextField" onKeyPressed="#keyPressed" promptText="Nombre de usuario" text="midguet" />
             <Label text="Contraseña:" />
-            <PasswordField fx:id="contrasenaPasswordField" promptText="Contraseña" />
-            <Button fx:id="iniciarSesionButton" mnemonicParsing="false" onAction="#iniciarSesionAction" text="Iniciar sesion" textAlignment="CENTER" />
+            <PasswordField fx:id="contrasenaPasswordField" onKeyPressed="#keyPressed" promptText="Contraseña" text="Magt22081998" />
+            <Button fx:id="iniciarSesionButton" mnemonicParsing="false" onAction="#iniciarSesionAction" onKeyPressed="#keyPressed" text="Iniciar sesion" textAlignment="CENTER" />
+            <Label fx:id="mensajeLabel" />
          </children></VBox>
    </children>
 </AnchorPane>

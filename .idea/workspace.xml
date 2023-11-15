@@ -4,10 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="SoftwareDAO refactorizado">
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="EquipoComputo DAO factorizado">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/MenuPrincipal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/MenuPrincipalController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/logic/IniciarSesionLogic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/MenuPrincipal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/EquipoComputoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/EquipoComputoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/DataSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/DataSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/IniciarSesionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/IniciarSesionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/LeerSoftware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/LeerSoftware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/LeerSoftwareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/LeerSoftwareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/UsuariosApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/usuarios/UsuariosApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/UsuariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/usuarios/UsuariosController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/SoftwareDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/SoftwareDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/UsuarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/Software.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/Software.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/ActualizarSoftwareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/ActualizarSoftwareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/IniciarSesion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/IniciarSesion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/LeerSoftware.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/LeerSoftware.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloUsuarios/Usuarios-Vista.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloUsuarios/Usuarios-Vista.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,15 +39,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Software" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,6 +65,9 @@
         <option name="url" value="https://github.com/midguet12/TechStock.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/techstock/dao/EquipoComputoDAO.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -88,20 +109,23 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloUsuarios" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/techstock" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloUsuarios" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.techstock" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.techstock.dao" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.LeerSoftware">
+  <component name="RunManager" selected="Application.IniciarSesion">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.techstock.HelloApplication" />
       <module name="TechStock" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.techstock.*" />
+          <option name="PATTERN" value="com.example.techstock.views.software.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -114,7 +138,7 @@
       <module name="TechStock" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.techstock.*" />
+          <option name="PATTERN" value="com.example.techstock.views.software.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -123,11 +147,11 @@
       </method>
     </configuration>
     <configuration name="LeerSoftware" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.techstock.LeerSoftware" />
+      <option name="MAIN_CLASS_NAME" value="com.example.techstock.views.software.LeerSoftware" />
       <module name="TechStock" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.techstock.*" />
+          <option name="PATTERN" value="com.example.techstock.views.software.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,11 +160,11 @@
       </method>
     </configuration>
     <configuration name="UsuariosApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.techstock.UsuariosApplication" />
+      <option name="MAIN_CLASS_NAME" value="com.example.techstock.views.usuarios.UsuariosApplication" />
       <module name="TechStock" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.techstock.*" />
+          <option name="PATTERN" value="com.example.techstock.views.software.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -150,8 +174,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LeerSoftware" />
         <item itemvalue="Application.IniciarSesion" />
+        <item itemvalue="Application.LeerSoftware" />
         <item itemvalue="Application.UsuariosApplication" />
         <item itemvalue="Application.HelloApplication" />
       </list>
@@ -172,7 +196,13 @@
       <workItem from="1698165832635" duration="896000" />
       <workItem from="1698710875433" duration="881000" />
       <workItem from="1699057199362" duration="650000" />
-      <workItem from="1699057868895" duration="7361000" />
+      <workItem from="1699057868895" duration="8012000" />
+      <workItem from="1699485069873" duration="3896000" />
+      <workItem from="1699983022125" duration="3639000" />
+      <workItem from="1699987205485" duration="11000" />
+      <workItem from="1699996567726" duration="11545000" />
+      <workItem from="1700023358273" duration="6886000" />
+      <workItem from="1700030333478" duration="1140000" />
     </task>
     <task id="LOCAL-00001" summary="Domain and part dao">
       <option name="closed" value="true" />
@@ -278,7 +308,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699063508981</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="EquipoComputo DAO factorizado">
+      <option name="closed" value="true" />
+      <created>1699073792790</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699073792790</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +343,8 @@
     <MESSAGE value="merge 1ra iteracion" />
     <MESSAGE value="gui iniciar sesion" />
     <MESSAGE value="SoftwareDAO refactorizado" />
-    <option name="LAST_COMMIT_MESSAGE" value="SoftwareDAO refactorizado" />
+    <MESSAGE value="EquipoComputo DAO factorizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="EquipoComputo DAO factorizado" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

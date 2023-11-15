@@ -1,14 +1,12 @@
 package com.example.techstock.domain;
 
 public class Software {
-    Integer idSoftware;
-    String nombre;
-    String version;
+    private Integer idSoftware;
+    private String nombre;
+    private String version;
 
     public Software() {
     }
-
-
 
     public Software(Integer idSoftware, String nombre, String version) {
         this.idSoftware = idSoftware;

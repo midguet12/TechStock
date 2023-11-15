@@ -8,9 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class UsuarioDAO {
 
@@ -21,112 +18,160 @@ public class UsuarioDAO {
     final String FULLUPDATE = "UPDATE usuario SET nombreUsuario = ?, contrasena = ? WHERE nombreUsuario = ?";
     final String UPDATE = "UPDATE usuario SET nombreUsuario = ? WHERE nombreUsuario = ?";
 
-    public void insertarUsuario(Usuario usuario) {
-        DBConnection dataBaseConnection = new DBConnection();
-        try(Connection connection=dataBaseConnection.getConnection()){
-            PreparedStatement stat=connection.prepareStatement(INSERT);
-            stat.setString(1, usuario.getNombreUsuario());
-            stat.setString(2, usuario.getContrasena());
+    Connection connection;
+    PreparedStatement preparedStatement;
 
-            if (stat.executeUpdate() == 0){
-                throw new SQLException("No se pudo ingresar");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+    private Connection getConnection(){
+        try{
+            connection = DBConnection.getConnection();
+            return connection;
+        } catch (SQLException exception){
+            System.out.println(exception.getMessage());
+            return null;
         }
     }
-    public void actualizarUsuario(Usuario usuario, String nombre) {
-        DBConnection dataBaseConnection = new DBConnection();
+    public boolean create(Usuario usuario) throws  SQLException{
+        String query = "INSERT INTO usuario(nombreUsuario, contrasena) VALUES (?,?)";
+        String nombreUsuario = usuario.getNombreUsuario();
+        String contrasena = usuario.getContrasena();
 
-        try (Connection connection = dataBaseConnection.getConnection()) {
-            if(Objects.equals(usuario.getContrasena(), "")){
-                PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);
-                preparedStatement.setString(1, usuario.getNombreUsuario());
-                preparedStatement.setString(2, nombre); // Clave primaria para identificar al usuario
-                if (preparedStatement.executeUpdate() > 0) {
-                    System.out.println("Usuario actualizado con éxito.");
-                } else {
-                    System.out.println("No se encontró ningún usuario para actualizar.");
-                }
-            }else {
-                PreparedStatement preparedStatement = connection.prepareStatement(FULLUPDATE);
-                preparedStatement.setString(1, usuario.getNombreUsuario());
-                preparedStatement.setString(2, usuario.getContrasena());
-                preparedStatement.setString(3, nombre); // Clave primaria para identificar al usuario
-                if (preparedStatement.executeUpdate() > 0) {
-                    System.out.println("Usuario actualizado con éxito.");
-                } else {
-                    System.out.println("No se encontró ningún usuario para actualizar.");
+        boolean success = false;
+
+        try {
+            connection = getConnection();
+            if (connection != null){
+                preparedStatement = connection.prepareStatement(query);
+
+                preparedStatement.setString(1, nombreUsuario);
+                preparedStatement.setString(1, contrasena);
+
+                int rows = preparedStatement.executeUpdate();
+                if (rows > 0){
+                    System.out.println("Se registro Usuario");
+                    success = true;
                 }
             }
+        } catch (Exception exception){
+            System.out.println(exception.getMessage());
+            exception.printStackTrace();
 
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            connection.close();
+            return success;
         }
     }
 
+    public Usuario read(String nombreUsuario) throws SQLException{
+        String query = "SELECT * FROM usuario WHERE nombreUsuario = ?";
+        Usuario usuario = null;
 
-    public List<Usuario> consultarUsuario() {
-        ArrayList<Usuario> usuarios = new ArrayList<>();
-        DBConnection dataBaseConnection = new DBConnection();
-        try(Connection connection=dataBaseConnection.getConnection()){
-            PreparedStatement statement=connection.prepareStatement(GETALL);
-            ResultSet resultSet=statement.executeQuery();
-            if (resultSet.next()==false){
-                throw new SQLException("no se encontraron usuarios");
-            }else{
-                String nombreUsuario="";
-                String contrasena="";
-                do {
-                    nombreUsuario= resultSet.getString("nombreUsuario");
-                    contrasena=resultSet.getString("contrasena");
+        try{
+            connection = getConnection();
+            if (connection != null){
+                preparedStatement = connection.prepareStatement(query);
+
+                preparedStatement.setString(1, nombreUsuario);
+
+                ResultSet resultSet = preparedStatement.executeQuery();
+                resultSet.next();
+
+                usuario = new Usuario();
+                usuario.setNombreUsuario(resultSet.getString("nombreUsuario"));
+                usuario.setContrasena(resultSet.getString("contrasena"));
+            }
+        } catch (Exception exception){
+            System.out.println(exception.getMessage());
+            exception.printStackTrace();
+        } finally {
+            connection.close();
+            return usuario;
+        }
+    }
+
+    public List<Usuario> readAll() throws SQLException{
+        String query = "SELECT * FROM usuario";
+        List<Usuario> usuarioList = null;
+        try{
+            usuarioList = new ArrayList<Usuario>();
+            connection = getConnection();
+            if (connection!= null) {
+                preparedStatement = connection.prepareStatement(query);
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                while(resultSet.next()){
                     Usuario usuario = new Usuario();
-                    usuario.setNombreUsuario(nombreUsuario);
-                    usuario.setContrasena(contrasena);
-                    usuarios.add(usuario);
-                }while (resultSet.next());
+                    usuario.setNombreUsuario(resultSet.getString("nombreUsuario"));
+                    usuario.setContrasena(resultSet.getString("contrasena"));
+
+                    usuarioList.add(usuario);
+                }
+                System.out.println("Se obtuvieron " + usuarioList.size() + " elementos.");
             }
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception exception){
+            System.out.println(exception.getMessage());
+            exception.printStackTrace();
+        } finally {
+            connection.close();
+            return usuarioList;
         }
-        return usuarios;
     }
 
+    public boolean update(Usuario usuario) throws SQLException{
+        String query = "UPDATE usuario SET nombreUsuario = ?, contrasena = ? WHERE nombreUsuario = ?";
+        String nombreUsuario = usuario.getNombreUsuario();
+        String contrasena = usuario.getContrasena();
 
-    public boolean UsuarioExiste(Usuario usuario) {
-        boolean resultado=false;
-        DBConnection dataBaseConnection = new DBConnection();
-        try (Connection connection = dataBaseConnection.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(GETONE);
-            statement.setString(1, usuario.getNombreUsuario());
-            ResultSet resultSet = statement.executeQuery();
-            resultado=resultSet.next();
+        boolean success = false;
 
-        }catch (SQLException ex){
-            java.util.logging.Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return resultado;
-    }
+        try {
+            connection = getConnection();
+            if (connection != null){
+                preparedStatement = connection.prepareStatement(query);
 
-    public void eliminarUsuario(Usuario usuario) {
-        DBConnection dataBaseConnection = new DBConnection();
+                preparedStatement.setString(1, nombreUsuario);
+                preparedStatement.setString(1, contrasena);
 
-        try (Connection connection = dataBaseConnection.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(DELETE);
-            preparedStatement.setString(1, usuario.getNombreUsuario());
+                preparedStatement.setString(3, nombreUsuario);
 
-
-            if (preparedStatement.executeUpdate() > 0) {
-                System.out.println("Registro eliminado con éxito.");
-            } else {
-                System.out.println("No se encontró ningún registro con el nombre de usuario proporcionado.");
+                int rows = preparedStatement.executeUpdate();
+                if (rows > 0){
+                    System.out.println("Se actualizo un usuario");
+                    success = true;
+                }
             }
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            exception.printStackTrace();
+        } finally {
+            connection.close();
+            return success;
         }
     }
 
+    public boolean delete(String nombreUsuario) throws SQLException{
+        String query = "DELETE FROM usuario WHERE nombreUsuario = ?";
+        boolean success = false;
 
+        try{
+            connection = getConnection();
+            if (connection!=null){
+                preparedStatement = connection.prepareStatement(query);
 
+                preparedStatement.setString(1, nombreUsuario);
 
+                int rows = preparedStatement.executeUpdate();
+
+                if(rows > 0) {
+                    System.out.println("Se elimino el registro");
+                    success = true;
+                }
+            }
+        } catch (Exception exception){
+            System.out.println(exception.getMessage());
+            exception.printStackTrace();
+        } finally {
+            connection.close();
+            return success;
+        }
+    }
 }

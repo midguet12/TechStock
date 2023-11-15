@@ -1,5 +1,6 @@
-package com.example.techstock;
+package com.example.techstock.views.software;
 
+import com.example.techstock.DataSingleton;
 import com.example.techstock.dao.SoftwareDAO;
 import com.example.techstock.domain.Software;
 import javafx.collections.FXCollections;
@@ -36,9 +37,10 @@ public class LeerSoftwareController implements Initializable{
     private TableColumn<Software, String> version = new TableColumn<>();
 
     @FXML
-    private Button createSoftware;
+    public Button createSoftware;
     @FXML
-    private Button actualizarSoftware;
+    public Button actualizarSoftware;
+    public Button regresarButton;
 
     DataSingleton data = DataSingleton.getInstance();
     @Override
@@ -121,5 +123,12 @@ public class LeerSoftwareController implements Initializable{
         tablaSoftware.setItems(listaObservableSoftware);
 
 
+    }
+
+    public void regresarAction(ActionEvent actionEvent) throws IOException{
+        Stage stage = (Stage) regresarButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+        stage.setTitle("Menu Principal");
+        stage.setScene(new Scene(root));
     }
 }

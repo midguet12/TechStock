@@ -1,4 +1,4 @@
-package com.example.techstock;
+package com.example.techstock.views.usuarios;
 
 
 import com.example.techstock.dao.UsuarioDAO;
@@ -53,7 +53,8 @@ public class UsuariosController implements Initializable {
 
     @FXML
     protected void registrarUsuario() {
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        /*UsuarioDAO usuarioDAO = new UsuarioDAO();
+
         String nombreUsuario = nombreUsuarioField.getText();
         String contrasena = contrasenaField.getText();
 
@@ -65,12 +66,12 @@ public class UsuariosController implements Initializable {
         Usuario usuario = new Usuario(nombreUsuario, DigestUtils.sha256Hex(contrasena));
 
         if (!usuarioDAO.UsuarioExiste(usuario)) {
-            usuarioDAO.insertarUsuario(usuario);
+            usuarioDAO.create(usuario);
             cargarUsuariosEnTabla();
             mostrarAlerta("Registro Exitoso", "El usuario se registró con éxito.");
         } else {
             mostrarAlerta("Registro Fallido", "El usuario ya existe en la base de datos.");
-        }
+        }*/
     }
 
     @FXML
@@ -106,7 +107,12 @@ public class UsuariosController implements Initializable {
 
 
             UsuarioDAO usuarioDAO = new UsuarioDAO();
-            usuarioDAO.actualizarUsuario(usuarioSeleccionado, nombre);
+            try{
+                usuarioDAO.update(usuarioSeleccionado);
+            } catch (Exception exception){
+                System.out.println(exception.getMessage());
+            }
+
 
             // Actualizar la tabla
             cargarUsuariosEnTabla();
@@ -124,7 +130,12 @@ public class UsuariosController implements Initializable {
         Usuario usuario = tablaUsuarios.getSelectionModel().getSelectedItem();
 
         if (usuario != null) {
-            usuarioDAO.eliminarUsuario(usuario);
+            try{
+                usuarioDAO.delete(usuario.getNombreUsuario());
+            }catch (Exception exception){
+                System.out.println(exception.getMessage());
+            }
+
             mostrarAlerta("Usuario Eliminado", "El usuario ha sido eliminado exitosamente.");
             cargarUsuariosEnTabla(); // Recargar la tabla después de eliminar
         } else {
@@ -169,7 +180,13 @@ public class UsuariosController implements Initializable {
 
     public void cargarUsuariosEnTabla() {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        List<Usuario> usuarios = usuarioDAO.consultarUsuario();
+        List<Usuario> usuarios = null;
+        try{
+            usuarios = usuarioDAO.readAll();
+        }catch (Exception exception){
+            System.out.println(exception.getMessage());
+        }
+
 
         // Convierte la lista de usuarios en un ObservableList para usarlo en la tabla
         ObservableList<Usuario> observableUsuarios = FXCollections.observableArrayList(usuarios);

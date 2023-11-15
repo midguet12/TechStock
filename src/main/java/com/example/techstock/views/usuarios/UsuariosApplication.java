@@ -1,4 +1,4 @@
-package com.example.techstock;
+package com.example.techstock.views.usuarios;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -142,8 +142,8 @@ public class SoftwareDAO {
                     success = true;
                 }
             }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
+        }catch (Exception exception){
+            System.out.println(exception.getMessage());
         }finally {
             connection.close();
             return success;
@@ -167,8 +167,8 @@ public class SoftwareDAO {
                     success = true;
                 }
             }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
+        }catch (Exception exception){
+            System.out.println(exception.getMessage());
         } finally {
             connection.close();
             return success;

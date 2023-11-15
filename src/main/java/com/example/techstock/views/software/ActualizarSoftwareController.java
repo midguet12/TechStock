@@ -27,9 +27,14 @@ public class ActualizarSoftwareController implements Initializable {
         software.setNombre(nombreTextField.getText());
         software.setVersion(versionTextField.getText());
 
-        if (softwareDAO.update(software)){
-            successMessage.setText("Se ha actualizado el software");
-        };
+        try {
+            if (softwareDAO.update(software)){
+                successMessage.setText("Se ha actualizado el software");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        ;
     }
 
     @Override

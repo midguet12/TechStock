@@ -3,6 +3,7 @@ package com.example.techstock;
 public class DataSingleton {
     private static final DataSingleton instance = new DataSingleton();
     private Integer idSoftware;
+    private String usuario;
 
     public DataSingleton() {
     }
@@ -19,5 +20,11 @@ public class DataSingleton {
         this.idSoftware = idSoftware;
     }
 
+    public String getUsuario() {
+        return usuario;
+    }
 
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 }
