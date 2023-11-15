@@ -37,4 +37,13 @@ public class Periferico {
     public void setMarca(String marca) {
         this.marca = marca;
     }
+
+    @Override
+    public String toString() {
+        return "Periferico{" +
+                "numeroSerie='" + numeroSerie + '\'' +
+                ", idCentroComputo=" + idCentroComputo +
+                ", marca='" + marca + '\'' +
+                '}';
+    }
 }

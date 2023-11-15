@@ -6,6 +6,7 @@ import com.example.techstock.domain.CentroComputo;
 import com.example.techstock.domain.Periferico;
 
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 
 public class AdministrarPerifericosLogic {
@@ -32,6 +33,27 @@ public class AdministrarPerifericosLogic {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public List<Periferico> consultarPerifericosPorCentro(CentroComputo centroComputo) {
+        try {
+            return perifericoDAO.readByCentroComputo(centroComputo.getIdCentroComputo());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
+
+
+    public boolean eliminarPeriferico(String numeroSerie) {
+        try {
+            PerifericoDAO perifericoDAO = new PerifericoDAO();
+            return perifericoDAO.delete(numeroSerie);
+        } catch (SQLException e) {
+            // Manejar la excepción si es necesario
+            e.printStackTrace();
+            return false;
         }
     }
 

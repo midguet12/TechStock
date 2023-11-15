@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.techstock.views.hardware.AdministrarPerifericosController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="586.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.hardware.AdministrarPerifericosController">
 
+    <VBox layoutX="20.0" layoutY="7.0" prefHeight="609.0" prefWidth="760.0" spacing="10">
+
+        <Label style="-fx-font-size: 20px;" text="Administrar Periféricos" />
+
+        <!-- Agregar Periférico -->
+        <HBox spacing="10">
+            <Label text="Agregar Periférico" />
+            <TextField fx:id="agregarNumeroSerieField" promptText="Número de Serie" />
+            <ComboBox fx:id="agregarCentroComputoComboBox" promptText="Centro de Cómputo" />
+            <TextField fx:id="agregarMarcaField" promptText="Marca" />
+            <Button onAction="#agregarPerifericoAction" text="Agregar" />
+        </HBox>
+
+        <!-- Consultar Periféricos -->
+        <HBox spacing="10">
+            <Label text="Consultar Periféricos" />
+            <ComboBox fx:id="consultarCentroComputoComboBox" promptText="Centro de Cómputo" />
+            <Button onAction="#consultarPerifericosAction" text="Consultar" />
+        </HBox>
+
+        <!-- Espacio Adicional -->
+        <Region VBox.vgrow="ALWAYS" />
+
+        <!-- Tabla de Periféricos -->
+        <TableView fx:id="perifericosTableView" prefHeight="363.0" prefWidth="760.0" visible="true">
+            <columns>
+                <TableColumn fx:id="numeroSerieColumn" prefWidth="117.0" text="Número de Serie" />
+                <TableColumn fx:id="centroComputoColumn" prefWidth="142.0" text="Centro de Cómputo" />
+                <TableColumn fx:id="marcaColumn" minWidth="1.0" prefWidth="127.0" text="Marca" />
+            </columns>
+        </TableView>
+
+        <!-- Espacio Adicional -->
+        <Region VBox.vgrow="ALWAYS" />
+
+        <!-- Editar Periférico -->
+        <HBox spacing="10">
+            <Label text="Editar Periférico" />
+            <ComboBox fx:id="editarPerifericoComboBox" prefHeight="25.0" prefWidth="146.0" promptText="Seleccione un Periférico" />
+            <TextField fx:id="editarNuevoNumeroSerieField" prefHeight="25.0" prefWidth="100.0" promptText="Nuevo Número de Serie" />
+            <ComboBox fx:id="editarNuevoCentroComputoComboBox" prefHeight="25.0" prefWidth="128.0" promptText="Nuevo Centro de Cómputo" />
+            <TextField fx:id="editarNuevaMarcaField" promptText="Nueva Marca" />
+            <Button disable="true" onAction="#editarPerifericoAction" text="Editar" />
+        </HBox>
+
+        <!-- Eliminar Periférico -->
+        <HBox spacing="10">
+            <Label text="Eliminar Periférico" />
+            <ComboBox fx:id="eliminarPerifericoComboBox" promptText="Seleccione un Periférico" />
+            <Button fx:id="eliminar" disable="true" onAction="#eliminarPerifericoAction" text="Eliminar" />
+        </HBox>
+    </VBox>
 </AnchorPane>
