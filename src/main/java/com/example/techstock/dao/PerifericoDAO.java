@@ -4,6 +4,7 @@ import com.example.techstock.domain.Periferico;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class PerifericoDAO {
     /*String url = DBConnection.getUrl();
@@ -15,37 +16,31 @@ public class PerifericoDAO {
     public PerifericoDAO() {
         try {
             //connection = DriverManager.getConnection(url, user, password);
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
     }
 
-    public boolean create(Periferico periferico){
-        String query = "INSERT INTO periferico(numeroSerie, idCentroComputo, marca) " +
-                "values (?,?,?)";
-        String numeroSerie = periferico.getNumeroSerie();
-        Integer idCentroComputo = periferico.getIdCentroComputo();
-        String marca = periferico.getMarca();
-        boolean result = true;
+    public boolean create(Periferico periferico) throws SQLException {
+        String query = "INSERT INTO periferico(numeroSerie, idCentroComputo, marca) VALUES (?,?,?)";
+        boolean result = false;
 
-        try{
-            preparedStatement = connection.prepareStatement(query);
-
-            preparedStatement.setString(1, numeroSerie);
-            preparedStatement.setInt(2, idCentroComputo);
-            preparedStatement.setString(3, marca);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, periferico.getNumeroSerie());
+            preparedStatement.setInt(2, periferico.getIdCentroComputo());
+            preparedStatement.setString(3, periferico.getMarca());
 
             int rows = preparedStatement.executeUpdate();
-            if (rows > 0){
-                System.out.println("Se registraron " +  rows + " lineas.");
-                return true;
+            if (rows > 0) {
+                System.out.println("Se registraron " + rows + " líneas.");
+                result = true;
             }
-
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-            return false;
+        } catch (SQLException e) {
+            throw new SQLException("Error al crear periférico: " + e.getMessage(), e);
+        } finally {
+            connection.close();
+            return result;
         }
-    return result;
     }
 }

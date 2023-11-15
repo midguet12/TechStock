@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Editar perfil listo">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/AdministrarPerifericosController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/AdministrarPerifericos.fxml" afterDir="false" />
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Esquema de administración de perifericos listo incluyendo navegavilidad a la ventana correspondiente">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/logic/AdministrarPerifericosLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/MenuPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/MenuPrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/PerifericoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/PerifericoDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700040210589</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Esquema de administración de perifericos listo incluyendo navegavilidad a la ventana correspondiente">
+      <option name="closed" value="true" />
+      <created>1700075659626</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1700075659626</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +371,8 @@
     <MESSAGE value="merge listo" />
     <MESSAGE value="Botones con color" />
     <MESSAGE value="Editar perfil listo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Editar perfil listo" />
+    <MESSAGE value="Esquema de administración de perifericos listo incluyendo navegavilidad a la ventana correspondiente" />
+    <option name="LAST_COMMIT_MESSAGE" value="Esquema de administración de perifericos listo incluyendo navegavilidad a la ventana correspondiente" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
