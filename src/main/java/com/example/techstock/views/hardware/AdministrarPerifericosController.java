@@ -35,11 +35,18 @@ public class AdministrarPerifericosController {
     @FXML
     private ComboBox<CentroComputo> editarNuevoCentroComputoComboBox;
     @FXML
+    private TextField editarNuevoNumeroSerieField;
+    @FXML
+    private TextField editarNuevaMarcaField;
+    @FXML
+    private Button editarBtn;
+    @FXML
+    private ComboBox<String> editarPerifericoComboBox;
+    @FXML
     private ComboBox<String> eliminarPerifericoComboBox;
     @FXML
     private Button eliminar;
-    @FXML
-    private ComboBox<String> editarPerifericoComboBox;
+
 
     @FXML
     public void initialize() {
@@ -51,11 +58,15 @@ public class AdministrarPerifericosController {
         perifericosTableView.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> {
                     eliminarPerifericoComboBox.getItems().clear();
+                    editarPerifericoComboBox.getItems().clear();
                     if (newValue != null) {
                         eliminarPerifericoComboBox.getItems().add(newValue.getNumeroSerie());
                         eliminar.setDisable(false);
+                        editarPerifericoComboBox.getItems().add(newValue.getNumeroSerie());
+                        editarBtn.setDisable(false);
                     }else {
                         eliminar.setDisable(true);
+                        editarBtn.setDisable(true);
                     }
                 }
         );
@@ -92,7 +103,6 @@ public class AdministrarPerifericosController {
             actualizarTablaPerifericos();
             limpiarCamposAgregar();
         } else {
-            // Manejar caso de fallo, si es necesario
         }
     }
 
@@ -107,9 +117,30 @@ public class AdministrarPerifericosController {
         }
     }
 
-    public void editarPerifericoAction(ActionEvent actionEvent) {
-        // Tu lógica para consultar periféricos
+
+
+    @FXML
+    private void editarPerifericoAction(ActionEvent event) {
+        String numeroSerie = editarPerifericoComboBox.getValue();
+        int nuevoCentroComputo = editarNuevoCentroComputoComboBox.getValue().getIdCentroComputo();
+        String nuevaMarca = editarNuevaMarcaField.getText();
+        Periferico periferico = new Periferico(numeroSerie, nuevoCentroComputo, nuevaMarca);
+
+        AdministrarPerifericosLogic perifericosLogic = new AdministrarPerifericosLogic();
+        boolean actualizacionExitosa = perifericosLogic.editarPeriferico(periferico);
+
+
+        if (actualizacionExitosa) {
+            limpiarCamposEditar();
+        } else {
+
+        }
     }
+    private void limpiarCamposEditar() {
+        editarNuevoCentroComputoComboBox.getSelectionModel().clearSelection();
+        editarNuevaMarcaField.clear();
+    }
+
 
     @FXML
     private void eliminarPerifericoAction() {
@@ -122,7 +153,6 @@ public class AdministrarPerifericosController {
                 perifericosTableView.getItems().removeIf(periferico -> periferico.getNumeroSerie().equals(numeroSerie));
                 eliminarPerifericoComboBox.getItems().remove(numeroSerie);
             } else {
-                // Manejar error si es necesario
             }
         }
     }
@@ -130,7 +160,7 @@ public class AdministrarPerifericosController {
 
     private void actualizarTablaPerifericos() {
         // Lógica para actualizar la tabla de periféricos
-        // Puedes implementar esto según cómo esté estructurada tu tabla y datos
+        // implementar esto según cómo esté estructurada tu tabla y datos
     }
     private void llenarTablaPerifericos(List<Periferico> perifericos) {
 

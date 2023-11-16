@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="586.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.hardware.AdministrarPerifericosController">
 
-    <VBox layoutX="20.0" layoutY="7.0" prefHeight="609.0" prefWidth="760.0" spacing="10">
+    <VBox fx:id="editar" layoutX="20.0" layoutY="7.0" prefHeight="609.0" prefWidth="760.0" spacing="10">
 
         <Label style="-fx-font-size: 20px;" text="Administrar Periféricos" />
 
@@ -43,11 +43,10 @@
         <!-- Editar Periférico -->
         <HBox spacing="10">
             <Label text="Editar Periférico" />
-            <ComboBox fx:id="editarPerifericoComboBox" prefHeight="25.0" prefWidth="146.0" promptText="Seleccione un Periférico" />
-            <TextField fx:id="editarNuevoNumeroSerieField" prefHeight="25.0" prefWidth="100.0" promptText="Nuevo Número de Serie" />
+            <ComboBox fx:id="editarPerifericoComboBox" prefHeight="25.0" prefWidth="179.0" promptText="Seleccione un Periférico" />
             <ComboBox fx:id="editarNuevoCentroComputoComboBox" prefHeight="25.0" prefWidth="128.0" promptText="Nuevo Centro de Cómputo" />
             <TextField fx:id="editarNuevaMarcaField" promptText="Nueva Marca" />
-            <Button disable="true" onAction="#editarPerifericoAction" text="Editar" />
+            <Button fx:id="editarBtn" disable="true" onAction="#editarPerifericoAction" text="Editar" />
         </HBox>
 
         <!-- Eliminar Periférico -->

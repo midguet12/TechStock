@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Agregación de capa lógica al esquema de administración de perifericos">
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Casos de uso agregar, consultar y eliminar perifericos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/PerifericoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/PerifericoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/Periferico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/domain/Periferico.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/logic/AdministrarPerifericosLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/logic/AdministrarPerifericosLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/AdministrarPerifericosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/AdministrarPerifericosController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/AdministrarPerifericos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/AdministrarPerifericos.fxml" afterDir="false" />
@@ -350,7 +349,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700077178542</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Casos de uso agregar, consultar y eliminar perifericos">
+      <option name="closed" value="true" />
+      <created>1700089705956</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1700089705956</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,7 +391,8 @@
     <MESSAGE value="Editar perfil listo" />
     <MESSAGE value="Esquema de administración de perifericos listo incluyendo navegavilidad a la ventana correspondiente" />
     <MESSAGE value="Agregación de capa lógica al esquema de administración de perifericos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agregación de capa lógica al esquema de administración de perifericos" />
+    <MESSAGE value="Casos de uso agregar, consultar y eliminar perifericos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Casos de uso agregar, consultar y eliminar perifericos" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

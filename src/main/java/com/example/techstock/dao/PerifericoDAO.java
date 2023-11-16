@@ -82,6 +82,22 @@ public class PerifericoDAO {
         }
     }
 
+    public boolean update(Periferico periferico) throws SQLException {
+        String query = "UPDATE periferico SET idCentroComputo = ?, marca = ? WHERE numeroSerie = ?";
+
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, periferico.getIdCentroComputo());
+            preparedStatement.setString(2, periferico.getMarca());
+            preparedStatement.setString(3, periferico.getNumeroSerie());
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            return rowsAffected > 0;
+        }
+    }
+
 
 
     public boolean delete(String numeroSerie) throws SQLException {

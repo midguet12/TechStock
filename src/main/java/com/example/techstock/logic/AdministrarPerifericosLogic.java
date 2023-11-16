@@ -45,13 +45,23 @@ public class AdministrarPerifericosLogic {
         }
     }
 
+    public boolean editarPeriferico(Periferico periferico) {
+        try {
+            return perifericoDAO.update(periferico);
+        } catch (SQLException e) {
+            e.printStackTrace();  // Manejar la excepción de acuerdo a tus necesidades
+            return false;
+        }
+    }
+
+
+
 
     public boolean eliminarPeriferico(String numeroSerie) {
         try {
             PerifericoDAO perifericoDAO = new PerifericoDAO();
             return perifericoDAO.delete(numeroSerie);
         } catch (SQLException e) {
-            // Manejar la excepción si es necesario
             e.printStackTrace();
             return false;
         }
