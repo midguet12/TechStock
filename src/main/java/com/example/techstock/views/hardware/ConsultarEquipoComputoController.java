@@ -1,9 +1,7 @@
 package com.example.techstock.views.hardware;
 
 import com.example.techstock.DataSingleton;
-import com.example.techstock.dao.CentroComputoDAO;
 import com.example.techstock.dao.EquipoComputoDAO;
-import com.example.techstock.domain.CentroComputo;
 import com.example.techstock.domain.EquipoComputo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,10 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -43,6 +38,9 @@ public class ConsultarEquipoComputoController implements Initializable {
     private TableColumn<EquipoComputo, String>  memoria = new TableColumn<>();
     @FXML
     private TableColumn<EquipoComputo, String>  procesador = new TableColumn<>();
+    @FXML
+    private Button buttonCancelar;
+
     DataSingleton data = DataSingleton.getInstance();
 
     @Override
@@ -140,7 +138,10 @@ public class ConsultarEquipoComputoController implements Initializable {
         stage.initModality(Modality.NONE);
         stage.show();
     }
-
-    public void btnCancelar(ActionEvent actionEvent) {
+    public void actionCancelar(ActionEvent actionEvent) throws IOException{
+        Stage stage = (Stage) buttonCancelar.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/MenuPrincipal.fxml"));
+        stage.setTitle("Menu Principal");
+        stage.setScene(new Scene(root));
     }
 }

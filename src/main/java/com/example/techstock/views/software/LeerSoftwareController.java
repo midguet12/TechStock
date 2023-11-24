@@ -112,7 +112,7 @@ public class LeerSoftwareController implements Initializable{
 
     public void cancelarAction(ActionEvent actionEvent) throws IOException{
         Stage stage = (Stage) regresarButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/MenuPrincipal.fxml"));
         stage.setTitle("Menu Principal");
         stage.setScene(new Scene(root));
     }

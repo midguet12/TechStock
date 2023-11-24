@@ -20,6 +20,7 @@ module com.example.techstock {
     exports com.example.techstock.views.usuarios;
     opens com.example.techstock.views.usuarios to javafx.fxml;
 
+
     exports com.example.techstock.views.hardware;
     opens com.example.techstock.views.hardware to javafx.fxml;
     exports com.example.techstock.views.software;

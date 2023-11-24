@@ -150,5 +150,6 @@ public class ActualizarEquipoComputoController implements Initializable {
     }
 
     public void btnCancelar(ActionEvent actionEvent) {
+
     }
 }

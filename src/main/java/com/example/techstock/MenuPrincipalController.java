@@ -57,7 +57,6 @@ public class MenuPrincipalController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioSoftware/LeerSoftware.fxml"));
         stage.setTitle("Software");
         stage.setScene(new Scene(root));
-
     }
 
     public void consultarCentrosComputoAction(ActionEvent actionEvent) throws IOException{
@@ -65,7 +64,6 @@ public class MenuPrincipalController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/ConsultarCentroComputo.fxml"));
         stage.setTitle("Centro computo");
         stage.setScene(new Scene(root));
-
     }
 
     public void consultarEquiposComputoAction(ActionEvent actionEvent) throws IOException{
@@ -91,6 +89,7 @@ public class MenuPrincipalController implements Initializable {
     }
 
     public void editarPerfilAction(ActionEvent actionEvent) throws IOException{
+
         dataSingleton.setUsuario(dataSingleton.getUsuario());
 
         Stage stage = (Stage) editarPerfilButton.getScene().getWindow();
