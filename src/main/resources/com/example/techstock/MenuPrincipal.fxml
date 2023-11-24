@@ -2,16 +2,26 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.MenuPrincipalController">
    <children>
-      <Label fx:id="usuarioLabel" layoutX="48.0" layoutY="38.0" text="Usuario: " />
+      <Label prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-size: 18px;" text="Menu principal">
+         <font>
+            <Font name="System Bold" size="18" />
+         </font>
+      </Label> 
+
+      <Label fx:id="usuarioLabel" layoutX="57.0" layoutY="34.0" text="Usuario: " />
+
       <Button fx:id="cerrarSesionButton" layoutX="452.0" layoutY="42.0" mnemonicParsing="false" onAction="#cerrarSesionAction" style="-fx-background-color:#FF0000; -fx-text-fill: white;" text="Cerrar sesión" />
+
       <Button fx:id="consultarSoftwareButton" layoutX="56.0" layoutY="125.0" mnemonicParsing="false" onAction="#consultarSoftwareAction" text="Consultar software" />
       <Button fx:id="consultarCentrosComputoButton" layoutX="56.0" layoutY="174.0" mnemonicParsing="false" onAction="#consultarCentrosComputoAction" text="Consultar centros de computo" />
       <Button fx:id="consultarEquiposComputoButton" layoutX="56.0" layoutY="220.0" mnemonicParsing="false" onAction="#consultarEquiposComputoAction" text="Consultar equipos de computo" />
       <Button fx:id="consultarPerifericosButton" layoutX="55.0" layoutY="264.0" mnemonicParsing="false" onAction="#consultarPerifericosAction" text="Consultar perifericos" />
+
       <Button fx:id="administrarUsuariosButton" layoutX="412.0" layoutY="138.0" mnemonicParsing="false" onAction="#administrarUsuariosAction" text="Administrar usuarios" />
-      <Button fx:id="editarPerfilButton" layoutX="45.0" layoutY="55.0" mnemonicParsing="false" onAction="#editarPerfilAction" text="Editar perfil" />
+      <Button fx:id="editarPerfilButton" layoutX="57.0" layoutY="55.0" mnemonicParsing="false" onAction="#editarPerfilAction" text="Editar perfil" />
    </children>
 </AnchorPane>

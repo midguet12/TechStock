@@ -4,17 +4,24 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="293.0" prefWidth="342.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.software.ActualizarSoftwareController">
+<AnchorPane prefHeight="432.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.software.ActualizarSoftwareController">
     <children>
-        <Label layoutX="69.0" layoutY="44.0" text="Actualizar Software">
+        <Label prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-size: 18px;" text="Editar Software">
             <font>
-                <Font name="Arial Bold" size="24.0" />
+                <Font name="System Bold" size="18" />
             </font>
         </Label>
-        <TextField fx:id="nombreTextField" layoutX="106.0" layoutY="128.0" promptText="Nombre" />
-        <TextField fx:id="versionTextField" layoutX="106.0" layoutY="182.0" promptText="Version" />
-        <Button fx:id="agregarSoftwareButton" layoutX="142.0" layoutY="225.0" mnemonicParsing="false" onAction="#actualizarSoftware" text="Actualizar" />
+
+        <Label layoutX="120.0" layoutY="142.0" text="Nombre:" />
+        <TextField fx:id="nombreTextField" layoutX="186.0" layoutY="138.0" prefHeight="25.0" prefWidth="288.0" promptText="Nombre" />
+
+        <Label layoutX="120.0" layoutY="195.0" text="Version:" />
+        <TextField fx:id="versionTextField" layoutX="186.0" layoutY="191.0" prefHeight="25.0" prefWidth="288.0" promptText="Version" />
+
         <Label fx:id="successMessage" layoutX="106.0" layoutY="250.0" text="" />
-      
+
+        <Button fx:id="actualizarSoftwareButton" layoutX="120.0" layoutY="274.0" mnemonicParsing="false" onAction="#actualizarSoftwareAction" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Actualizar" />
+        <Button fx:id="regresarButton" layoutX="405.0" layoutY="273.0" mnemonicParsing="false" onAction="#regresarAction" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Regresar" />
+
     </children>
 </AnchorPane>

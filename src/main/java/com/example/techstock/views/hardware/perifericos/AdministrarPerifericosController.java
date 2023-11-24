@@ -1,4 +1,4 @@
-package com.example.techstock.views.hardware;
+package com.example.techstock.views.hardware.perifericos;
 
 import com.example.techstock.domain.CentroComputo;
 import com.example.techstock.domain.Periferico;

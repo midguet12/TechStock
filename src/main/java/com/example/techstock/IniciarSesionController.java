@@ -1,6 +1,7 @@
 package com.example.techstock;
 
-import com.example.techstock.logic.IniciarSesionLogic;
+import com.example.techstock.logic.LogWriting;
+import com.example.techstock.logic.UsuarioLogic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class IniciarSesionController implements Initializable {
@@ -29,7 +31,6 @@ public class IniciarSesionController implements Initializable {
     @FXML
     public Button iniciarSesionButton;
 
-
     String nombreUsuario = "";
     String contrasena = "";
 
@@ -39,10 +40,13 @@ public class IniciarSesionController implements Initializable {
         nombreUsuario = nombreUsuarioTextField.getText();
         contrasena = contrasenaPasswordField.getText();
 
-        IniciarSesionLogic iniciarSesion = new IniciarSesionLogic();
-        boolean autorizacion = iniciarSesion.autorizar(nombreUsuario, contrasena);
 
-        if (autorizacion){
+        Boolean autorizacion = UsuarioLogic.autorizar(nombreUsuario, contrasena);
+
+        if(autorizacion == null){
+            mensajeLabel.setTextFill(Color.RED);
+            mensajeLabel.setText("Error de conexion");
+        } else if (autorizacion){
             mensajeLabel.setTextFill(Color.GREEN);
             mensajeLabel.setText("Iniciando sesion...");
 
@@ -54,7 +58,7 @@ public class IniciarSesionController implements Initializable {
             stage.setTitle("Menu Principal");
             stage.setScene(new Scene(root));
 
-        } else {
+        } else if (autorizacion == false){
             mensajeLabel.setTextFill(Color.RED);
             mensajeLabel.setText("Contraseña incorrecta");
         }
@@ -66,6 +70,7 @@ public class IniciarSesionController implements Initializable {
             try {
                 iniciarSesion();
             } catch (Exception exception){
+                LogWriting.writeLog(exception.getMessage());
                 System.out.println(exception.getMessage());
             }
         }
@@ -74,15 +79,22 @@ public class IniciarSesionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
     }
-
-
 
 
     public void iniciarSesionAction(ActionEvent actionEvent) throws IOException {
         try {
             iniciarSesion();
-        } catch (Exception exception){
+        }
+        catch (SQLException exception){
+            LogWriting.writeLog(exception.getMessage());
+            exception.printStackTrace();
+            System.out.println(exception.getMessage());
+        }
+        catch (Exception exception){
+            LogWriting.writeLog(exception.getMessage());
+            exception.printStackTrace();
             System.out.println(exception.getMessage());
         }
 

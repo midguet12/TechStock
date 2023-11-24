@@ -1,0 +1,6 @@
+Cannot invoke "java.lang.Boolean.booleanValue()" because "autorizacion" is null
+Cannot invoke "java.lang.Boolean.booleanValue()" because "autorizacion" is null
+Cannot invoke "java.lang.Boolean.booleanValue()" because "autorizacion" is null
+Cannot invoke "java.lang.Boolean.booleanValue()" because "autorizacion" is null
+
+

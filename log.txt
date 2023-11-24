@@ -1,0 +1,1 @@
+Cannot invoke "java.sql.Connection.close()" because "this.connection" is null

@@ -112,7 +112,7 @@ public class UsuariosController implements Initializable {
 
             UsuarioDAO usuarioDAO = new UsuarioDAO();
             try{
-                usuarioDAO.update(usuarioSeleccionado);
+                //usuarioDAO.update(usuarioSeleccionado);
             } catch (Exception exception){
                 System.out.println(exception.getMessage());
             }

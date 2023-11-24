@@ -1,4 +1,4 @@
-package com.example.techstock.views.hardware;
+package com.example.techstock.views.hardware.centrocomputo;
 
 import com.example.techstock.DataSingleton;
 import com.example.techstock.dao.CentroComputoDAO;
@@ -59,7 +59,7 @@ public class ConsultarCentroComputoController implements Initializable {
     }
 
     public void btnAgregar(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/AgregarCentroComputo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioHardware/CentroComputo/AgregarCentroComputo.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setTitle("Agregar Software");
@@ -120,7 +120,7 @@ public class ConsultarCentroComputoController implements Initializable {
         CentroComputo centroSeleccionado = tablaCentro.getSelectionModel().getSelectedItem();
         data.setIdCentroComputo(centroSeleccionado.getIdCentroComputo());
 
-        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/ActualizarCentroComputo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioHardware/CentroComputo/ActualizarCentroComputo.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setTitle("Actualizar Software");
@@ -131,7 +131,7 @@ public class ConsultarCentroComputoController implements Initializable {
 
     public void cancelarAction(ActionEvent actionEvent) throws IOException{
         Stage stage = (Stage) cancelarButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("MenuPrincipal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/MenuPrincipal.fxml"));
         stage.setTitle("Menu Principal");
         stage.setScene(new Scene(root));
     }

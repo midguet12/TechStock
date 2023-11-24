@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="141.0" prefWidth="452.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.hardware.ActualizarCentroComputoController">
+<AnchorPane prefHeight="141.0" prefWidth="452.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.hardware.centrocomputo.ActualizarCentroComputoController">
     <Label prefHeight="27.0" prefWidth="452.0" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-size: 18px;" text="Actualizar Centro de Computo">
         <font>
             <Font name="System Bold" size="18" />

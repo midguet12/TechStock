@@ -21,10 +21,14 @@ module com.example.techstock {
     opens com.example.techstock.views.usuarios to javafx.fxml;
 
 
-    exports com.example.techstock.views.hardware;
-    opens com.example.techstock.views.hardware to javafx.fxml;
     exports com.example.techstock.views.software;
     opens com.example.techstock.views.software to javafx.fxml;
+    exports com.example.techstock.views.hardware.centrocomputo;
+    opens com.example.techstock.views.hardware.centrocomputo to javafx.fxml;
+    exports com.example.techstock.views.hardware.equipocomputo;
+    opens com.example.techstock.views.hardware.equipocomputo to javafx.fxml;
+    exports com.example.techstock.views.hardware.perifericos;
+    opens com.example.techstock.views.hardware.perifericos to javafx.fxml;
 
 
 }

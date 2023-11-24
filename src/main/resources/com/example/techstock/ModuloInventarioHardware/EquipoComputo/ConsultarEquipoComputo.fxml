@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.hardware.ConsultarEquipoComputoController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.hardware.equipocomputo.ConsultarEquipoComputoController">
 
     <Label prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-size: 18px;" text="Equipo de Computo">
         <font>
@@ -24,10 +24,11 @@
     </TableView>
 
 
-    <Button layoutX="68.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnAgregar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Agregar" />
-    <Button layoutX="316.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnEliminar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Eliminar" />
-    <Button layoutX="186.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnActualizar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Actualizar" />
-    <Button fx:id="buttonCancelar" layoutX="508.0" layoutY="331.0" onAction="#actionCancelar" style="-fx-background-color:#FF0000; -fx-text-fill: white;" text="Cancelar" />
+    <Button layoutX="197.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnAgregar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Agregar" />
+    <Button layoutX="397.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnEliminar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Eliminar" />
+    <Button layoutX="292.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnActualizar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Actualizar" />
+
+    <Button fx:id="buttonCancelar" layoutX="57.0" layoutY="331.0" onAction="#actionCancelar" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Menu Principal" />
 
 
 

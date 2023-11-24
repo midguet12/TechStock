@@ -119,7 +119,7 @@ public class UsuarioDAO {
         }
     }
 
-    public boolean update(Usuario usuario) throws SQLException{
+    public boolean update(String nombreUsuarioActual, Usuario usuario) throws SQLException{
         String query = "UPDATE usuario SET nombreUsuario = ?, contrasena = ?, nombreCompleto = ?, administrador = ? WHERE nombreUsuario = ?";
         String nombreUsuario = usuario.getNombreUsuario();
         String contrasena = usuario.getContrasena();
@@ -138,7 +138,7 @@ public class UsuarioDAO {
                 preparedStatement.setString(3, nombreCompleto);
                 preparedStatement.setBoolean(4, administrador);
 
-                preparedStatement.setString(5, nombreUsuario);
+                preparedStatement.setString(5, nombreUsuarioActual);
 
                 int rows = preparedStatement.executeUpdate();
                 if (rows > 0){

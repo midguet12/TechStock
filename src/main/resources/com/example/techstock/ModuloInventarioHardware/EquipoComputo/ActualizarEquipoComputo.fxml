@@ -4,10 +4,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="278.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.hardware.AgregarEquipoComputoController">
+<AnchorPane prefHeight="261.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.hardware.equipocomputo.ActualizarEquipoComputoController">
 
 
-    <Label prefHeight="27.0" prefWidth="496.0" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-size: 18px;" text="Agregar Equipo De Computo">
+    <Label prefHeight="27.0" prefWidth="496.0" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-size: 18px;" text="Actualizar Equipo De Computo">
         <font>
             <Font name="System Bold" size="18" />
         </font>
@@ -26,8 +26,10 @@
     <Label layoutX="264.0" layoutY="132.0" style="-fx-text-fill: black;" text="CPU:" />
     <Label layoutX="12.0" layoutY="174.0" style="-fx-text-fill: black;" text="Centro De Computo:" />
     <ComboBox fx:id="centroCompuComboBox" layoutX="132.0" layoutY="170.0" prefWidth="150.0" />
+
     <Button layoutX="333.0" layoutY="216.0" onAction="#btnAceptar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Aceptar" />
     <Button layoutX="402.0" layoutY="215.0" onAction="#btnCancelar" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Cancelar" />
+
 
 
 </AnchorPane>

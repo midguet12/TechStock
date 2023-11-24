@@ -15,7 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,7 +36,7 @@ public class LeerSoftwareController implements Initializable{
     private TableColumn<Software, String> version = new TableColumn<>();
 
     @FXML
-    public Button createSoftware;
+    public Button agregarSoftwareButton;
     @FXML
     public Button actualizarSoftware;
     public Button regresarButton;
@@ -52,6 +51,7 @@ public class LeerSoftwareController implements Initializable{
 
         SoftwareDAO softwareDAO = new SoftwareDAO();
         List<Software> listaSoftware = null;
+
         try {
             listaSoftware = softwareDAO.readAll();
         } catch (SQLException exception) {
@@ -68,14 +68,11 @@ public class LeerSoftwareController implements Initializable{
 
 
 
-    public void agregarSoftware(ActionEvent actionEvent) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioSoftware/CrearSoftware.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setTitle("Agregar Software");
-        stage.setScene(scene);
-        stage.initModality(Modality.NONE);
-        stage.show();
+    public void agregarSoftwareAction(ActionEvent actionEvent) throws IOException{
+        Stage stage = (Stage) agregarSoftwareButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioSoftware/AgregarSoftware.fxml"));
+        stage.setTitle("Menu Principal");
+        stage.setScene(new Scene(root));
 
     }
 
@@ -85,13 +82,11 @@ public class LeerSoftwareController implements Initializable{
         System.out.println(selectedItem.getIdSoftware());
         data.setIdSoftware(selectedItem.getIdSoftware());
 
-        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioSoftware/ActualizarSoftware.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setTitle("Actualizar Software");
-        stage.setScene(scene);
-        stage.initModality(Modality.NONE);
-        stage.show();
+        Stage stage = (Stage) agregarSoftwareButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioSoftware/ActualizarSoftware.fxml"));
+        stage.setTitle("Menu Principal");
+        stage.setScene(new Scene(root));
+
     }
 
 
@@ -110,7 +105,7 @@ public class LeerSoftwareController implements Initializable{
 
     }
 
-    public void cancelarAction(ActionEvent actionEvent) throws IOException{
+    public void regresarAction(ActionEvent actionEvent) throws IOException{
         Stage stage = (Stage) regresarButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/MenuPrincipal.fxml"));
         stage.setTitle("Menu Principal");

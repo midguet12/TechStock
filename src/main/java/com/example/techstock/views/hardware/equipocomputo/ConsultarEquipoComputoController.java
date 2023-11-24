@@ -1,4 +1,4 @@
-package com.example.techstock.views.hardware;
+package com.example.techstock.views.hardware.equipocomputo;
 
 import com.example.techstock.DataSingleton;
 import com.example.techstock.dao.EquipoComputoDAO;
@@ -91,7 +91,7 @@ public class ConsultarEquipoComputoController implements Initializable {
     }
 
     public void btnAgregar(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/AgregarEquipoComputo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioHardware/EquipoComputo/AgregarEquipoComputo.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setTitle("Agregar Equipo");
@@ -130,7 +130,7 @@ public class ConsultarEquipoComputoController implements Initializable {
         EquipoComputo equipoSeleccionado = tablaEquipo.getSelectionModel().getSelectedItem();
         data.setNumeroSerie(equipoSeleccionado.getNumeroSerie());
 
-        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/ActualizarEquipoComputo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioHardware/EquipoComputo/ActualizarEquipoComputo.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setTitle("Actualizar Equipo");

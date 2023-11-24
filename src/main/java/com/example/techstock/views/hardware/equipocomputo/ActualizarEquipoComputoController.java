@@ -1,4 +1,4 @@
-package com.example.techstock.views.hardware;
+package com.example.techstock.views.hardware.equipocomputo;
 
 import com.example.techstock.DataSingleton;
 import com.example.techstock.dao.CentroComputoDAO;

@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="586.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.hardware.AdministrarPerifericosController">
+<AnchorPane prefHeight="586.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.hardware.perifericos.AdministrarPerifericosController">
 
     <VBox fx:id="editar" layoutX="20.0" layoutY="7.0" prefHeight="609.0" prefWidth="760.0" spacing="10">
 

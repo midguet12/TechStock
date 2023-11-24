@@ -1,4 +1,4 @@
-package com.example.techstock.views.hardware;
+package com.example.techstock.views.hardware.equipocomputo;
 
 import com.example.techstock.dao.CentroComputoDAO;
 import com.example.techstock.dao.EquipoComputoDAO;

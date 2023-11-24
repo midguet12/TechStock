@@ -21,10 +21,22 @@ public class MenuPrincipalController implements Initializable {
     DataSingleton dataSingleton = DataSingleton.getInstance();
     @FXML
     Label usuarioLabel;
+
     @FXML
     public Button cerrarSesionButton;
+
+    @FXML
     public Button consultarSoftwareButton;
+    @FXML
+    public Button consultarCentrosComputoButton;
+    @FXML
+    public Button consultarEquiposComputoButton;
+    @FXML
+    public Button consultarPerifericosButton;
+
+    @FXML
     public Button administrarUsuariosButton;
+    @FXML
     public Button editarPerfilButton;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -53,29 +65,29 @@ public class MenuPrincipalController implements Initializable {
     }
 
     public void consultarSoftwareAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) cerrarSesionButton.getScene().getWindow();
+        Stage stage = (Stage) consultarSoftwareButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioSoftware/LeerSoftware.fxml"));
         stage.setTitle("Software");
         stage.setScene(new Scene(root));
     }
 
     public void consultarCentrosComputoAction(ActionEvent actionEvent) throws IOException{
-        Stage stage = (Stage) cerrarSesionButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/ConsultarCentroComputo.fxml"));
+        Stage stage = (Stage) consultarCentrosComputoButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/CentroComputo/ConsultarCentroComputo.fxml"));
         stage.setTitle("Centro computo");
         stage.setScene(new Scene(root));
     }
 
     public void consultarEquiposComputoAction(ActionEvent actionEvent) throws IOException{
-        Stage stage = (Stage) cerrarSesionButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/ConsultarEquipoComputo.fxml"));
+        Stage stage = (Stage) consultarEquiposComputoButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/EquipoComputo/ConsultarEquipoComputo.fxml"));
         stage.setTitle("Centro computo");
         stage.setScene(new Scene(root));
 
     }
 
     public void consultarPerifericosAction(ActionEvent actionEvent) throws IOException{
-        Stage stage = (Stage) cerrarSesionButton.getScene().getWindow();
+        Stage stage = (Stage) consultarPerifericosButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/AdministrarPerifericos.fxml"));
         stage.setTitle("Administrar perifericos");
         stage.setScene(new Scene(root));
