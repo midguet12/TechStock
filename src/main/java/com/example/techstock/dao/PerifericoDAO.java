@@ -99,6 +99,7 @@ public class PerifericoDAO {
             int rowsAffected = preparedStatement.executeUpdate();
 
             return rowsAffected > 0;
+
         }
     }
 
