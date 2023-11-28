@@ -1,6 +1,7 @@
 package com.example.techstock;
 
 import com.example.techstock.dao.UsuarioDAO;
+import com.example.techstock.domain.CentroComputo;
 import com.example.techstock.domain.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,6 +80,9 @@ public class MenuPrincipalController implements Initializable {
     }
 
     public void consultarEquiposComputoAction(ActionEvent actionEvent) throws IOException{
+        CentroComputo centroComputo = null;
+        dataSingleton.setCentroComputo(centroComputo);
+
         Stage stage = (Stage) consultarEquiposComputoButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/EquipoComputo/ConsultarEquipoComputo.fxml"));
         stage.setTitle("Equipo computo");

@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="filtro EquipoComputo tableview">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/DataSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/DataSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/centrocomputo/ConsultarCentroComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/centrocomputo/ConsultarCentroComputoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/equipocomputo/ConsultarEquipoComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/equipocomputo/ConsultarEquipoComputoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/CentroComputo/ConsultarCentroComputo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/CentroComputo/ConsultarCentroComputo.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="ver equipos de cc" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -381,7 +375,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701198801255</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="ver equipos de cc">
+      <option name="closed" value="true" />
+      <created>1701203684539</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1701203684539</updated>
+    </task>
+    <task id="LOCAL-00024" summary="ver equipos de cc">
+      <option name="closed" value="true" />
+      <created>1701205095886</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1701205095886</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +426,8 @@
     <MESSAGE value="Editar perfil listo" />
     <MESSAGE value="depdenedencias" />
     <MESSAGE value="filtro EquipoComputo tableview" />
-    <option name="LAST_COMMIT_MESSAGE" value="filtro EquipoComputo tableview" />
+    <MESSAGE value="ver equipos de cc" />
+    <option name="LAST_COMMIT_MESSAGE" value="ver equipos de cc" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
