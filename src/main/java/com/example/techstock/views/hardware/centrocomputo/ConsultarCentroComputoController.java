@@ -31,6 +31,8 @@ public class ConsultarCentroComputoController implements Initializable {
     private TableColumn<CentroComputo, String> nombre = new TableColumn<>();
     @FXML
     private Button cancelarButton;
+    @FXML
+    private Button verEquiposButton;
 
     DataSingleton data = DataSingleton.getInstance();
 
@@ -132,6 +134,16 @@ public class ConsultarCentroComputoController implements Initializable {
     public void cancelarAction(ActionEvent actionEvent) throws IOException{
         Stage stage = (Stage) cancelarButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/MenuPrincipal.fxml"));
+        stage.setTitle("Menu Principal");
+        stage.setScene(new Scene(root));
+    }
+
+    public void verEquiposAction(ActionEvent actionEvent) throws IOException{
+        CentroComputo centroComputo = tablaCentro.getSelectionModel().getSelectedItem();
+        data.setCentroComputo(centroComputo);
+
+        Stage stage = (Stage) verEquiposButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioHardware/EquipoComputo/ConsultarEquipoComputo.fxml"));
         stage.setTitle("Menu Principal");
         stage.setScene(new Scene(root));
     }

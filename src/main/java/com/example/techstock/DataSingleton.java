@@ -1,5 +1,7 @@
 package com.example.techstock;
 
+import com.example.techstock.domain.CentroComputo;
+
 public class DataSingleton {
     private static final DataSingleton instance = new DataSingleton();
     private Integer idSoftware;
@@ -7,7 +9,15 @@ public class DataSingleton {
     private String numeroSerie;
     private Integer idCentroComputo;
 
+    private CentroComputo centroComputo;
 
+    public CentroComputo getCentroComputo() {
+        return centroComputo;
+    }
+
+    public void setCentroComputo(CentroComputo centroComputo) {
+        this.centroComputo = centroComputo;
+    }
 
     public DataSingleton() {
     }

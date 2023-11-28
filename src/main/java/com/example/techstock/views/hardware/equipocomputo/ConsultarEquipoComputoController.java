@@ -5,6 +5,7 @@ import com.example.techstock.dao.CentroComputoDAO;
 import com.example.techstock.dao.EquipoComputoDAO;
 import com.example.techstock.domain.CentroComputo;
 import com.example.techstock.domain.EquipoComputo;
+import com.example.techstock.logic.Log.LogWriting;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -55,22 +56,49 @@ public class ConsultarEquipoComputoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        llenarTabla();
+        CentroComputo centroComputo = null;
         llenarCentroComputoComboBox();
+
+        try{
+            centroComputo = data.getCentroComputo();
+        }catch (Exception e){
+            LogWriting.writeLog(e.getMessage());
+        } finally {
+            if (centroComputo == null){
+                centroComputo = new CentroComputo();
+                centroComputo.setIdCentroComputo(null);
+                centroComputo.setNombre("Todos");
+            }
+        }
+
+        centroComputoComboBox.getSelectionModel().select(centroComputo);
+        try {
+            llenarTabla(centroComputoComboBox.getValue().getIdCentroComputo());
+        } catch (Exception e) {
+            LogWriting.writeLog(e.getMessage());
+        }
     }
 
     public void llenarCentroComputoComboBox(){
         CentroComputoDAO centroComputoDAO = new CentroComputoDAO();
+
+        //Se declara de esta manera para poder mostrar una opcion llamada TODOS
+        CentroComputo centroComputo = new CentroComputo();
+        centroComputo.setIdCentroComputo(null);
+        centroComputo.setNombre("Todos");
+
         try{
-            ObservableList<CentroComputo> listaCentroComputo = FXCollections.observableList(centroComputoDAO.readAll()) ;
-            centroComputoComboBox.setItems(listaCentroComputo);
+            ObservableList<CentroComputo> listaObservableCentroComputo = FXCollections.observableList(centroComputoDAO.readAll());
+            listaObservableCentroComputo.addFirst(centroComputo);
+            centroComputoComboBox.setItems(listaObservableCentroComputo);
+
         }catch (Exception exception){
             System.out.println(exception.getMessage());
         }
 
     }
 
-    public void llenarTabla(){
+    /*public void llenarTabla(){
         nombreCentroComputo.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("nombreCentroComputo"));
         noSerie.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("numeroSerie"));
         marca.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("marca"));
@@ -87,10 +115,9 @@ public class ConsultarEquipoComputoController implements Initializable {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+    }*/
 
-
-    }
-    public void llenarTabla(Integer idCentroComputo){
+    public void llenarTabla(Integer idCentroComputo) throws Exception{
         nombreCentroComputo.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("nombreCentroComputo"));
         noSerie.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("numeroSerie"));
         marca.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("marca"));
@@ -99,16 +126,16 @@ public class ConsultarEquipoComputoController implements Initializable {
         procesador.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("procesador"));
         tablaEquipo.getItems().clear();
 
-        try {
-            EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
-            List<EquipoComputo> equipoComputos = equipoComputoDAO.readFromCentroComputo(idCentroComputo);
-            ObservableList<EquipoComputo> listaObservableEquipo = FXCollections.observableList(equipoComputos);
+        List<EquipoComputo> equipoComputos = null;
+        EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
 
-            tablaEquipo.setItems(listaObservableEquipo);
-        }catch (Exception e){
-            System.out.println(e.getMessage());
+        if (idCentroComputo == null) {
+            equipoComputos = equipoComputoDAO.readAll();
+        } else if(idCentroComputo!=0) {
+            equipoComputos = equipoComputoDAO.readFromCentroComputo(idCentroComputo);
         }
-
+        ObservableList<EquipoComputo> listaObservableEquipo = FXCollections.observableList(equipoComputos);
+        tablaEquipo.setItems(listaObservableEquipo);
 
     }
 
@@ -184,7 +211,11 @@ public class ConsultarEquipoComputoController implements Initializable {
 
     public void buscarAction(ActionEvent actionEvent) {
         Integer idCentroComputo = centroComputoComboBox.getValue().getIdCentroComputo();
-        llenarTabla(idCentroComputo);
+        try {
+            llenarTabla(idCentroComputo);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         System.out.println(idCentroComputo);
     }
