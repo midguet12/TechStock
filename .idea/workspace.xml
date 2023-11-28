@@ -5,46 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="Editar perfil listo">
-      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-java-8.0.30.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/protobuf-java-3.19.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/logic/LogWriting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/logic/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/IniciarSesionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/IniciarSesionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/MenuPrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/MenuPrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/dao/UsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/logic/IniciarSesionLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/logic/UsuarioLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/ActualizarCentroComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/centrocomputo/ActualizarCentroComputoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/ActualizarEquipoComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/equipocomputo/ActualizarEquipoComputoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/AdministrarPerifericosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/perifericos/AdministrarPerifericosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/AgregarCentroComputo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/centrocomputo/AgregarCentroComputo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/AgregarCentroComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/centrocomputo/AgregarCentroComputoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/AgregarEquipoComputo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/equipocomputo/AgregarEquipoComputo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/AgregarEquipoComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/equipocomputo/AgregarEquipoComputoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/ConsultarCentroComputo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/centrocomputo/ConsultarCentroComputo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/ConsultarCentroComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/centrocomputo/ConsultarCentroComputoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/ConsultarEquipoComputo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/equipocomputo/ConsultarEquipoComputo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/ConsultarEquipoComputoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/hardware/equipocomputo/ConsultarEquipoComputoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/ActualizarSoftwareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/ActualizarSoftwareController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/CrearSoftwareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/CrearSoftwareController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/LeerSoftwareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/software/LeerSoftwareController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/usuarios/EditarPerfilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/usuarios/EditarPerfilController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/usuarios/UsuariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/techstock/views/usuarios/UsuariosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/MenuPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/MenuPrincipal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/ActualizarCentroComputo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/CentroComputo/ActualizarCentroComputo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/ActualizarEquipoComputo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/EquipoComputo/ActualizarEquipoComputo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/AdministrarPerifericos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/Perifericos/AdministrarPerifericos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/AgregarCentroComputo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/CentroComputo/AgregarCentroComputo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/AgregarEquipoComputo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/EquipoComputo/AgregarEquipoComputo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/ConsultarCentroComputo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/CentroComputo/ConsultarCentroComputo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/ConsultarEquipoComputo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/EquipoComputo/ConsultarEquipoComputo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/ActualizarSoftware.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/ActualizarSoftware.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/CrearSoftware.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/AgregarSoftware.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/LeerSoftware.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioSoftware/LeerSoftware.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloUsuarios/EditarPerfil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloUsuarios/EditarPerfil.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/Perifericos/AdministrarPerifericos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/techstock/ModuloInventarioHardware/Perifericos/AdministrarPerifericos.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +26,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/Perifericos" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -117,7 +84,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.27701148",
     "settings.editor.selected.configurable": "preferences.JavaFX",
