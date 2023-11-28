@@ -134,14 +134,24 @@ public class UsuariosController implements Initializable {
         Usuario usuario = tablaUsuarios.getSelectionModel().getSelectedItem();
 
         if (usuario != null) {
-            try{
-                usuarioDAO.delete(usuario.getNombreUsuario());
-            }catch (Exception exception){
-                System.out.println(exception.getMessage());
-            }
+            // Crear una alerta de confirmación
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmar Eliminación");
+            alert.setHeaderText("¿Estás seguro de que deseas eliminar a este usuario?");
+            alert.setContentText("Esta acción no se puede deshacer.");
 
-            mostrarAlerta("Usuario Eliminado", "El usuario ha sido eliminado exitosamente.");
-            cargarUsuariosEnTabla(); // Recargar la tabla después de eliminar
+
+            ButtonType resultado = alert.showAndWait().orElse(ButtonType.CANCEL);
+
+            if (resultado == ButtonType.OK) {
+                try {
+                    usuarioDAO.delete(usuario.getNombreUsuario());
+                    mostrarAlerta("Usuario Eliminado", "El usuario ha sido eliminado exitosamente.");
+                    cargarUsuariosEnTabla();
+                } catch (Exception exception) {
+                    System.out.println(exception.getMessage());
+                }
+            }
         } else {
             mostrarAlerta("Error", "Selecciona un usuario para eliminar.");
         }

@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 
 import java.util.List;
 
@@ -41,11 +42,15 @@ public class AdministrarPerifericosController {
     @FXML
     private Button editarBtn;
     @FXML
+    private Button showEdit;
+    @FXML
     private ComboBox<String> editarPerifericoComboBox;
     @FXML
     private ComboBox<String> eliminarPerifericoComboBox;
     @FXML
     private Button eliminar;
+    @FXML
+    private HBox editBox;
 
 
     @FXML
@@ -70,6 +75,7 @@ public class AdministrarPerifericosController {
                     }
                 }
         );
+        editarNuevoCentroComputoComboBox.setValue(null);
     }
 
 
@@ -93,17 +99,17 @@ public class AdministrarPerifericosController {
         String numeroSerie = agregarNumeroSerieField.getText();
         String marca = agregarMarcaField.getText();
         Integer idCentroComputo = agregarCentroComputoComboBox.getSelectionModel().getSelectedItem().getIdCentroComputo();
-        System.out.println(agregarCentroComputoComboBox.getSelectionModel().getSelectedItem().getIdCentroComputo());
+
 
         AdministrarPerifericosLogic perifericosLogic = new AdministrarPerifericosLogic();
         Periferico periferico = new Periferico(numeroSerie, idCentroComputo,marca);
-        boolean success = perifericosLogic.agregarPeriferico(periferico);
+        if(!(marca.isEmpty() || numeroSerie.isEmpty())) {
+            if (perifericosLogic.agregarPeriferico(periferico)) {
+                actualizarTablaPerifericos();
+                limpiarCamposAgregar();
+            }
+        }else {mostrarAlerta("Error", "Agrega datos válidos");}
 
-        if (success) {
-            actualizarTablaPerifericos();
-            limpiarCamposAgregar();
-        } else {
-        }
     }
 
     public void consultarPerifericosAction(ActionEvent actionEvent) {
@@ -117,24 +123,32 @@ public class AdministrarPerifericosController {
         }
     }
 
-
+    @FXML
+    private void showEditMenu(){
+        editBox.setVisible(true);
+    }
 
     @FXML
     private void editarPerifericoAction(ActionEvent event) {
-        String numeroSerie = editarPerifericoComboBox.getValue();
+        Periferico periferic = perifericosTableView.getSelectionModel().getSelectedItem();
+        String numeroSerie = periferic.getNumeroSerie();
         int nuevoCentroComputo = editarNuevoCentroComputoComboBox.getValue().getIdCentroComputo();
         String nuevaMarca = editarNuevaMarcaField.getText();
         Periferico periferico = new Periferico(numeroSerie, nuevoCentroComputo, nuevaMarca);
 
         AdministrarPerifericosLogic perifericosLogic = new AdministrarPerifericosLogic();
-        boolean actualizacionExitosa = perifericosLogic.editarPeriferico(periferico);
+        if(editarNuevoCentroComputoComboBox.getValue() != null && !(nuevaMarca.isEmpty())){
+            boolean actualizacionExitosa = perifericosLogic.editarPeriferico(periferico);
 
 
-        if (actualizacionExitosa) {
-            limpiarCamposEditar();
-        } else {
-
+            if (actualizacionExitosa) {
+                limpiarCamposEditar();
+            }
+        }else {
+            mostrarAlerta("Error", "Agrega datos válidos");
         }
+
+        editBox.setVisible(false);
     }
     private void limpiarCamposEditar() {
         editarNuevoCentroComputoComboBox.getSelectionModel().clearSelection();
@@ -144,16 +158,32 @@ public class AdministrarPerifericosController {
 
     @FXML
     private void eliminarPerifericoAction() {
-        String numeroSerie = eliminarPerifericoComboBox.getValue();
-        if (numeroSerie != null) {
-            AdministrarPerifericosLogic perifericosLogic = new AdministrarPerifericosLogic();
-            boolean success = perifericosLogic.eliminarPeriferico(numeroSerie);
-            if (success) {
-                // Actualizar la tabla y el ComboBox
-                perifericosTableView.getItems().removeIf(periferico -> periferico.getNumeroSerie().equals(numeroSerie));
-                eliminarPerifericoComboBox.getItems().remove(numeroSerie);
-            } else {
-            }
+        Periferico periferico = perifericosTableView.getSelectionModel().getSelectedItem();
+
+        if (periferico != null) {
+            String numeroSerie = periferico.getNumeroSerie();
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmar Eliminación");
+            alert.setHeaderText(null);
+            alert.setContentText("¿Estás seguro de que deseas eliminar el periférico con número de serie " + numeroSerie + "?");
+
+            ButtonType buttonTypeConfirmar = new ButtonType("Confirmar");
+            ButtonType buttonTypeCancelar = new ButtonType("Cancelar", ButtonType.CANCEL.getButtonData());
+
+            alert.getButtonTypes().setAll(buttonTypeConfirmar, buttonTypeCancelar);
+
+            alert.showAndWait().ifPresent(buttonType -> {
+                if (buttonType == buttonTypeConfirmar) {
+                    AdministrarPerifericosLogic perifericosLogic = new AdministrarPerifericosLogic();
+                    boolean success = perifericosLogic.eliminarPeriferico(numeroSerie);
+                    if (success) {
+
+                        perifericosTableView.getItems().remove(periferico);
+                        eliminarPerifericoComboBox.getItems().remove(numeroSerie);
+                    }
+                }
+            });
         }
     }
 
@@ -172,5 +202,13 @@ public class AdministrarPerifericosController {
         agregarNumeroSerieField.clear();
         agregarMarcaField.clear();
         agregarCentroComputoComboBox.getSelectionModel().clearSelection();
+    }
+
+    private void mostrarAlerta(String titulo, String contenido) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(contenido);
+        alert.showAndWait();
     }
 }
