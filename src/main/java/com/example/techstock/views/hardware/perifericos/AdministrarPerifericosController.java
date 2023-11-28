@@ -139,6 +139,18 @@ public class AdministrarPerifericosController {
         Periferico perifericoSeleccionado = perifericosTableView.getSelectionModel().getSelectedItem();
 
         if (perifericoSeleccionado != null) {
+            editarNuevaMarcaField.setText(perifericoSeleccionado.getMarca());
+            editarNuevaDescripcionField.setText(perifericoSeleccionado.getDescripcion());
+            int val =0;
+            int temp =0;
+            for (CentroComputo item : editarNuevoCentroComputoComboBox.getItems()){
+                if(item.getIdCentroComputo()==perifericoSeleccionado.getIdCentroComputo()){
+                    val=temp;
+                }else {
+                    temp = temp +1;
+                }
+            }
+            editarNuevoCentroComputoComboBox.setValue(editarNuevoCentroComputoComboBox.getItems().get(val));
             editBox.setVisible(true);
         }
 
