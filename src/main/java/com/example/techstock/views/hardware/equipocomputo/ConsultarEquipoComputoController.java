@@ -13,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,7 +26,7 @@ public class ConsultarEquipoComputoController implements Initializable {
     @FXML
     private TableView<EquipoComputo> tablaEquipo;
     @FXML
-    private TableColumn<EquipoComputo, Integer> idCentroComputo = new TableColumn<>();
+    private TableColumn<EquipoComputo, String> nombreCentroComputo = new TableColumn<>();
     @FXML
     private TableColumn<EquipoComputo, String>  noSerie = new TableColumn<>();
     @FXML
@@ -40,6 +39,10 @@ public class ConsultarEquipoComputoController implements Initializable {
     private TableColumn<EquipoComputo, String>  procesador = new TableColumn<>();
     @FXML
     private Button buttonCancelar;
+    @FXML
+    private Button actualizarButton;
+    @FXML
+    private Button agregarButton;
 
     DataSingleton data = DataSingleton.getInstance();
 
@@ -49,7 +52,7 @@ public class ConsultarEquipoComputoController implements Initializable {
     }
 
     public void llenarTabla(){
-        idCentroComputo.setCellValueFactory(new PropertyValueFactory<EquipoComputo, Integer>("idCentroComputo"));
+        nombreCentroComputo.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("nombreCentroComputo"));
         noSerie.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("numeroSerie"));
         marca.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("marca"));
         almacenamiento.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("almacenamiento"));
@@ -91,13 +94,10 @@ public class ConsultarEquipoComputoController implements Initializable {
     }
 
     public void btnAgregar(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) agregarButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioHardware/EquipoComputo/AgregarEquipoComputo.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
         stage.setTitle("Agregar Equipo");
-        stage.setScene(scene);
-        stage.initModality(Modality.NONE);
-        stage.show();
+        stage.setScene(new Scene(root));
     }
 
     public void btnEliminar(ActionEvent actionEvent) {
@@ -130,13 +130,10 @@ public class ConsultarEquipoComputoController implements Initializable {
         EquipoComputo equipoSeleccionado = tablaEquipo.getSelectionModel().getSelectedItem();
         data.setNumeroSerie(equipoSeleccionado.getNumeroSerie());
 
+        Stage stage = (Stage) actualizarButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioHardware/EquipoComputo/ActualizarEquipoComputo.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
         stage.setTitle("Actualizar Equipo");
-        stage.setScene(scene);
-        stage.initModality(Modality.NONE);
-        stage.show();
+        stage.setScene(new Scene(root));
     }
     public void actionCancelar(ActionEvent actionEvent) throws IOException{
         Stage stage = (Stage) buttonCancelar.getScene().getWindow();

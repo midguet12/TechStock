@@ -19,8 +19,9 @@
          </columns></TableView>
       
       <Button fx:id="agregarSoftwareButton" layoutX="68.0" layoutY="332.0" mnemonicParsing="false" onAction="#agregarSoftwareAction" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Agregar" />
-      <Button fx:id="deleteButton" layoutX="423.0" layoutY="332.0" mnemonicParsing="false" onAction="#deleteSoftwareAction" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Eliminar" />
-      <Button fx:id="actualizarSoftware" layoutX="257.0" layoutY="332.0" mnemonicParsing="false" onAction="#actualizarSoftware" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Actualizar" />
+      <Button fx:id="deleteButton" layoutX="280.0" layoutY="332.0" mnemonicParsing="false" onAction="#deleteSoftwareAction" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Eliminar" />
+      <Button fx:id="actualizarSoftware" layoutX="167.0" layoutY="332.0" mnemonicParsing="false" onAction="#actualizarSoftware" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Actualizar" />
       <Button fx:id="regresarButton" layoutX="41.0" layoutY="34.0" mnemonicParsing="false" onAction="#regresarAction" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Menu principal" />
+      <Button layoutX="389.0" layoutY="332.0" mnemonicParsing="false" text="Ver equipos de computo" style="-fx-background-color: #007BFF; -fx-text-fill: white;" />
    </children>
 </AnchorPane>

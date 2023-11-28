@@ -1,7 +1,7 @@
 package com.example.techstock;
 
-import com.example.techstock.logic.LogWriting;
-import com.example.techstock.logic.UsuarioLogic;
+import com.example.techstock.logic.Log.LogWriting;
+import com.example.techstock.logic.Usuarios.UsuarioLogic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

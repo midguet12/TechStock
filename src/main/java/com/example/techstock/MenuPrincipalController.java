@@ -81,7 +81,7 @@ public class MenuPrincipalController implements Initializable {
     public void consultarEquiposComputoAction(ActionEvent actionEvent) throws IOException{
         Stage stage = (Stage) consultarEquiposComputoButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioHardware/EquipoComputo/ConsultarEquipoComputo.fxml"));
-        stage.setTitle("Centro computo");
+        stage.setTitle("Equipo computo");
         stage.setScene(new Scene(root));
 
     }

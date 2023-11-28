@@ -1,7 +1,8 @@
-package com.example.techstock.logic;
+package com.example.techstock.logic.Usuarios;
 
 import com.example.techstock.dao.UsuarioDAO;
 import com.example.techstock.domain.Usuario;
+import com.example.techstock.logic.Log.LogWriting;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.sql.SQLException;

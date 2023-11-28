@@ -14,7 +14,7 @@
         <TableView fx:id="tablaCentro" editable="true" layoutX="120.0" layoutY="89.0" prefHeight="200.0" prefWidth="347.0">
             <columns>
                 <TableColumn fx:id="idCentroComputo" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="nombre" prefWidth="75.0" text="Nombre" />
+                <TableColumn fx:id="nombre" prefWidth="188.0" text="Nombre" />
             </columns>
         </TableView>
 

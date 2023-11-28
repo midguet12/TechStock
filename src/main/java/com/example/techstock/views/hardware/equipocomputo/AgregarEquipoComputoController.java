@@ -8,10 +8,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -29,6 +35,8 @@ public class AgregarEquipoComputoController implements Initializable {
     private TextField cpuTextField;
     @FXML
     private ComboBox<CentroComputo> centroCompuComboBox;
+    @FXML
+    private Button aceptarButton;
 
     //Si elimina el centro de computo se debe de eliminar todos los equipos de computos asociados a el
 
@@ -110,18 +118,28 @@ public class AgregarEquipoComputoController implements Initializable {
     public void btnAceptar(ActionEvent actionEvent) {
         EquipoComputoDAO equipoDao = new EquipoComputoDAO();
 
-        int centroComputo = centroCompuComboBox.getSelectionModel().getSelectedIndex() + 1;
-        EquipoComputo equipo = new EquipoComputo(centroComputo, noDeSerieTextField.getText(), marcaTextField.getText(), capacidadAlmaTextField.getText(), memoriaRamTextField.getText(), cpuTextField.getText());
+        CentroComputo centroComputo = centroCompuComboBox.getValue();
 
+        EquipoComputo equipoComputo = new EquipoComputo();
+        equipoComputo.setIdCentroComputo(centroComputo.getIdCentroComputo());
+        equipoComputo.setNumeroSerie(noDeSerieTextField.getText().toUpperCase());
+        equipoComputo.setMarca(marcaTextField.getText().toUpperCase());
+        equipoComputo.setAlmacenamiento(capacidadAlmaTextField.getText().toUpperCase());
+        equipoComputo.setMemoria(memoriaRamTextField.getText().toUpperCase());
+        equipoComputo.setProcesador(cpuTextField.getText().toUpperCase());
 
         if (verificarExistencia() || validarCampos()){
             mostrarAlerta("Error", "Por favor retifique los datos");
         } else {
             try {
-                boolean exito = equipoDao.create(equipo);
+                boolean exito = equipoDao.create(equipoComputo);
                 if (exito) {
                     mostrarAlerta("Información", "Se ha guardado correctamente");
                     limpiarCampos();
+                    Stage stage = (Stage) aceptarButton.getScene().getWindow();
+                    Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioHardware/EquipoComputo/ConsultarEquipoComputo.fxml"));
+                    stage.setTitle("Equipo computo");
+                    stage.setScene(new Scene(root));
                 } else {
                     mostrarAlerta("Error", "Hubo un fallo al guardar el equipo de cómputo.");
                 }

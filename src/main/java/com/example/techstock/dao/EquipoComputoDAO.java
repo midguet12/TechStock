@@ -96,7 +96,11 @@ public class EquipoComputoDAO {
     }
 
     public List<EquipoComputo> readAll() throws SQLException{
-        String query = "SELECT * FROM equipo_computo";
+        //String query = "SELECT * FROM equipo_computo";
+        String query = "select centro_computo.idCentroComputo, centro_computo.nombre, numeroSerie, marca, almacenamiento, memoria, procesador " +
+                        "from equipo_computo " +
+                        "left join centro_computo " +
+                        "on equipo_computo.idCentroComputo = centro_computo.idCentroComputo;";
         List<EquipoComputo> equipoComputoList = null;
         try{
             equipoComputoList = new ArrayList<EquipoComputo>();
@@ -108,6 +112,7 @@ public class EquipoComputoDAO {
 
                 while(resultSet.next()){
                     EquipoComputo equipoComputo = new EquipoComputo();
+                    equipoComputo.setNombreCentroComputo(resultSet.getString("nombre"));
                     equipoComputo.setIdCentroComputo(resultSet.getInt("idCentroComputo"));
                     equipoComputo.setNumeroSerie(resultSet.getString("numeroSerie"));
                     equipoComputo.setMarca(resultSet.getString("marca"));

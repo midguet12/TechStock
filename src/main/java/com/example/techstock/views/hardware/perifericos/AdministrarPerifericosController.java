@@ -2,7 +2,7 @@ package com.example.techstock.views.hardware.perifericos;
 
 import com.example.techstock.domain.CentroComputo;
 import com.example.techstock.domain.Periferico;
-import com.example.techstock.logic.AdministrarPerifericosLogic;
+import com.example.techstock.logic.Perifericos.AdministrarPerifericosLogic;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

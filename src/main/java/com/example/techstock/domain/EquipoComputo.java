@@ -1,8 +1,7 @@
 package com.example.techstock.domain;
 
-import javafx.collections.ObservableList;
-
 public class EquipoComputo {
+    private String nombreCentroComputo;
     private Integer idCentroComputo;
     private String numeroSerie;
     private String marca;
@@ -10,16 +9,26 @@ public class EquipoComputo {
     private String memoria;
     private String procesador;
 
+
     public EquipoComputo() {
     }
 
-    public EquipoComputo(Integer idCentroComputo, String numeroSerie, String marca, String almacenamiento, String memoria, String procesador) {
+    public EquipoComputo(String nombreCentroComputo, Integer idCentroComputo, String numeroSerie, String marca, String almacenamiento, String memoria, String procesador) {
+        this.nombreCentroComputo = nombreCentroComputo;
         this.idCentroComputo = idCentroComputo;
         this.numeroSerie = numeroSerie;
         this.marca = marca;
         this.almacenamiento = almacenamiento;
         this.memoria = memoria;
         this.procesador = procesador;
+    }
+
+    public String getNombreCentroComputo() {
+        return nombreCentroComputo;
+    }
+
+    public void setNombreCentroComputo(String nombreCentroComputo) {
+        this.nombreCentroComputo = nombreCentroComputo;
     }
 
     public String getNumeroSerie() {

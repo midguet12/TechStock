@@ -1,4 +1,4 @@
-package com.example.techstock.logic;
+package com.example.techstock.logic.Perifericos;
 
 import com.example.techstock.dao.CentroComputoDAO;
 import com.example.techstock.dao.PerifericoDAO;

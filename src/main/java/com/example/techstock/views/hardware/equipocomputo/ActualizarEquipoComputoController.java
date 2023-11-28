@@ -9,11 +9,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -31,11 +37,44 @@ public class ActualizarEquipoComputoController implements Initializable {
     private TextField cpuTextField;
     @FXML
     private ComboBox<CentroComputo> centroCompuComboBox;
+    @FXML
+    private Button cancelarButton;
 
     DataSingleton data = DataSingleton.getInstance();
     String idEquipoComputo = data.getNumeroSerie();
     EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
     EquipoComputo equipoComputo;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        CentroComputoDAO centroComputoDAO = new CentroComputoDAO();
+        try{
+            equipoComputo = equipoComputoDAO.read(data.getNumeroSerie());
+            centroComputoDAO = new CentroComputoDAO();
+            List<CentroComputo> centroComputos =  centroComputoDAO.readAll();
+            ObservableList<CentroComputo> listaObservableCentroComputo = FXCollections.observableList(centroComputos);
+
+            centroCompuComboBox.setItems(listaObservableCentroComputo);
+
+            Integer idCentroComputoSeleccionado = equipoComputo.getIdCentroComputo();
+
+            centroCompuComboBox.getSelectionModel().select(centroComputoDAO.read(idCentroComputoSeleccionado));
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        noDeSerieTextField.setText(equipoComputo.getNumeroSerie());
+        marcaTextField.setText(equipoComputo.getMarca());
+        capacidadAlmaTextField.setText(equipoComputo.getAlmacenamiento());
+        memoriaRamTextField.setText(equipoComputo.getMemoria());
+        cpuTextField.setText(equipoComputo.getProcesador());
+
+        //String nombreCentroComputoSeleccionado = equipoComputo.getNombreCentroComputo();
+
+
+    }
+
 
 
     public boolean verificarExistencia() {
@@ -81,14 +120,15 @@ public class ActualizarEquipoComputoController implements Initializable {
     }
 
     public boolean validarCampos() {
-        int centroComputo = centroCompuComboBox.getSelectionModel().getSelectedIndex() + 1;
+        //int centroComputo = centroCompuComboBox.getSelectionModel().getSelectedIndex() + 1;
+        CentroComputo centroComputoSeleccionado = centroCompuComboBox.getValue();
         String noSerie = noDeSerieTextField.getText();
         String marca = marcaTextField.getText();
         String capacidadAlma = capacidadAlmaTextField.getText();
         String memoriaRam = memoriaRamTextField.getText();
         String cpu = cpuTextField.getText();
 
-        if (centroComputo <= 0) {
+        if (centroComputoSeleccionado == null) {
             return true;
         }
 
@@ -108,38 +148,34 @@ public class ActualizarEquipoComputoController implements Initializable {
         centroCompuComboBox.getSelectionModel().clearSelection();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        try{
-            equipoComputo = equipoComputoDAO.read(data.getNumeroSerie());
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-
-        noDeSerieTextField.setText(equipoComputo.getNumeroSerie());
-        marcaTextField.setText(equipoComputo.getMarca());
-        capacidadAlmaTextField.setText(equipoComputo.getAlmacenamiento());
-        memoriaRamTextField.setText(equipoComputo.getMemoria());
-        cpuTextField.setText(equipoComputo.getProcesador());
-        //centroCompuComboBox.setItems(equipoComputo.getIdCentroComputo());     ERROR AL CARGAR EN EL COMBOBOX !!!!
-
-    }
 
     public void btnAceptar(ActionEvent actionEvent) {
         EquipoComputoDAO equipoDao = new EquipoComputoDAO();
 
-        int centroComputo = centroCompuComboBox.getSelectionModel().getSelectedIndex() + 1;
-        EquipoComputo equipo = new EquipoComputo(centroComputo, noDeSerieTextField.getText(), marcaTextField.getText(), capacidadAlmaTextField.getText(), memoriaRamTextField.getText(), cpuTextField.getText());
+        //int centroComputo = centroCompuComboBox.getSelectionModel().getSelectedIndex() + 1;
+        CentroComputo centroComputoSeleccionado = centroCompuComboBox.getValue();
+        //EquipoComputo equipo = new EquipoComputo(centroComputo, noDeSerieTextField.getText(), marcaTextField.getText(), capacidadAlmaTextField.getText(), memoriaRamTextField.getText(), cpuTextField.getText());
+        EquipoComputo equipoComputo = new EquipoComputo();
+        equipoComputo.setIdCentroComputo(centroComputoSeleccionado.getIdCentroComputo());
+        equipoComputo.setNumeroSerie(noDeSerieTextField.getText().toUpperCase());
+        equipoComputo.setMarca(marcaTextField.getText().toUpperCase());
+        equipoComputo.setAlmacenamiento(capacidadAlmaTextField.getText().toUpperCase());
+        equipoComputo.setMemoria(memoriaRamTextField.getText().toUpperCase());
+        equipoComputo.setProcesador(cpuTextField.getText().toUpperCase());
 
-
-        if (verificarExistencia() || validarCampos()){
+        if (validarCampos()){
             mostrarAlerta("Error", "Por favor retifique los datos");
         } else {
             try {
-                boolean exito = equipoDao.update(equipo);
+                boolean exito = equipoDao.update(equipoComputo);
                 if (exito) {
                     mostrarAlerta("Información", "Se ha guardado correctamente");
                     limpiarCampos();
+                    Stage stage = (Stage) cancelarButton.getScene().getWindow();
+                    Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioHardware/EquipoComputo/ConsultarEquipoComputo.fxml"));
+                    stage.setTitle("Equipo computo");
+                    stage.setScene(new Scene(root));
+
                 } else {
                     mostrarAlerta("Error", "Hubo un fallo al guardar el equipo de cómputo.");
                 }
@@ -149,7 +185,10 @@ public class ActualizarEquipoComputoController implements Initializable {
         }
     }
 
-    public void btnCancelar(ActionEvent actionEvent) {
-
+    public void btnCancelar(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) cancelarButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioHardware/EquipoComputo/ConsultarEquipoComputo.fxml"));
+        stage.setTitle("Equipo computo");
+        stage.setScene(new Scene(root));
     }
 }
