@@ -28,7 +28,7 @@ public class PerifericoDAO {
     }
 
     public boolean create(Periferico periferico) throws SQLException {
-        String query = "INSERT INTO periferico(numeroSerie, idCentroComputo, marca) VALUES (?,?,?)";
+        String query = "INSERT INTO periferico(numeroSerie, idCentroComputo, marca, descripcion) VALUES (?,?,?,?)";
         boolean result = false;
 
         try {
@@ -38,6 +38,7 @@ public class PerifericoDAO {
                 preparedStatement.setString(1, periferico.getNumeroSerie());
                 preparedStatement.setInt(2, periferico.getIdCentroComputo());
                 preparedStatement.setString(3, periferico.getMarca());
+                preparedStatement.setString(4,periferico.getDescripcion());
                 int rows = preparedStatement.executeUpdate();
                 if (rows > 0) {
                     System.out.println("Se registraron " + rows + " líneas.");
@@ -68,6 +69,7 @@ public class PerifericoDAO {
                     periferico.setNumeroSerie(resultSet.getString("numeroSerie"));
                     periferico.setIdCentroComputo(resultSet.getInt("idCentroComputo"));
                     periferico.setMarca(resultSet.getString("marca"));
+                    periferico.setDescripcion(resultSet.getString("descripcion"));
                     listaPerifericos.add(periferico);
                 }
                 System.out.println("Se obtuvieron " + listaPerifericos.size() + " periféricos.");
@@ -83,14 +85,16 @@ public class PerifericoDAO {
     }
 
     public boolean update(Periferico periferico) throws SQLException {
-        String query = "UPDATE periferico SET idCentroComputo = ?, marca = ? WHERE numeroSerie = ?";
+        String query = "UPDATE periferico SET idCentroComputo = ?, marca = ?, descripcion = ? WHERE numeroSerie = ?";
 
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setInt(1, periferico.getIdCentroComputo());
             preparedStatement.setString(2, periferico.getMarca());
-            preparedStatement.setString(3, periferico.getNumeroSerie());
+            preparedStatement.setString(3,periferico.getDescripcion());
+            preparedStatement.setString(4, periferico.getNumeroSerie());
+
 
             int rowsAffected = preparedStatement.executeUpdate();
 
