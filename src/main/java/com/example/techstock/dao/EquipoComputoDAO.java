@@ -134,6 +134,51 @@ public class EquipoComputoDAO {
         }
     }
 
+    public List<EquipoComputo> readFromCentroComputo(Integer idCentroComputo) throws SQLException{
+        //String query = "SELECT * FROM equipo_computo";
+        String query1 = "select centro_computo.idCentroComputo, centro_computo.nombre, numeroSerie, marca, almacenamiento, memoria, procesador" +
+                        "from equipo_computo " +
+                        "left join centro_computo " +
+                        "on equipo_computo.idCentroComputo = centro_computo.idCentroComputo where centro_computo.idCentroComputo=2;";
+        String query = "select centro_computo.idCentroComputo, centro_computo.nombre, numeroSerie, marca, almacenamiento, memoria, procesador " +
+                        "from equipo_computo " +
+                        "left join centro_computo " +
+                        "on equipo_computo.idCentroComputo = centro_computo.idCentroComputo where centro_computo.idCentroComputo=?;";
+
+        List<EquipoComputo> equipoComputoList = null;
+        try{
+            equipoComputoList = new ArrayList<EquipoComputo>();
+            connection = getConnection();
+
+            if (connection != null){
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1, idCentroComputo);
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                while(resultSet.next()){
+                    EquipoComputo equipoComputo = new EquipoComputo();
+                    equipoComputo.setNombreCentroComputo(resultSet.getString("nombre"));
+                    equipoComputo.setIdCentroComputo(resultSet.getInt("idCentroComputo"));
+                    equipoComputo.setNumeroSerie(resultSet.getString("numeroSerie"));
+                    equipoComputo.setMarca(resultSet.getString("marca"));
+                    equipoComputo.setAlmacenamiento(resultSet.getString("almacenamiento"));
+                    equipoComputo.setMemoria(resultSet.getString("memoria"));
+                    equipoComputo.setProcesador(resultSet.getString("procesador"));
+
+                    equipoComputoList.add(equipoComputo);
+                }
+
+                System.out.println("Se obtuvieron " + equipoComputoList.size() + " elementos.");
+            }
+        } catch(Exception exception){
+            System.out.println(exception.getMessage());
+            exception.printStackTrace();
+        } finally {
+            connection.close();
+            return equipoComputoList;
+        }
+    }
+
     public boolean update(EquipoComputo equipoComputo) throws SQLException{
         String query = "UPDATE equipo_computo SET idCentroComputo = ?, marca = ?, almacenamiento = ?, memoria = ?, procesador = ? WHERE numeroSerie = ?";
 

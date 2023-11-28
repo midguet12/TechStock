@@ -47,7 +47,7 @@ public class ActualizarEquipoComputoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        CentroComputoDAO centroComputoDAO = new CentroComputoDAO();
+        CentroComputoDAO centroComputoDAO;
         try{
             equipoComputo = equipoComputoDAO.read(data.getNumeroSerie());
             centroComputoDAO = new CentroComputoDAO();

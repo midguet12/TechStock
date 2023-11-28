@@ -1,7 +1,9 @@
 package com.example.techstock.views.hardware.equipocomputo;
 
 import com.example.techstock.DataSingleton;
+import com.example.techstock.dao.CentroComputoDAO;
 import com.example.techstock.dao.EquipoComputoDAO;
+import com.example.techstock.domain.CentroComputo;
 import com.example.techstock.domain.EquipoComputo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -43,12 +45,29 @@ public class ConsultarEquipoComputoController implements Initializable {
     private Button actualizarButton;
     @FXML
     private Button agregarButton;
+    @FXML
+    private ComboBox<CentroComputo> centroComputoComboBox;
+    @FXML
+    private Button buscarButton;
+
 
     DataSingleton data = DataSingleton.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         llenarTabla();
+        llenarCentroComputoComboBox();
+    }
+
+    public void llenarCentroComputoComboBox(){
+        CentroComputoDAO centroComputoDAO = new CentroComputoDAO();
+        try{
+            ObservableList<CentroComputo> listaCentroComputo = FXCollections.observableList(centroComputoDAO.readAll()) ;
+            centroComputoComboBox.setItems(listaCentroComputo);
+        }catch (Exception exception){
+            System.out.println(exception.getMessage());
+        }
+
     }
 
     public void llenarTabla(){
@@ -62,6 +81,27 @@ public class ConsultarEquipoComputoController implements Initializable {
         try {
             EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
             List<EquipoComputo> equipoComputos = equipoComputoDAO.readAll();
+            ObservableList<EquipoComputo> listaObservableEquipo = FXCollections.observableList(equipoComputos);
+
+            tablaEquipo.setItems(listaObservableEquipo);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+
+    }
+    public void llenarTabla(Integer idCentroComputo){
+        nombreCentroComputo.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("nombreCentroComputo"));
+        noSerie.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("numeroSerie"));
+        marca.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("marca"));
+        almacenamiento.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("almacenamiento"));
+        memoria.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("memoria"));
+        procesador.setCellValueFactory(new PropertyValueFactory<EquipoComputo, String>("procesador"));
+        tablaEquipo.getItems().clear();
+
+        try {
+            EquipoComputoDAO equipoComputoDAO = new EquipoComputoDAO();
+            List<EquipoComputo> equipoComputos = equipoComputoDAO.readFromCentroComputo(idCentroComputo);
             ObservableList<EquipoComputo> listaObservableEquipo = FXCollections.observableList(equipoComputos);
 
             tablaEquipo.setItems(listaObservableEquipo);
@@ -140,5 +180,12 @@ public class ConsultarEquipoComputoController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/MenuPrincipal.fxml"));
         stage.setTitle("Menu Principal");
         stage.setScene(new Scene(root));
+    }
+
+    public void buscarAction(ActionEvent actionEvent) {
+        Integer idCentroComputo = centroComputoComboBox.getValue().getIdCentroComputo();
+        llenarTabla(idCentroComputo);
+
+        System.out.println(idCentroComputo);
     }
 }

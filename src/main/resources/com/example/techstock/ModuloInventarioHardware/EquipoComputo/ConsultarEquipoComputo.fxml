@@ -29,6 +29,9 @@
     <Button fx:id="actualizarButton" layoutX="294.0" layoutY="376.0" mnemonicParsing="false" onAction="#btnActualizar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Actualizar" />
 
     <Button fx:id="buttonCancelar" layoutX="59.0" layoutY="375.0" onAction="#actionCancelar" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Menu Principal" />
+   <ComboBox fx:id="centroComputoComboBox" layoutX="219.0" layoutY="49.0" prefHeight="26.0" prefWidth="304.0" />
+   <Label layoutX="25.0" layoutY="53.0" text="Seleccione centro de computo:" />
+   <Button fx:id="buscarButton" layoutX="550.0" layoutY="49.0" mnemonicParsing="false" onAction="#buscarAction" text="Buscar" />
 
 
 
