@@ -5,12 +5,18 @@ import com.example.techstock.dao.UsuarioDAO;
 import com.example.techstock.domain.Usuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import org.apache.commons.codec.digest.DigestUtils;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.Objects;
@@ -53,6 +59,8 @@ public class UsuariosController implements Initializable {
 
         @FXML
         private Button eliminarButton;
+        @FXML
+        private Button menuPrincipalButton;
 
 
     @FXML
@@ -221,5 +229,12 @@ public class UsuariosController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cargarUsuariosEnTabla();
         tablaUsuarios.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+    }
+
+    public void menuPrincipalAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) menuPrincipalButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/MenuPrincipal.fxml"));
+        stage.setTitle("Menu Principal");
+        stage.setScene(new Scene(root));
     }
 }
