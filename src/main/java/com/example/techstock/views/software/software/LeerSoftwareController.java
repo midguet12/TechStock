@@ -123,7 +123,7 @@ public class LeerSoftwareController implements Initializable{
             data.setSoftware(software);
             Stage stage = (Stage) equipoSoftwareInstaladoButton.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/techstock/ModuloInventarioSoftware/SoftwareInstalado/EquiposSoftwareInstalado.fxml"));
-            stage.setTitle("INGRESAR PENDIENTE");
+            stage.setTitle(software.getNombre());
             stage.setScene(new Scene(root));
 
         } else {
