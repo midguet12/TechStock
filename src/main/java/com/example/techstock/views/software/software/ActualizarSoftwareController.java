@@ -56,7 +56,7 @@ public class ActualizarSoftwareController implements Initializable {
                 successMessage.setText("Se ha actualizado el software");
 
                 Stage stage = (Stage) regresarButton.getScene().getWindow();
-                Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioSoftware/LeerSoftware.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/com/example/techstock/ModuloInventarioSoftware/Software/LeerSoftware.fxml"));
                 stage.setTitle("Menu Principal");
                 stage.setScene(new Scene(root));
             }
@@ -69,7 +69,7 @@ public class ActualizarSoftwareController implements Initializable {
 
     public void regresarAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) regresarButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioSoftware/LeerSoftware.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/techstock/ModuloInventarioSoftware/Software/LeerSoftware.fxml"));
         stage.setTitle("Consultar software");
         stage.setScene(new Scene(root));
     }

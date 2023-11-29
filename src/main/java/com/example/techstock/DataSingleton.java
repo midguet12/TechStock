@@ -1,6 +1,7 @@
 package com.example.techstock;
 
 import com.example.techstock.domain.CentroComputo;
+import com.example.techstock.domain.Software;
 
 public class DataSingleton {
     private static final DataSingleton instance = new DataSingleton();
@@ -8,8 +9,16 @@ public class DataSingleton {
     private String usuario;
     private String numeroSerie;
     private Integer idCentroComputo;
-
     private CentroComputo centroComputo;
+    private Software software;
+
+    public Software getSoftware() {
+        return software;
+    }
+
+    public void setSoftware(Software software) {
+        this.software = software;
+    }
 
     public CentroComputo getCentroComputo() {
         return centroComputo;

@@ -213,8 +213,9 @@ public class ConsultarEquipoComputoController implements Initializable {
         Integer idCentroComputo = centroComputoComboBox.getValue().getIdCentroComputo();
         try {
             llenarTabla(idCentroComputo);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            LogWriting.writeLog(exception.getMessage());
         }
 
         System.out.println(idCentroComputo);

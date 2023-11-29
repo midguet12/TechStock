@@ -38,8 +38,11 @@ public class LeerSoftwareController implements Initializable{
     @FXML
     public Button agregarSoftwareButton;
     @FXML
-    public Button actualizarSoftware;
-    public Button regresarButton;
+    private Button actualizarSoftware;
+    @FXML
+    private Button regresarButton;
+    @FXML
+    private Button equipoSoftwareInstaladoButton;
 
     DataSingleton data = DataSingleton.getInstance();
     @Override
@@ -70,7 +73,7 @@ public class LeerSoftwareController implements Initializable{
 
     public void agregarSoftwareAction(ActionEvent actionEvent) throws IOException{
         Stage stage = (Stage) agregarSoftwareButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioSoftware/AgregarSoftware.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/techstock/ModuloInventarioSoftware/Software/AgregarSoftware.fxml"));
         stage.setTitle("Menu Principal");
         stage.setScene(new Scene(root));
 
@@ -83,7 +86,7 @@ public class LeerSoftwareController implements Initializable{
         data.setIdSoftware(selectedItem.getIdSoftware());
 
         Stage stage = (Stage) agregarSoftwareButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/ModuloInventarioSoftware/ActualizarSoftware.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/techstock/ModuloInventarioSoftware/Software/ActualizarSoftware.fxml"));
         stage.setTitle("Menu Principal");
         stage.setScene(new Scene(root));
 
@@ -107,8 +110,27 @@ public class LeerSoftwareController implements Initializable{
 
     public void regresarAction(ActionEvent actionEvent) throws IOException{
         Stage stage = (Stage) regresarButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/MenuPrincipal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/techstock/MenuPrincipal.fxml"));
         stage.setTitle("Menu Principal");
         stage.setScene(new Scene(root));
+    }
+
+    public void equipoSoftwareInstaladoAction(ActionEvent actionEvent) throws IOException{
+
+        Software software = (Software) tablaSoftware.getSelectionModel().getSelectedItem();
+
+        if (software !=null){
+            data.setSoftware(software);
+            Stage stage = (Stage) equipoSoftwareInstaladoButton.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/techstock/ModuloInventarioSoftware/SoftwareInstalado/EquiposSoftwareInstalado.fxml"));
+            stage.setTitle("INGRESAR PENDIENTE");
+            stage.setScene(new Scene(root));
+
+        } else {
+            data.setSoftware(null);
+            System.out.println("seleccione software");
+        }
+
+
     }
 }

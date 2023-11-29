@@ -67,7 +67,7 @@ public class MenuPrincipalController implements Initializable {
 
     public void consultarSoftwareAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) consultarSoftwareButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioSoftware/LeerSoftware.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ModuloInventarioSoftware/Software/LeerSoftware.fxml"));
         stage.setTitle("Software");
         stage.setScene(new Scene(root));
     }

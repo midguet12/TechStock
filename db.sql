@@ -60,3 +60,8 @@ create table software_equipo(
 
 CREATE USER 'techstock'@'%' IDENTIFIED BY 'Ikmujn19283';
 GRANT ALL PRIVILEGES ON techstock.* TO 'techstock'@'%';
+
+select  equipo_computo.idCentroComputo, equipo_computo.numeroSerie, equipo_computo.marca, equipo_computo.almacenamiento, equipo_computo.memoria, equipo_computo.procesador from software_equipo
+right join equipo_computo
+on software_equipo.numeroSerie = equipo_computo.numeroSerie
+where idSoftware=2;
