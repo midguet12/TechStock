@@ -1,4 +1,4 @@
-package com.example.techstock.views.software;
+package com.example.techstock.views.software.software;
 
 
 import javafx.application.Application;

@@ -29,6 +29,8 @@ module com.example.techstock {
     opens com.example.techstock.views.hardware.equipocomputo to javafx.fxml;
     exports com.example.techstock.views.hardware.perifericos;
     opens com.example.techstock.views.hardware.perifericos to javafx.fxml;
+    exports com.example.techstock.views.software.software;
+    opens com.example.techstock.views.software.software to javafx.fxml;
 
 
 }

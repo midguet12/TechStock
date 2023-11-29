@@ -1,4 +1,4 @@
-package com.example.techstock.views.software;
+package com.example.techstock.views.software.software;
 import com.example.techstock.dao.SoftwareDAO;
 import com.example.techstock.domain.Software;
 import javafx.event.ActionEvent;

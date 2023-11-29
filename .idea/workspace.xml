@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="ver equipos de cc" />
+    <list default="true" id="53d19086-73fe-45d7-8e5a-4c8f3cbc6d28" name="Changes" comment="ver equipos de cc">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,9 +172,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.IniciarSesion" />
-        <item itemvalue="Application.LeerSoftware" />
         <item itemvalue="Application.UsuariosApplication" />
+        <item itemvalue="Application.LeerSoftware" />
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.IniciarSesion" />
       </list>
     </recent_temporary>
   </component>
