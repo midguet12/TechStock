@@ -7,10 +7,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.List;
 
 public class AdministrarPerifericosController {
@@ -22,6 +27,8 @@ public class AdministrarPerifericosController {
     @FXML
     private TextField agregarMarcaField;
     @FXML
+    private TextField agregarDescripcionField;
+    @FXML
     private TableView<Periferico> perifericosTableView;
     @FXML
     private TableColumn<Periferico, String> numeroSerieColumn;
@@ -32,6 +39,8 @@ public class AdministrarPerifericosController {
     @FXML
     private TableColumn<Periferico, String> marcaColumn;
     @FXML
+    private TableColumn<Periferico, String> descripcionColumn;
+    @FXML
     private ComboBox<CentroComputo> consultarCentroComputoComboBox;
     @FXML
     private ComboBox<CentroComputo> editarNuevoCentroComputoComboBox;
@@ -39,6 +48,9 @@ public class AdministrarPerifericosController {
     private TextField editarNuevoNumeroSerieField;
     @FXML
     private TextField editarNuevaMarcaField;
+    @FXML
+    private TextField editarNuevaDescripcionField;
+
     @FXML
     private Button editarBtn;
     @FXML
@@ -51,6 +63,8 @@ public class AdministrarPerifericosController {
     private Button eliminar;
     @FXML
     private HBox editBox;
+    @FXML
+    private Button menuPrincipalButton;
 
 
     @FXML
@@ -60,6 +74,8 @@ public class AdministrarPerifericosController {
         numeroSerieColumn.setCellValueFactory(new PropertyValueFactory<>("numeroSerie"));
         centroComputoColumn.setCellValueFactory(new PropertyValueFactory<>("idCentroComputo"));
         marcaColumn.setCellValueFactory(new PropertyValueFactory<>("marca"));
+        descripcionColumn.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+
         perifericosTableView.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> {
                     eliminarPerifericoComboBox.getItems().clear();
@@ -98,12 +114,14 @@ public class AdministrarPerifericosController {
     public void agregarPerifericoAction(ActionEvent actionEvent) {
         String numeroSerie = agregarNumeroSerieField.getText();
         String marca = agregarMarcaField.getText();
+        String descripcion = agregarDescripcionField.getText();
         Integer idCentroComputo = agregarCentroComputoComboBox.getSelectionModel().getSelectedItem().getIdCentroComputo();
 
 
+
         AdministrarPerifericosLogic perifericosLogic = new AdministrarPerifericosLogic();
-        Periferico periferico = new Periferico(numeroSerie, idCentroComputo,marca);
-        if(!(marca.isEmpty() || numeroSerie.isEmpty())) {
+        Periferico periferico = new Periferico(numeroSerie, idCentroComputo,marca, descripcion);
+        if(!(marca.isEmpty() || numeroSerie.isEmpty() || descripcion.isEmpty())) {
             if (perifericosLogic.agregarPeriferico(periferico)) {
                 actualizarTablaPerifericos();
                 limpiarCamposAgregar();
@@ -125,7 +143,26 @@ public class AdministrarPerifericosController {
 
     @FXML
     private void showEditMenu(){
-        editBox.setVisible(true);
+        Periferico perifericoSeleccionado = perifericosTableView.getSelectionModel().getSelectedItem();
+
+        if (perifericoSeleccionado != null) {
+            editarNuevaMarcaField.setText(perifericoSeleccionado.getMarca());
+            editarNuevaDescripcionField.setText(perifericoSeleccionado.getDescripcion());
+            int val =0;
+            int temp =0;
+            for (CentroComputo item : editarNuevoCentroComputoComboBox.getItems()){
+                if(item.getIdCentroComputo()==perifericoSeleccionado.getIdCentroComputo()){
+                    val=temp;
+                }else {
+                    temp = temp +1;
+                }
+            }
+            editarNuevoCentroComputoComboBox.setValue(editarNuevoCentroComputoComboBox.getItems().get(val));
+            editBox.setVisible(true);
+        }
+
+
+
     }
 
     @FXML
@@ -134,12 +171,12 @@ public class AdministrarPerifericosController {
         String numeroSerie = periferic.getNumeroSerie();
         int nuevoCentroComputo = editarNuevoCentroComputoComboBox.getValue().getIdCentroComputo();
         String nuevaMarca = editarNuevaMarcaField.getText();
-        Periferico periferico = new Periferico(numeroSerie, nuevoCentroComputo, nuevaMarca);
+        String nuevaDescripcion = editarNuevaDescripcionField.getText();
+        Periferico periferico = new Periferico(numeroSerie, nuevoCentroComputo, nuevaMarca, nuevaDescripcion);
 
         AdministrarPerifericosLogic perifericosLogic = new AdministrarPerifericosLogic();
-        if(editarNuevoCentroComputoComboBox.getValue() != null && !(nuevaMarca.isEmpty())){
+        if(editarNuevoCentroComputoComboBox.getValue() != null && !(nuevaMarca.isEmpty() || nuevaDescripcion.isEmpty() ) ){
             boolean actualizacionExitosa = perifericosLogic.editarPeriferico(periferico);
-
 
             if (actualizacionExitosa) {
                 limpiarCamposEditar();
@@ -153,6 +190,7 @@ public class AdministrarPerifericosController {
     private void limpiarCamposEditar() {
         editarNuevoCentroComputoComboBox.getSelectionModel().clearSelection();
         editarNuevaMarcaField.clear();
+        editarNuevaDescripcionField.clear();
     }
 
 
@@ -201,6 +239,7 @@ public class AdministrarPerifericosController {
     private void limpiarCamposAgregar() {
         agregarNumeroSerieField.clear();
         agregarMarcaField.clear();
+        agregarDescripcionField.clear();
         agregarCentroComputoComboBox.getSelectionModel().clearSelection();
     }
 
@@ -210,5 +249,12 @@ public class AdministrarPerifericosController {
         alert.setHeaderText(null);
         alert.setContentText(contenido);
         alert.showAndWait();
+    }
+
+    public void menuPrincipalAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) menuPrincipalButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/MenuPrincipal.fxml"));
+        stage.setTitle("Menu Principal");
+        stage.setScene(new Scene(root));
     }
 }

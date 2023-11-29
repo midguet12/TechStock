@@ -2,7 +2,8 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
+
 <AnchorPane prefHeight="647.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.hardware.perifericos.AdministrarPerifericosController">
 
     <VBox fx:id="editar" layoutX="20.0" layoutY="7.0" prefHeight="609.0" prefWidth="760.0" spacing="10">
@@ -14,10 +15,12 @@
         <!-- Agregar Periférico -->
         <HBox spacing="10">
             <Label text="Agregar Periférico" />
-            <TextField fx:id="agregarNumeroSerieField" promptText="Número de Serie" />
-            <ComboBox fx:id="agregarCentroComputoComboBox" promptText="Seleccionar Centro de Cómputo" />
-            <TextField fx:id="agregarMarcaField" promptText="Marca" />
+            <TextField fx:id="agregarNumeroSerieField" prefHeight="25.0" prefWidth="89.0" promptText="No de Serie" />
+            <ComboBox fx:id="agregarCentroComputoComboBox" prefHeight="25.0" prefWidth="151.0" promptText="Seleccionar Centro de Cómputo" />
+            <TextField fx:id="agregarMarcaField" prefHeight="25.0" prefWidth="73.0" promptText="Marca" />
+            <TextField fx:id="agregarDescripcionField" prefHeight="25.0" prefWidth="217.0" promptText="Descripción (ej. teclado, mouse, etc...)" />
             <Button onAction="#agregarPerifericoAction" text="Agregar" />
+
         </HBox>
 
         <!-- Consultar Periféricos -->
@@ -26,6 +29,7 @@
             <ComboBox fx:id="consultarCentroComputoComboBox" promptText="Seleccionar Centro de Cómputo" />
             <Button onAction="#consultarPerifericosAction" text="Consultar" />
         </HBox>
+      <Button fx:id="menuPrincipalButton" mnemonicParsing="false" onAction="#menuPrincipalAction" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Menu Principal" />
 
         <!-- Espacio Adicional -->
         <Region VBox.vgrow="ALWAYS" />
@@ -33,9 +37,10 @@
         <!-- Tabla de Periféricos -->
         <TableView fx:id="perifericosTableView" prefHeight="363.0" prefWidth="760.0" visible="true">
             <columns>
-                <TableColumn fx:id="numeroSerieColumn" prefWidth="117.0" text="Número de Serie" />
-                <TableColumn fx:id="centroComputoColumn" prefWidth="142.0" text="Centro de Cómputo" />
-                <TableColumn fx:id="marcaColumn" minWidth="1.0" prefWidth="127.0" text="Marca" />
+                <TableColumn fx:id="numeroSerieColumn" prefWidth="182.0" resizable="false" text="Número de Serie" />
+                <TableColumn fx:id="centroComputoColumn" prefWidth="153.0" resizable="false" text="Centro de Cómputo" />
+                <TableColumn fx:id="marcaColumn" minWidth="1.0" prefWidth="192.0" resizable="false" text="Marca" />
+            <TableColumn fx:id="descripcionColumn" prefWidth="232.0" resizable="false" text="Descripcion" />
             </columns>
         </TableView>
 
@@ -50,10 +55,11 @@
         <!-- Editar Periférico -->
         <HBox fx:id="editBox" spacing="10" visible="false">
             <Label text="Editar Periférico" />
-            <ComboBox fx:id="editarNuevoCentroComputoComboBox" prefHeight="25.0" prefWidth="186.0" promptText="Nuevo Centro de Cómputo" />
-            <TextField fx:id="editarNuevaMarcaField" promptText="Nueva Marca" />
-            <Button fx:id="editarBtn" disable="true" onAction="#editarPerifericoAction" text="Guardar Cambios" />
-            <ComboBox fx:id="editarPerifericoComboBox" prefHeight="25.0" prefWidth="179.0" promptText="Seleccione un Periférico" visible="false"/>
+            <ComboBox fx:id="editarNuevoCentroComputoComboBox" prefHeight="25.0" prefWidth="144.0" promptText="Nuevo Centro de Cómputo" />
+            <TextField fx:id="editarNuevaMarcaField" prefHeight="25.0" prefWidth="131.0" promptText="Nueva Marca" />
+            <TextField fx:id="editarNuevaDescripcionField" prefHeight="25.0" prefWidth="155.0" promptText="Nueva Descripcion" />
+            <Button fx:id="editarBtn" disable="true" onAction="#editarPerifericoAction" prefHeight="25.0" prefWidth="146.0" text="Guardar Cambios" />
+            <ComboBox fx:id="editarPerifericoComboBox" prefHeight="25.0" prefWidth="23.0" promptText="Seleccione un Periférico" visible="false" />
         </HBox>
 
 

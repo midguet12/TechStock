@@ -4,6 +4,7 @@ public class Periferico {
     private String numeroSerie;
     private Integer idCentroComputo;
     private String marca;
+    private String descripcion;
 
     public Periferico() {
     }
@@ -12,6 +13,12 @@ public class Periferico {
         this.numeroSerie = numeroSerie;
         this.idCentroComputo = idCentroComputo;
         this.marca = marca;
+    }
+    public Periferico(String numeroSerie, Integer idCentroComputo, String marca, String descripcion) {
+        this.numeroSerie = numeroSerie;
+        this.idCentroComputo = idCentroComputo;
+        this.marca = marca;
+        this.descripcion= descripcion;
     }
 
     public String getNumeroSerie() {
@@ -38,12 +45,17 @@ public class Periferico {
         this.marca = marca;
     }
 
+    public String getDescripcion() {return descripcion;}
+
+    public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
+
     @Override
     public String toString() {
         return "Periferico{" +
                 "numeroSerie='" + numeroSerie + '\'' +
                 ", idCentroComputo=" + idCentroComputo +
                 ", marca='" + marca + '\'' +
+                ", descripcion='" + descripcion + '\'' +
                 '}';
     }
 }
