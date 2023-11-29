@@ -7,10 +7,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.List;
 
 public class AdministrarPerifericosController {
@@ -58,6 +63,8 @@ public class AdministrarPerifericosController {
     private Button eliminar;
     @FXML
     private HBox editBox;
+    @FXML
+    private Button menuPrincipalButton;
 
 
     @FXML
@@ -242,5 +249,12 @@ public class AdministrarPerifericosController {
         alert.setHeaderText(null);
         alert.setContentText(contenido);
         alert.showAndWait();
+    }
+
+    public void menuPrincipalAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) menuPrincipalButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/src/main/resources/com/example/techstock/MenuPrincipal.fxml"));
+        stage.setTitle("Menu Principal");
+        stage.setScene(new Scene(root));
     }
 }

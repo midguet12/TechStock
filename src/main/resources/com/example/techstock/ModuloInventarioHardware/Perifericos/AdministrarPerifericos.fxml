@@ -2,7 +2,8 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
+
 <AnchorPane prefHeight="647.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.views.hardware.perifericos.AdministrarPerifericosController">
 
     <VBox fx:id="editar" layoutX="20.0" layoutY="7.0" prefHeight="609.0" prefWidth="760.0" spacing="10">
@@ -28,6 +29,7 @@
             <ComboBox fx:id="consultarCentroComputoComboBox" promptText="Seleccionar Centro de Cómputo" />
             <Button onAction="#consultarPerifericosAction" text="Consultar" />
         </HBox>
+      <Button fx:id="menuPrincipalButton" mnemonicParsing="false" onAction="#menuPrincipalAction" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Menu Principal" />
 
         <!-- Espacio Adicional -->
         <Region VBox.vgrow="ALWAYS" />
