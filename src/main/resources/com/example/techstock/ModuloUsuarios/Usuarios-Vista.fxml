@@ -16,7 +16,7 @@
     <HBox spacing="10.0">
         <TextField fx:id="nombreUsuarioField" promptText="Nombre de usuario" />
         <PasswordField fx:id="contrasenaField" promptText="Contraseña" />
-        <Button onAction="#registrarUsuario" text="Registrar" />
+        <Button onAction="#registrarUsuario" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Registrar" />
       <Button fx:id="menuPrincipalButton" mnemonicParsing="false" onAction="#menuPrincipalAction" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Menu Principal" />
 
     </HBox>
@@ -39,8 +39,8 @@
 
     <!-- Editar y Eliminar Usuarios -->
     <HBox spacing="10.0">
-        <Button onAction="#editarUsuario" text="Editar" />
-        <Button onAction="#eliminarUsuario" text="Eliminar" />
+        <Button onAction="#editarUsuario" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Editar" />
+        <Button onAction="#eliminarUsuario" style="-fx-background-color: RED; -fx-text-fill: white;" text="Eliminar" />
     </HBox>
 
     <!-- Campos de edición ocultos inicialmente -->

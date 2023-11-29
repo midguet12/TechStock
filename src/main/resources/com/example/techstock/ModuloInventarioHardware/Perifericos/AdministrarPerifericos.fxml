@@ -19,7 +19,7 @@
             <ComboBox fx:id="agregarCentroComputoComboBox" prefHeight="25.0" prefWidth="151.0" promptText="Seleccionar Centro de Cómputo" />
             <TextField fx:id="agregarMarcaField" prefHeight="25.0" prefWidth="73.0" promptText="Marca" />
             <TextField fx:id="agregarDescripcionField" prefHeight="25.0" prefWidth="217.0" promptText="Descripción (ej. teclado, mouse, etc...)" />
-            <Button onAction="#agregarPerifericoAction" text="Agregar" />
+            <Button onAction="#agregarPerifericoAction" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Agregar"/>
 
         </HBox>
 
@@ -27,7 +27,7 @@
         <HBox spacing="10">
             <Label text="Consultar Periféricos" />
             <ComboBox fx:id="consultarCentroComputoComboBox" promptText="Seleccionar Centro de Cómputo" />
-            <Button onAction="#consultarPerifericosAction" text="Consultar" />
+            <Button onAction="#consultarPerifericosAction" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Consultar" />
         </HBox>
       <Button fx:id="menuPrincipalButton" mnemonicParsing="false" onAction="#menuPrincipalAction" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Menu Principal" />
 
@@ -48,17 +48,18 @@
         <Region VBox.vgrow="ALWAYS" />
         <!-- Eliminar Periférico -->
         <HBox spacing="10">
-            <Button fx:id="showEdit" mnemonicParsing="false" onAction="#showEditMenu" text="Editar" />
-            <Button fx:id="eliminar" disable="true" onAction="#eliminarPerifericoAction" text="Eliminar" />
+            <Button fx:id="showEdit" mnemonicParsing="false" onAction="#showEditMenu"   style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Editar" />
+            <Button fx:id="eliminar" disable="true" onAction="#eliminarPerifericoAction" style="-fx-background-color: RED; -fx-text-fill: white;" text="Eliminar" />
             <ComboBox fx:id="eliminarPerifericoComboBox" prefHeight="25.0" prefWidth="6.0" promptText="Seleccione un Periférico" visible="false" />
         </HBox>
+
         <!-- Editar Periférico -->
         <HBox fx:id="editBox" spacing="10" visible="false">
             <Label text="Editar Periférico" />
             <ComboBox fx:id="editarNuevoCentroComputoComboBox" prefHeight="25.0" prefWidth="144.0" promptText="Nuevo Centro de Cómputo" />
             <TextField fx:id="editarNuevaMarcaField" prefHeight="25.0" prefWidth="131.0" promptText="Nueva Marca" />
             <TextField fx:id="editarNuevaDescripcionField" prefHeight="25.0" prefWidth="155.0" promptText="Nueva Descripcion" />
-            <Button fx:id="editarBtn" disable="true" onAction="#editarPerifericoAction" prefHeight="25.0" prefWidth="146.0" text="Guardar Cambios" />
+            <Button fx:id="editarBtn" disable="true" onAction="#editarPerifericoAction" prefHeight="25.0" prefWidth="146.0" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Guardar Cambios" />
             <ComboBox fx:id="editarPerifericoComboBox" prefHeight="25.0" prefWidth="23.0" promptText="Seleccione un Periférico" visible="false" />
         </HBox>
 

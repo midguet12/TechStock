@@ -6,22 +6,68 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.techstock.MenuPrincipalController">
    <children>
-      <Label prefHeight="27.0" prefWidth="600.0" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-size: 18px;" text="Menu principal">
+      <!-- Encabezado -->
+      <Label prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #18529D; -fx-text-fill: #FFFFFF; -fx-font-size: 20px;" text="Menu principal">
          <font>
-            <Font name="System Bold" size="18" />
+            <Font name="System Bold" size="20" />
          </font>
-      </Label> 
+      </Label>
 
-      <Label fx:id="usuarioLabel" layoutX="57.0" layoutY="34.0" text="Usuario: " />
+      <!-- Información del usuario -->
+      <HBox layoutX="20.0" layoutY="60.0" spacing="10">
+         <Label text="Usuario:" textFill="#000000">
+            <font>
+               <Font size="16" />
+            </font>
+         </Label>
+         <Label fx:id="usuarioLabel" textFill="#000000">
+            <font>
+               <Font size="16" />
+            </font>
+         </Label>
+         <Button fx:id="cerrarSesionButton" mnemonicParsing="false" onAction="#cerrarSesionAction" style="-fx-background-color: #FF0000; -fx-text-fill: #FFFFFF;" text="Cerrar sesión">
+            <font>
+               <Font size="14" />
+            </font>
+         </Button>
+      </HBox>
 
-      <Button fx:id="cerrarSesionButton" layoutX="452.0" layoutY="42.0" mnemonicParsing="false" onAction="#cerrarSesionAction" style="-fx-background-color:#FF0000; -fx-text-fill: white;" text="Cerrar sesión" />
+      <!-- Botones de Acceso Rápido -->
+      <VBox layoutX="20.0" layoutY="120.0" spacing="10">
+         <Button fx:id="consultarSoftwareButton" mnemonicParsing="false" onAction="#consultarSoftwareAction" style="-fx-background-color: #28AD56; -fx-text-fill: #FFFFFF;" text="Consultar software">
+            <font>
+               <Font size="14" />
+            </font>
+         </Button>
+         <Button fx:id="consultarCentrosComputoButton" mnemonicParsing="false" onAction="#consultarCentrosComputoAction" style="-fx-background-color: #28AD56; -fx-text-fill: #FFFFFF;" text="Consultar centros de computo">
+            <font>
+               <Font size="14" />
+            </font>
+         </Button>
+         <Button fx:id="consultarEquiposComputoButton" mnemonicParsing="false" onAction="#consultarEquiposComputoAction" style="-fx-background-color: #28AD56; -fx-text-fill: #FFFFFF;" text="Consultar equipos de computo">
+            <font>
+               <Font size="14" />
+            </font>
+         </Button>
+         <Button fx:id="consultarPerifericosButton" mnemonicParsing="false" onAction="#consultarPerifericosAction" style="-fx-background-color: #28AD56; -fx-text-fill: #FFFFFF;" text="Consultar periféricos">
+            <font>
+               <Font size="14" />
+            </font>
+         </Button>
+      </VBox>
 
-      <Button fx:id="consultarSoftwareButton" layoutX="56.0" layoutY="125.0" mnemonicParsing="false" onAction="#consultarSoftwareAction" text="Consultar software" />
-      <Button fx:id="consultarCentrosComputoButton" layoutX="56.0" layoutY="174.0" mnemonicParsing="false" onAction="#consultarCentrosComputoAction" text="Consultar centros de computo" />
-      <Button fx:id="consultarEquiposComputoButton" layoutX="56.0" layoutY="220.0" mnemonicParsing="false" onAction="#consultarEquiposComputoAction" text="Consultar equipos de computo" />
-      <Button fx:id="consultarPerifericosButton" layoutX="55.0" layoutY="264.0" mnemonicParsing="false" onAction="#consultarPerifericosAction" text="Consultar perifericos" />
-
-      <Button fx:id="administrarUsuariosButton" layoutX="412.0" layoutY="138.0" mnemonicParsing="false" onAction="#administrarUsuariosAction" text="Administrar usuarios" />
-      <Button fx:id="editarPerfilButton" layoutX="57.0" layoutY="55.0" mnemonicParsing="false" onAction="#editarPerfilAction" text="Editar perfil" />
+      <!-- Opciones de Administración -->
+      <VBox layoutX="450.0" layoutY="120.0" spacing="10">
+         <Button fx:id="administrarUsuariosButton" mnemonicParsing="false" onAction="#administrarUsuariosAction" style="-fx-background-color: #18529D; -fx-text-fill: #FFFFFF;" text="Administrar usuarios">
+            <font>
+               <Font size="14" />
+            </font>
+         </Button>
+         <Button fx:id="editarPerfilButton" mnemonicParsing="false" onAction="#editarPerfilAction" style="-fx-background-color: #18529D; -fx-text-fill: #FFFFFF;" text="Editar perfil">
+            <font>
+               <Font size="14" />
+            </font>
+         </Button>
+      </VBox>
    </children>
 </AnchorPane>

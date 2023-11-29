@@ -25,7 +25,7 @@
 
 
     <Button fx:id="agregarButton" layoutX="199.0" layoutY="376.0" mnemonicParsing="false" onAction="#btnAgregar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Agregar" />
-    <Button layoutX="399.0" layoutY="376.0" mnemonicParsing="false" onAction="#btnEliminar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Eliminar" />
+    <Button layoutX="387.0" layoutY="376.0" mnemonicParsing="false" onAction="#btnEliminar" style="-fx-background-color: RED; -fx-text-fill: white;" text="Eliminar" />
     <Button fx:id="actualizarButton" layoutX="294.0" layoutY="376.0" mnemonicParsing="false" onAction="#btnActualizar" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Actualizar" />
 
     <Button fx:id="buttonCancelar" layoutX="59.0" layoutY="375.0" onAction="#actionCancelar" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Menu Principal" />

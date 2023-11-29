@@ -24,7 +24,7 @@
 
 
     <Button fx:id="instalarButton" layoutX="220.0" layoutY="376.0" mnemonicParsing="false" onAction="#instalarAction" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Instalar" />
-    <Button layoutX="420.0" layoutY="376.0" mnemonicParsing="false" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Eliminar" />
+    <Button layoutX="420.0" layoutY="376.0" mnemonicParsing="false" style="-fx-background-color: RED; -fx-text-fill: white;" text="Eliminar" />
     <Button fx:id="desinstalarButton" layoutX="315.0" layoutY="376.0" mnemonicParsing="false" onAction="#desinstalarAction" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Desinstalar" />
 
     <Button fx:id="listaSoftwareButton" layoutX="80.0" layoutY="375.0" onAction="#listasoftwareAction" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Lista de software" />
