@@ -19,7 +19,6 @@ import org.apache.commons.codec.digest.DigestUtils;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -45,9 +44,9 @@ public class UsuariosController implements Initializable {
         @FXML
         private TableColumn<Usuario, String> contrasenaColumn;
         @FXML
-        private TableColumn<Usuario, String> nombreCompleto;
+        private TableColumn<Usuario, String> nombreCompletoColumn;
         @FXML
-        private TableColumn<Usuario, Boolean> administrador;
+        private TableColumn<Usuario, Boolean> administradorColumn;
         @FXML
         private HBox editarCampos;
 
@@ -61,66 +60,109 @@ public class UsuariosController implements Initializable {
         private Button eliminarButton;
         @FXML
         private Button menuPrincipalButton;
+        @FXML
+        private TextField nombreCompletoTextField;
+        @FXML
+        private ComboBox<String> administradorComboBox;
+        @FXML
+        private ComboBox<String> nuevoAdministradorComboBox;
+        @FXML
+        private TextField nuevoNombreCompletoTextField;
+
 
 
     @FXML
-    protected void registrarUsuario() {
-        /*UsuarioDAO usuarioDAO = new UsuarioDAO();
+    protected void registrarUsuario() throws Exception{
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
 
         String nombreUsuario = nombreUsuarioField.getText();
         String contrasena = contrasenaField.getText();
+        String nombreCompleto = nombreCompletoTextField.getText();
+        Boolean administrador = null;
 
-        if (nombreUsuario.isEmpty() || contrasena.isEmpty()) {
+        String seleccionAdministrador = administradorComboBox.getSelectionModel().getSelectedItem().toString();
+
+        if (seleccionAdministrador.equals("Si")){
+            administrador = true;
+        } else if (seleccionAdministrador.equals("No")){
+            administrador = false;
+        }
+
+        if (nombreUsuario.isEmpty() || contrasena.isEmpty() || nombreCompleto.isEmpty() || administrador == null) {
             mostrarAlerta("Error", "Por favor, complete todos los campos.");
             return; // Salir del método si hay campos vacíos.
         }
 
-        Usuario usuario = new Usuario(nombreUsuario, DigestUtils.sha256Hex(contrasena));
 
-        if (!usuarioDAO.UsuarioExiste(usuario)) {
+        Usuario usuario = new Usuario(nombreUsuario, DigestUtils.sha256Hex(contrasena), nombreCompleto, administrador);
+
+        if (true) {
             usuarioDAO.create(usuario);
             cargarUsuariosEnTabla();
             mostrarAlerta("Registro Exitoso", "El usuario se registró con éxito.");
         } else {
             mostrarAlerta("Registro Fallido", "El usuario ya existe en la base de datos.");
-        }*/
-    }
-
-    @FXML
-    protected void editarUsuario() {
-
-
-        Usuario usuarioSeleccionado = tablaUsuarios.getSelectionModel().getSelectedItem();
-
-        if (usuarioSeleccionado != null) {
-            editarCampos.setVisible(true);
-            nuevoNombreUsuarioField.setText(usuarioSeleccionado.getNombreUsuario());
-            nuevaContrasenaField.setText("");
         }
     }
 
     @FXML
-    protected void guardarCambios() {
-
+    protected void editarUsuario() {
         Usuario usuarioSeleccionado = tablaUsuarios.getSelectionModel().getSelectedItem();
-        String nombre = usuarioSeleccionado.getNombreUsuario();
 
         if (usuarioSeleccionado != null) {
-            String nuevoNombreUsuario = nuevoNombreUsuarioField.getText();
-            if(Objects.equals(nuevaContrasenaField.getText(), "")){
-                usuarioSeleccionado.setContrasena(nuevaContrasenaField.getText());
-            }else{
-                String nuevaContrasena = DigestUtils.sha256Hex(nuevaContrasenaField.getText());
-                usuarioSeleccionado.setContrasena(nuevaContrasena);
+
+            editarCampos.setVisible(true);
+            nuevoNombreUsuarioField.setText(usuarioSeleccionado.getNombreUsuario());
+            nuevoNombreCompletoTextField.setText(usuarioSeleccionado.getNombreCompleto());
+
+            if (usuarioSeleccionado.getAdministrador()){
+                nuevoAdministradorComboBox.getSelectionModel().select("Si");
+            } else {
+                nuevoAdministradorComboBox.getSelectionModel().select("No");
             }
 
 
-            usuarioSeleccionado.setNombreUsuario(nuevoNombreUsuario);
+        }
+    }
 
+    @FXML
+    protected void guardarCambios() throws Exception{
+
+        Usuario usuarioSeleccionado = tablaUsuarios.getSelectionModel().getSelectedItem();
+        Usuario nuevoUsuario = new Usuario();
+
+        if (usuarioSeleccionado != null) {
+            String nuevoNombreUsuario = nuevoNombreUsuarioField.getText();
+            String nuevaContrasena = nuevaContrasenaField.getText();
+            String nuevoNombreCompleto = nuevoNombreCompletoTextField.getText();
+            Boolean nuevoAdministrador = null;
+
+
+            if (nuevaContrasenaField.getText().isEmpty()){
+                //nuevoUsuario.setContrasena(usuarioSeleccionado.getContrasena());
+                //UsuarioDAO usuarioDAO = new UsuarioDAO();
+                //nuevaContrasena = usuarioDAO.read(usuarioSeleccionado.getNombreUsuario()).getContrasena();
+                nuevaContrasena = usuarioSeleccionado.getContrasena();
+            } else{
+                nuevaContrasena = DigestUtils.sha256Hex(nuevaContrasena);
+            }
+
+            String nuevaSeleccionAdministrador = nuevoAdministradorComboBox.getSelectionModel().getSelectedItem();
+
+            if (nuevaSeleccionAdministrador.equals("Si")){
+                nuevoAdministrador = true;
+            } else if (nuevaSeleccionAdministrador.equals("No")){
+                nuevoAdministrador = false;
+            }
+
+            nuevoUsuario.setNombreUsuario(nuevoNombreUsuario);
+            nuevoUsuario.setContrasena(nuevaContrasena);
+            nuevoUsuario.setNombreCompleto(nuevoNombreCompleto);
+            nuevoUsuario.setAdministrador(nuevoAdministrador);
 
             UsuarioDAO usuarioDAO = new UsuarioDAO();
             try{
-                //usuarioDAO.update(usuarioSeleccionado);
+                usuarioDAO.update(usuarioSeleccionado.getNombreUsuario(), nuevoUsuario);
             } catch (Exception exception){
                 System.out.println(exception.getMessage());
             }

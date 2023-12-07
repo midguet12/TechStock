@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.*?>
@@ -16,7 +18,18 @@
     <HBox spacing="10.0">
         <TextField fx:id="nombreUsuarioField" promptText="Nombre de usuario" />
         <PasswordField fx:id="contrasenaField" promptText="Contraseña" />
+        <TextField fx:id="nombreCompletoTextField" promptText="Nombre completo" />
+        <Label>Administrador</Label>
+        <ComboBox fx:id="administradorComboBox">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Si" />
+                    <String fx:value="No" />
+                </FXCollections>
+            </items>
+        </ComboBox>
         <Button onAction="#registrarUsuario" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Registrar" />
+
       <Button fx:id="menuPrincipalButton" mnemonicParsing="false" onAction="#menuPrincipalAction" style="-fx-text-fill: #007BFF; -fx-border-color: #007BFF;" text="Menu Principal" />
 
     </HBox>
@@ -47,6 +60,16 @@
     <HBox fx:id="editarCampos" spacing="10.0" visible="false">
         <TextField fx:id="nuevoNombreUsuarioField" promptText="Nuevo nombre de usuario" />
         <TextField fx:id="nuevaContrasenaField" promptText="Nueva contraseña" />
+        <TextField fx:id="nuevoNombreCompletoTextField" promptText="Nuevo nombre completo" />
+        <Label>Administrador</Label>
+        <ComboBox fx:id="nuevoAdministradorComboBox">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Si" />
+                    <String fx:value="No" />
+                </FXCollections>
+            </items>
+        </ComboBox>
         <Button onAction="#guardarCambios" text="Guardar Cambios" />
     </HBox>
 </VBox>
